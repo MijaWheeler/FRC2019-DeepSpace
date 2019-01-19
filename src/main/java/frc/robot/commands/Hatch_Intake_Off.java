@@ -8,12 +8,13 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.subsystems.Hatch_Intake_Subsystem;
 
 public class Hatch_Intake_Off extends Command {
   public Hatch_Intake_Off() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Hatch_Intake);
+    requires(robot.Hatch_Intake);
   }
 
   // Called just before this Command runs the first time
@@ -24,7 +25,7 @@ public class Hatch_Intake_Off extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Sol.set(false); // Sol is the solenoid
+    robot.Sol.set(false); // Sol is the solenoid
   }
 
   // Make this return true when this Command no longer needs to run execute()
