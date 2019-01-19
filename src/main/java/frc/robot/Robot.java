@@ -33,6 +33,7 @@ public class Robot extends TimedRobot {
 
   public static RDriveTrain_Subsystem RDriveTrain = new RDriveTrain_Subsystem();
   public static LDriveTrain_Subsystem LDriveTrain = new LDriveTrain_Subsystem();
+  public static Hatch_Intake_Subsystem Hatch_Intake = new Hatch_Intake_Subsystem(); 
 
   /**
    * This function is run when the robot is first started up and should be

@@ -9,10 +9,11 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class ElevatorToHatchRocketMiddleHeight extends Command {
-  public ElevatorToHatchRocketMiddleHeight() {
+public class Hatch_Intake_On extends Command {
+  public Hatch_Intake_On() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
+    requires(Hatch_Intake);
   }
 
   // Called just before this Command runs the first time
@@ -23,15 +24,16 @@ public class ElevatorToHatchRocketMiddleHeight extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    Sol.set(true); // Sol is the solenoid
   }
 
-  // motor moves hatch to rocket middle height
+  // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return true;
   }
 
-  //if at right height then return true, if not then return false
+  // Called once after isFinished returns true
   @Override
   protected void end() {
   }
