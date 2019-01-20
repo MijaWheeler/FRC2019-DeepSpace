@@ -8,11 +8,18 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.networktables.NetworkTable;
+import edu.wpi.first.networktables.NetworkTableEntry;
+import edu.wpi.first.networktables.NetworkTableInstance;
+import frc.robot.Robot;
 
-public class Rforward extends Command {
-  public Rforward() {
+public class TurnLeft extends Command {
+  private double turnSpeed;
+  public TurnLeft(double turnSpeed) {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
+    this.turnSpeed = turnSpeed;
+    requires(Robot.Limelight);
   }
 
   // Called just before this Command runs the first time
@@ -23,6 +30,12 @@ public class Rforward extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+
+      Robot.LDriveTrain.MotorL1.set(this.turnSpeed);
+      Robot.LDriveTrain.MotorL2.set(this.turnSpeed);
+      Robot.LDriveTrain.MotorL1.set(-this.turnSpeed);
+      Robot.LDriveTrain.MotorL2.set(-this.turnSpeed);
+  
   }
 
   // Make this return true when this Command no longer needs to run execute()

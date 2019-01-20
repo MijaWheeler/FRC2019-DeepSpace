@@ -6,22 +6,18 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot.commands;
-
 import edu.wpi.first.wpilibj.command.Command;
-import frc.robot.Robot;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-
-import org.w3c.dom.Text;
-
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
+import frc.robot.commands.TurnLeft;
+import frc.robot.commands.TurnRight;
+import frc.robot.Robot;
 
-public class Limelight extends Command {
-  public Limelight() {
+public class TrackLimelightX extends Command {
+  public TrackLimelightX() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.Limelight);
   }
 
   // Called just before this Command runs the first time
@@ -32,8 +28,17 @@ public class Limelight extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    double tx = NetworkTableInstance.getDefault().getTable("limelight").getEntry("tx").getDouble(0);
-    System.out.println(tx);
+    NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
+    NetworkTableEntry tx = table.getEntry("tx");
+    double xCoord = tx.getDouble(0.0);
+    double turnSpeed = xCoord/27;
+
+    if (xCoord > 0){
+      new TurnLeft(turnSpeed);
+    }else if (xCoord < 0){
+      new TurnRight(turnSpeed);
+    }
+    
   }
 
   // Make this return true when this Command no longer needs to run execute()

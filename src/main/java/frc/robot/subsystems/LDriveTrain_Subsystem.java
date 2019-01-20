@@ -8,6 +8,10 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.commands.TurnLeft;
+import frc.robot.commands.StopMotors;
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 /**
  * Add your docs here.
@@ -15,6 +19,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class LDriveTrain_Subsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
+  public CANSparkMax MotorL1 = new CANSparkMax(2,MotorType.kBrushless);
+  public CANSparkMax MotorL2 = new CANSparkMax(3,MotorType.kBrushless);
 
   @Override
   public void initDefaultCommand() {

@@ -8,7 +8,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import frc.robot.commands.Limelight;
+import frc.robot.commands.TrackLimelightX;
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
@@ -32,8 +32,6 @@ public class Limelight_Subsystem extends Subsystem {
     double y = ty.getDouble(0.0);
 
     // Set the default command for a subsystem her
-
     // setDefaultCommand(new MySpecialCommand());
-    setDefaultCommand(new Limelight());
   }
 }

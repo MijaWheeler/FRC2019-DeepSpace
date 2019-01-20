@@ -15,6 +15,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.Limelight_Subsystem;
+import frc.robot.subsystems.LDriveTrain_Subsystem;
+import frc.robot.subsystems.RDriveTrain_Subsystem;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -23,12 +25,17 @@ import frc.robot.subsystems.Limelight_Subsystem;
  * creating this project, you must also update the build.gradle file in the
  * project.
  */
+
 public class Robot extends TimedRobot {
   public static ExampleSubsystem m_subsystem = new ExampleSubsystem();
   public static OI m_oi;
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
+
+  public static Limelight_Subsystem Limelight = new Limelight_Subsystem();
+  public static RDriveTrain_Subsystem RDriveTrain = new RDriveTrain_Subsystem();
+  public static LDriveTrain_Subsystem LDriveTrain = new LDriveTrain_Subsystem();
 
   /**
    * This function is run when the robot is first started up and should be
@@ -54,8 +61,6 @@ public class Robot extends TimedRobot {
   @Override
   public void robotPeriodic() {
   }
-
-  public static Limelight_Subsystem Limelight = new Limelight_Subsystem();
   /**
    * This function is called once each time the robot enters Disabled mode.
    * You can use it to reset any subsystem information you want to clear when
