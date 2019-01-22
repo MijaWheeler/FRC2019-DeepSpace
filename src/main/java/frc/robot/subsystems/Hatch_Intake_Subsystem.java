@@ -9,6 +9,8 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Solenoid;
+import frc.robot.commands.Hatch_Intake_Off;
+import frc.robot.commands.Hatch_Intake_On;
 
 /**
  * Add your docs here.
