@@ -15,8 +15,7 @@ public class StopMotors extends Command {
   public StopMotors() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.LDriveTrain);
-    requires(Robot.RDriveTrain);
+    requires(Robot.DriveTrain);
   }
 
   // Called just before this Command runs the first time
@@ -27,10 +26,10 @@ public class StopMotors extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.LDriveTrain.MotorL1.stopMotor();
-    Robot.LDriveTrain.MotorL2.stopMotor();
-    Robot.RDriveTrain.MotorR1.stopMotor();
-    Robot.RDriveTrain.MotorR2.stopMotor();
+    Robot.DriveTrain.MotorL1.stopMotor();
+    Robot.DriveTrain.MotorL2.stopMotor();
+    Robot.DriveTrain.MotorR1.stopMotor();
+    Robot.DriveTrain.MotorR2.stopMotor();
   }
 
   // Make this return true when this Command no longer needs to run execute()

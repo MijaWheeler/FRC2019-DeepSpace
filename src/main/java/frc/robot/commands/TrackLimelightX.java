@@ -18,6 +18,7 @@ public class TrackLimelightX extends Command {
   public TrackLimelightX() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
+    requires(Robot.Limelight);
   }
 
   // Called just before this Command runs the first time

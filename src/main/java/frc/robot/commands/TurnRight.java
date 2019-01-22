@@ -8,9 +8,6 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.networktables.NetworkTable;
-import edu.wpi.first.networktables.NetworkTableEntry;
-import edu.wpi.first.networktables.NetworkTableInstance;
 import frc.robot.Robot;
 
 public class TurnRight extends Command {
@@ -18,6 +15,7 @@ public class TurnRight extends Command {
   public TurnRight(double turnSpeed) {
     this.turnSpeed = turnSpeed;
     requires(Robot.Limelight);
+    requires(Robot.DriveTrain);
   }
 
   // Called just before this Command runs the first time
@@ -28,10 +26,10 @@ public class TurnRight extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-      Robot.RDriveTrain.MotorR1.set(-this.turnSpeed);
-      Robot.RDriveTrain.MotorR2.set(-this.turnSpeed);
-      Robot.RDriveTrain.MotorR1.set(this.turnSpeed);
-      Robot.RDriveTrain.MotorR2.set(this.turnSpeed);
+      Robot.DriveTrain.MotorR1.set(-this.turnSpeed);
+      Robot.DriveTrain.MotorR2.set(-this.turnSpeed);
+      Robot.DriveTrain.MotorL1.set(this.turnSpeed);
+      Robot.DriveTrain.MotorL2.set(this.turnSpeed);
   }
 
   // Make this return true when this Command no longer needs to run execute()

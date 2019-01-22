@@ -15,8 +15,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.Limelight_Subsystem;
-import frc.robot.subsystems.LDriveTrain_Subsystem;
-import frc.robot.subsystems.RDriveTrain_Subsystem;
+import frc.robot.subsystems.DriveTrain_Subsystem;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -34,8 +33,7 @@ public class Robot extends TimedRobot {
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
   public static Limelight_Subsystem Limelight = new Limelight_Subsystem();
-  public static RDriveTrain_Subsystem RDriveTrain = new RDriveTrain_Subsystem();
-  public static LDriveTrain_Subsystem LDriveTrain = new LDriveTrain_Subsystem();
+  public static DriveTrain_Subsystem DriveTrain = new DriveTrain_Subsystem();
 
   /**
    * This function is run when the robot is first started up and should be
