@@ -8,7 +8,6 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import frc.robot.subsystems.Hatch_Intake_Subsystem;
 import frc.robot.Robot;
 
 public class Hatch_Intake_On extends Command {
