@@ -10,11 +10,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-<<<<<<< HEAD
 import frc.robot.commands.TrackLimelightX;
-=======
-
->>>>>>> 7d1719365d17614830b5b8cc2292f91c8e4d407d
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -22,14 +18,7 @@ import frc.robot.commands.TrackLimelightX;
  */
 public class OI {
   static Joystick stick0 = new Joystick(0);
-<<<<<<< HEAD
   //// CREATING BUTTONS
-=======
-  
-
-
-//// CREATING BUTTONS
->>>>>>> 7d1719365d17614830b5b8cc2292f91c8e4d407d
   // One type of button is a joystick button which is any button on a
   //// joystick.
   // You create one by telling it which joystick it's on and which button
@@ -40,8 +29,6 @@ public class OI {
   // There are a few additional built in buttons you can use. Additionally,
   // by subclassing Button you can create custom triggers and bind those to
   // commands the same as any other Button.
-  Button button1 = new JoystickButton(stick0, 1);
-
 
   //// TRIGGERING COMMANDS WITH BUTTONS
   // Once you have a button, it's trivial to bind it to a button in one of
@@ -50,15 +37,9 @@ public class OI {
   // Start the command when the button is pressed and let it run the command
   // until it is finished as determined by it's isFinished method.
   // button.whenPressed(new ExampleCommand());
-<<<<<<< HEAD
 public OI(){
   button1.whenPressed(new TrackLimelightX());
 }
-=======
-  public OI() {
-    button.whenPressed(new Hatch_Intake_On());
-  }
->>>>>>> 7d1719365d17614830b5b8cc2292f91c8e4d407d
   // Run the command while the button is being held down and interrupt it once
   // the button is released.
   // button.whileHeld(new ExampleCommand());
@@ -67,15 +48,4 @@ public OI(){
   // until it is finished as determined by it's isFinished method.
   // button.whenReleased(new ExampleCommand());
 
-<<<<<<< HEAD
-=======
-    public static double getLeftStickY(){
-      return (stick0.getRawAxis(1));
-    
-    }
-
-    public static double getRightStickY(){
-      return (stick0.getRawAxis(5));
-    }
->>>>>>> 7d1719365d17614830b5b8cc2292f91c8e4d407d
 }
