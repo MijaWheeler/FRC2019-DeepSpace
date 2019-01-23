@@ -12,10 +12,17 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+<<<<<<< HEAD
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.Limelight_Subsystem;
 import frc.robot.subsystems.DriveTrain_Subsystem;
+=======
+import frc.robot.subsystems.Hatch_Intake_Subsystem;
+
+
+
+>>>>>>> 7d1719365d17614830b5b8cc2292f91c8e4d407d
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -26,26 +33,23 @@ import frc.robot.subsystems.DriveTrain_Subsystem;
  */
 
 public class Robot extends TimedRobot {
-  public static ExampleSubsystem m_subsystem = new ExampleSubsystem();
   public static OI m_oi;
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
+<<<<<<< HEAD
   public static Limelight_Subsystem Limelight = new Limelight_Subsystem();
   public static DriveTrain_Subsystem DriveTrain = new DriveTrain_Subsystem();
+=======
+  
+  public static Hatch_Intake_Subsystem Hatch_Intake = new Hatch_Intake_Subsystem(); 
+>>>>>>> 7d1719365d17614830b5b8cc2292f91c8e4d407d
 
   /**
    * This function is run when the robot is first started up and should be
    * used for any initialization code.
    */
-  @Override
-  public void robotInit() {
-    m_oi = new OI();
-    m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
-    // chooser.addOption("My Auto", new MyAutoCommand());
-    SmartDashboard.putData("Auto mode", m_chooser);
-  }
 
 
   /**
