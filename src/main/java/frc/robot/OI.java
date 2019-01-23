@@ -38,7 +38,7 @@ public class OI {
   // until it is finished as determined by it's isFinished method.
   // button.whenPressed(new ExampleCommand());
 public OI(){
-  button1.whenPressed(new TrackLimelightX());
+  button1.whileHeld(new TrackLimelightX());
 }
   // Run the command while the button is being held down and interrupt it once
   // the button is released.
