@@ -39,6 +39,8 @@ public class TrackLimelightX extends Command {
     }else if (xCoord < 0){
       new TurnRight(turnSpeed);
     }
+
+    System.out.println(xCoord);
     
   }
 
