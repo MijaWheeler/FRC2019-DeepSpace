@@ -9,12 +9,13 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 
 public class Hatch_Intake_On extends Command {
   public Hatch_Intake_On() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.Hatch_Intake);
+    requires(Robot.Hatch_Intake_Subsystem);
   }
 
   // Called just before this Command runs the first time
@@ -25,13 +26,13 @@ public class Hatch_Intake_On extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.Hatch_Intake.Sol.set(true); // Sol is the solenoid
+    Robot.Hatch_Intake_Subsystem.Sol.set(true); // Sol is the solenoid
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return true;
+    return false;
   }
 
   // Called once after isFinished returns true
