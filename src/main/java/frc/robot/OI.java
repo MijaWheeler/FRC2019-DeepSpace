@@ -10,6 +10,10 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+//import edu.wpi.first.wpilibj.command.Command;
+
+//import frc.robot.Robot;
+//import frc.robot.RobotMap;
 
 import frc.robot.commands.TunnelIntake;
 import frc.robot.commands.TunnelIntakeOff;
@@ -31,8 +35,6 @@ public class OI {
 
 
   Joystick rightjoy = new Joystick(RobotMap.joystick1port);  //DK added to create new joystick input
-  Button Tunnel_On_Button = new JoystickButton(rightjoy, Robot.TunnelIntake);  //DK added to create button
-  Button Tunnel_OFF_Button = new JoystickButton(rightjoy, Robot.TunnelIntakeOff); 
 
   //// CREATING BUTTONS
   // One type of button is a joystick button which is any button on a
@@ -66,11 +68,6 @@ public class OI {
 
 public OI() {
   //TunnelBut.whenInactive(new TunnelIntakeStop());
-  //TunnelBut.whenPressed( new TunnelIntake());
-  
-  Tunnel_On_Button.whenPressed(new TunnelIntake());
-
-  Tunnel_OFF_Button.whenPressed(new TunnelIntakeOff());
 }
 }
 

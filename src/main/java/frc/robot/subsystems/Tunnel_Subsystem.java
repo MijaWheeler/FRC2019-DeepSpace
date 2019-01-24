@@ -6,27 +6,17 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot.subsystems;
-
+import frc.robot.Robot;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.command.Command;
-import BAGMotor;
 
-//import org.usfirst.frc.team3008.robot.commands.clawControlOpen_Command;
-//import com.ctre.phoenix.motorcontrol.can.*;
-
-//import org.usfirst.frc.team3008.robot.RobotMap;
-//import org.usfirst.frc.team3008.robot.commands.LDrivetrain_Command;
-//import org.usfirst.frc.team3008.robot.commands.RDrivetrain_Command;
-
-//import org.usfirst.frc.team3008.robot.commands.TunnelIntake_Command;
-
+//import edu.wpi.first.wpilibj.MotorSafety;;
 
 //import BAG motots
 
 /**
  * An example subsystem.  You can replace me with your own Subsystem.
  */
-public class TunnelSubsystem extends Subsystem {
+public class Tunnel_Subsystem extends Subsystem {
   public  TunBag = new BAGMotor(0, MotorType.kDC);
   // Put methods for cont
 
