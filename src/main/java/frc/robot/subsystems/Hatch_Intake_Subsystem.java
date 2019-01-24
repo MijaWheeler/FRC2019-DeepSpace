@@ -21,7 +21,7 @@ public class Hatch_Intake_Subsystem extends Subsystem {
   // here. Call these from Commands.
   // public Solenoid Sol;
 
-  public Solenoid Sol = new Solenoid(4, 5);
+  public Solenoid Sol = new Solenoid(4, 4);
   
   @Override
   public void initDefaultCommand() {
