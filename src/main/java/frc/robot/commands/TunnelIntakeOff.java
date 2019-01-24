@@ -7,15 +7,14 @@
 
 package frc.robot.commands;
 
-
 import frc.robot.OI;
 import frc.robot.Robot;
 
-public class TunnelIntake extends Command {
-  public TunnelIntake() {
+public class TunnelIntakeOff extends Command {
+  public TunnelIntakeOff() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.Tunnel);
+    requires(Robot.m_subsystem.Tunnel);
   }
 
   // Called just before this Command runs the first time
@@ -26,7 +25,7 @@ public class TunnelIntake extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.Tunnel_Subsystem.startTunnel();
+    Robot.Tunnel_Subsystem.stopTunnel();
   }
 
   // Make this return true when this Command no longer needs to run execute()

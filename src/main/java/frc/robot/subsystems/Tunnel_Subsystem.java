@@ -8,7 +8,17 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import vexrobotics.BAGMotor;
+import edu.wpi.first.wpilibj.command.Command;
+import BAGMotor;
+
+//import org.usfirst.frc.team3008.robot.commands.clawControlOpen_Command;
+//import com.ctre.phoenix.motorcontrol.can.*;
+
+//import org.usfirst.frc.team3008.robot.RobotMap;
+//import org.usfirst.frc.team3008.robot.commands.LDrivetrain_Command;
+//import org.usfirst.frc.team3008.robot.commands.RDrivetrain_Command;
+
+//import org.usfirst.frc.team3008.robot.commands.TunnelIntake_Command;
 
 
 //import BAG motots
@@ -18,11 +28,10 @@ import vexrobotics.BAGMotor;
  */
 public class TunnelSubsystem extends Subsystem {
   public  TunBag = new BAGMotor(0, MotorType.kDC);
-  //public CANSparkMax MotorR2 = new CANSparkMax(1,MotorType.kBrushless);
   // Put methods for cont
 
   public void startTunnel(){ 
-		TunBag.set(.75);
+		TunBag.set(0.75);
 	}
 
 	public void stopTunnel(){ 
