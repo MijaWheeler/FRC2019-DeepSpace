@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.subsystems.BallTransport_Subsystem;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.LDriveTrain_Subsystem;
 import frc.robot.subsystems.RDriveTrain_Subsystem;
@@ -33,6 +34,8 @@ public class Robot extends TimedRobot {
 
   public static RDriveTrain_Subsystem RDriveTrain = new RDriveTrain_Subsystem();
   public static LDriveTrain_Subsystem LDriveTrain = new LDriveTrain_Subsystem();
+
+  public static BallTransport_Subsystem BallTransport = new BallTransport_Subsystem();
 
   /**
    * This function is run when the robot is first started up and should be
