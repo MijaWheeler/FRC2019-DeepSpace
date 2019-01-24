@@ -27,6 +27,6 @@ public class Hatch_Intake_Subsystem extends Subsystem {
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
-    setDefaultCommand(new Hatch_Intake_Off());
+    setDefaultCommand(new Hatch_Intake_On());
   }
 }
