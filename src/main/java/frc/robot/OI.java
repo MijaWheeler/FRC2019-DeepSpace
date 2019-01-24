@@ -11,6 +11,8 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.Hatch_Intake_On;
+import frc.robot.commands.Hatch_Intake_Off;
+
 
 
 /**
@@ -45,7 +47,9 @@ public class OI {
   // button.whenPressed(new ExampleCommand());
   public OI() {
     button1.whenPressed(new Hatch_Intake_On());
+    button1.whenInactive(new Hatch_Intake_Off());
   }
+
   // Run the command while the button is being held down and interrupt it once
   // the button is released.
   // button.whileHeld(new ExampleCommand());
