@@ -8,32 +8,25 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
-//import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import frc.robot.commands.TunnelIntake;
+import frc.robot.commands.TunnelIntakeOff;
 
 
-//import frc.robot.Robot;
-//import frc.robot.RobotMap;
-
-//import frc.robot.commands.TunnelIntake;
-//import frc.robot.commands.TunnelIntakeOff;
-
-
-
-//import edu.wpi.first.wpilibj.command.robot;
 
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-/*
-  Joystick rightjoy = new Joystick(RobotMap.joystick1port);
-  Button Tunnel_On = new JoystickButton(rightjoy, 1);
-  TunnelBut(@whenPressed(new TunnelIntake()));
-  */
 
+  //Joystick rightjoy = new Joystick(RobotMap.joystick1port);  //DK added to create new joystick input
+  Joystick stick0 = new Joystick(0);
 
-  Joystick rightjoy = new Joystick(RobotMap.joystick1port);  //DK added to create new joystick input
+  Button tunBut = new JoystickButton(stick0, 3);
+  Button tunBut_off = new JoystickButton(stick0, 4);
+
 
   //// CREATING BUTTONS
   // One type of button is a joystick button which is any button on a
@@ -66,7 +59,10 @@ public class OI {
 
 
 public OI() {
-  //TunnelBut.whenInactive(new TunnelIntakeStop());
+  tunBut.whenPressed(new TunnelIntake());
+  tunBut_off.whenPressed(new TunnelIntakeOff());
+
 }
+
 }
 

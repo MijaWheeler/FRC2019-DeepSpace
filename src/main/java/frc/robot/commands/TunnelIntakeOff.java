@@ -7,14 +7,9 @@
 
 package frc.robot.commands;
 
-//import frc.robot.OI;
 import frc.robot.Robot;
-
 import edu.wpi.first.wpilibj.command.Command;
-//import edu.wpi.first.wpilibj.command.Subsystem;;
 
-
-//import frc.robot.RobotMap;
 
 
 public class TunnelIntakeOff extends Command {
@@ -39,6 +34,7 @@ public class TunnelIntakeOff extends Command {
  // @Override
   protected boolean isFinished() {
     return false;
+
   }
 
   // Called once after isFinished returns true

@@ -16,14 +16,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.ExampleSubsystem;
 
+//Additional Subsystem imports
 import frc.robot.subsystems.Tunnel_Subsystem;
-//import frc.robot.commands.TunnelIntake;
-//import frc.robot.commands.TunnelIntakeOff;
-
-
-
-
-
 
 
 /**
@@ -41,6 +35,8 @@ public class Robot extends TimedRobot {
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
+
+  //New Subsystems
   public static Tunnel_Subsystem Tunnel = new Tunnel_Subsystem();
 
   /**

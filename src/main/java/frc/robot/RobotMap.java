@@ -27,11 +27,6 @@ public class RobotMap {
 
   /* Joystick Ports */
   public static int joystick1port = 0;
-  
-
- // public static TunnelIntake = 2;
-  //public static TunnelIntakeOff = 1;
-
 
 
 }
