@@ -20,7 +20,7 @@ import frc.robot.commands.Hatch_Intake_Off;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-  static Joystick stick0 = new Joystick(0);
+  Joystick stick0 = new Joystick(0);
   
 
 
@@ -59,12 +59,13 @@ public class OI {
   // until it is finished as determined by it's isFinished method.
   // button.whenReleased(new ExampleCommand());
 
-    public static double getLeftStickY(){
+   /* public static double getLeftStickY(){
       return (stick0.getRawAxis(1));
     
     }
 
     public static double getRightStickY(){
       return (stick0.getRawAxis(5));
-    }
+    } */
 }
+
