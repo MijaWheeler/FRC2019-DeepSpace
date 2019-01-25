@@ -47,7 +47,8 @@ public class OI {
   // button.whenPressed(new ExampleCommand());
   public OI() {
     // button1.whileHeld(new Hatch_Intake_On());
-    button1.whileHeld(new Hatch_Intake_Off());
+    button1.whenPressed(new Hatch_Intake_On());
+    // button2.whenReleased(new Hatch_Intake_Off());
   }
 
   // Run the command while the button is being held down and interrupt it once
