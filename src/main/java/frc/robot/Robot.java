@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.Limelight_Subsystem;
 import frc.robot.subsystems.DriveTrain_Subsystem;
+import frc.robot.commands.TrackLimelightX;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -32,11 +33,15 @@ public class Robot extends TimedRobot {
   public static Limelight_Subsystem Limelight = new Limelight_Subsystem();
   public static DriveTrain_Subsystem DriveTrain = new DriveTrain_Subsystem();
 
+
   /**
    * This function is run when the robot is first started up and should be
    * used for any initialization code.
-   */
-
+   */@Override
+  public void robotInit() {
+    super.robotInit();
+    SmartDashboard.putData("TrackLimelightX", new TrackLimelightX());
+  }
 
   /**
    * This function is called every robot packet, no matter the mode. Use

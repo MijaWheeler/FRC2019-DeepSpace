@@ -34,6 +34,5 @@ public class Limelight_Subsystem extends Subsystem {
 
     // Set the default command for a subsystem her
     // setDefaultCommand(new MySpecialCommand());
-    setDefaultCommand(new StopMotors());
   }
 }

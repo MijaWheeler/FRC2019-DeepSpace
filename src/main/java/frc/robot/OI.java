@@ -6,11 +6,11 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot;
-import frc.robot.Robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.TrackLimelightX;
+import frc.robot.commands.TurnLeft;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -25,7 +25,8 @@ public class OI {
   // number it is.
   // Joystick stick = new Joystick(port);
   // Button button = new JoystickButton(stick, buttonNumber);
-  Button button1 = new JoystickButton(stick0, 0);
+  Button button1 = new JoystickButton(stick0, 1);
+  Button button2 = new JoystickButton(stick0, 2);
   // There are a few additional built in buttons you can use. Additionally,
   // by subclassing Button you can create custom triggers and bind those to
   // commands the same as any other Button.
@@ -38,8 +39,12 @@ public class OI {
   // until it is finished as determined by it's isFinished method.
   // button.whenPressed(new ExampleCommand());
 public OI(){
-  button1.whileHeld(new TrackLimelightX());
+  button1.whenPressed(new TrackLimelightX());
+  button2.whenPressed(new TurnLeft(.5));
 }
+
+
+
   // Run the command while the button is being held down and interrupt it once
   // the button is released.
   // button.whileHeld(new ExampleCommand());
