@@ -9,7 +9,7 @@ package frc.robot.subsystems;
  
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Solenoid;
-import frc.robot.RobotMap;
+// import frc.robot.RobotMap;
 import frc.robot.commands.Hatch_Intake_Off;
 
 /**
@@ -20,7 +20,7 @@ public class Hatch_Intake_Subsystem extends Subsystem {
   // here. Call these from Commands.
   // public Solenoid Sol;
 
-  public Solenoid Sol = new Solenoid(4, 4);
+  public Solenoid Sol = new Solenoid(4, 4); // Solenoid(CAN ID, Port #)
   
   @Override
   public void initDefaultCommand() {

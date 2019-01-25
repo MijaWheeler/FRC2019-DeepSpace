@@ -20,7 +20,9 @@ import frc.robot.commands.ExampleCommand;
 // import edu.wpi.first.wpilibj.DriverStation;
 // import edu.wpi.first.wpilibj.Encoder;
 
-import frc.robot.subsystems.Hatch_Intake_Subsystem;
+// Shouldn't need these imports 
+
+import frc.robot.subsystems.Hatch_Intake_Subsystem; // imports the subsystem
 
 
 
@@ -38,7 +40,7 @@ public class Robot extends TimedRobot {
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
-    public static Hatch_Intake_Subsystem Hatch_Intake_Subsystem = new Hatch_Intake_Subsystem(); 
+    public static Hatch_Intake_Subsystem Hatch_Intake_Subsystem = new Hatch_Intake_Subsystem(); //creating the subsystem
 
   /**
    * This function is run when the robot is first started up and should be

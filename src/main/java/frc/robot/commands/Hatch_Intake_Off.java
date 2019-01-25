@@ -31,7 +31,7 @@ public class Hatch_Intake_Off extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;  
+    return false;  // keeps running until Hatch_Intake_On command is called
   }
 
   // Called once after isFinished returns true
