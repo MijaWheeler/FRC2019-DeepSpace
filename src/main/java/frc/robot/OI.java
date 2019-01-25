@@ -36,7 +36,7 @@ public class OI {
   // by subclassing Button you can create custom triggers and bind those to
   // commands the same as any other Button.
   Button button1 = new JoystickButton(stick0, 1);
-  // Button button2 = new JoystickButton(stick0, 2);
+  Button button2 = new JoystickButton(stick0, 2);
 
   //// TRIGGERING COMMANDS WITH BUTTONS
   // Once you have a button, it's trivial to bind it to a button in one of
@@ -48,7 +48,7 @@ public class OI {
   public OI() {
     // button1.whileHeld(new Hatch_Intake_On());
     button1.whenPressed(new Hatch_Intake_On());
-    // button2.whenReleased(new Hatch_Intake_Off());
+    button2.whenPressed(new Hatch_Intake_Off());
   }
 
   // Run the command while the button is being held down and interrupt it once

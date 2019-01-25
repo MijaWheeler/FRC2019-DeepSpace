@@ -9,7 +9,6 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import edu.wpi.first.wpilibj.Solenoid;
 
 public class Hatch_Intake_On extends Command {
   public Hatch_Intake_On() {

@@ -6,26 +6,19 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot.subsystems;
- 
+
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.Solenoid;
-import frc.robot.RobotMap;
-import frc.robot.commands.Hatch_Intake_Off;
 
 /**
  * Add your docs here.
  */
-public class Hatch_Intake_Subsystem extends Subsystem {
+public class ExampleSubsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  // public Solenoid Sol;
 
-  public Solenoid Sol = new Solenoid(4, 4);
-  
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
-    setDefaultCommand(new Hatch_Intake_Off());
   }
 }
