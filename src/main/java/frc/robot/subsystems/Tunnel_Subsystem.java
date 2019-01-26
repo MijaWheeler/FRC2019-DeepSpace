@@ -9,8 +9,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.commands.TunnelIntakeOff;
-//import com.ctre.CANTalon;
-//import edu.wpi.first.wpilibj.Talon;
+
 import edu.wpi.first.wpilibj.Spark;
 
 /*
@@ -18,10 +17,10 @@ import edu.wpi.first.wpilibj.Spark;
  */
 public class Tunnel_Subsystem extends Subsystem {
 
-  static Spark TunnelSRX = new Spark(0); 
+  static Spark TunnelSRX = new Spark(0); //port number
   // Put methods for cont
 
-  public void startTunnel(){ 
+  public void startTunnel(){  // Method 
 		TunnelSRX.set(0.5);
 	}
 

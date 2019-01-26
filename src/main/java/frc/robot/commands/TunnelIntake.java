@@ -30,12 +30,12 @@ public class TunnelIntake extends Command {
   @Override
   protected void execute() {
     Robot.Tunnel.startTunnel();
+     //while this button pressed, tunel motor runs
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    //Robot.Tunnel.stopTunnel();
     return false;
 
      
