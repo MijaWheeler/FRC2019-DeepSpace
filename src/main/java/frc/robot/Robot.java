@@ -32,7 +32,7 @@ public class Robot extends TimedRobot {
   public static ExampleSubsystem m_subsystem = new ExampleSubsystem();
   public static OI m_oi;
 
-  public static Spark Box_Spark = new Spark(1);
+  public static Box_Subsystem Box_Subsystem = new Box_Subsystem(); 
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();

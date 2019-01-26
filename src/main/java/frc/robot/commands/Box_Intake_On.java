@@ -14,7 +14,7 @@ public class Box_Intake_On extends Command {
   public Box_Intake_On() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    // requires(Robot.Box_Spark);
+    requires(Robot.Box_Subsystem);
   }
 
   // Called just before this Command runs the first time

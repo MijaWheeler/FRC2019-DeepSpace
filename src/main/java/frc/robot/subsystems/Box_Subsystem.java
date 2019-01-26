@@ -16,6 +16,8 @@ import frc.robot.commands.Box_Off;
 public class Box_Subsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
+  
+  public static Spark Box_Spark = new Spark(1);
 
   @Override
   public void initDefaultCommand() {
