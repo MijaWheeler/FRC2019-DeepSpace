@@ -20,6 +20,7 @@ public class Box_Off extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    Robot.Box_Subsystem.Box_Stop();
   }
 
   // Called repeatedly when this Command is scheduled to run

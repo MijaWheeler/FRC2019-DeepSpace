@@ -8,6 +8,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.Spark;
 import frc.robot.commands.Box_Off;
 
 /**
@@ -18,6 +19,19 @@ public class Box_Subsystem extends Subsystem {
   // here. Call these from Commands.
   
   public static Spark Box_Spark = new Spark(1);
+
+  public void Box_Intake(){
+    Box_Spark.set(0.5);
+  }
+
+  public void Box_Outtake(){
+    Box_Spark.set(-0.5);
+  }
+
+  public void Box_Stop(){
+    Box_Spark.set(0);
+  }
+
 
   @Override
   public void initDefaultCommand() {
