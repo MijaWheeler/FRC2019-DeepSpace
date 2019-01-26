@@ -10,7 +10,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import frc.robot.commands.Hatch_Intake_On;
+import frc.robot.commands.Hatch_Intake_On_For_T;
 import frc.robot.commands.Hatch_Intake_Off;
 
 
@@ -47,7 +47,7 @@ public class OI {
   // button.whenPressed(new ExampleCommand());
   public OI() {
     // button1.whileHeld(new Hatch_Intake_On());
-    button1.whileHeld(new Hatch_Intake_On());
+    button1.whenPressed(new Hatch_Intake_On_For_T());
     button2.whenPressed(new Hatch_Intake_Off());
   }
 
