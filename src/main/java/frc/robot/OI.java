@@ -47,7 +47,7 @@ public class OI {
   // button.whenPressed(new ExampleCommand());
   public OI() {
     // button1.whileHeld(new Hatch_Intake_On());
-    button1.whenPressed(new Hatch_Intake_On());
+    button1.whileHeld(new Hatch_Intake_On());
     button2.whenPressed(new Hatch_Intake_Off());
   }
 
