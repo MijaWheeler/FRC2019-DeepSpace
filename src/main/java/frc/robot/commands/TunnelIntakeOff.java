@@ -10,8 +10,6 @@ package frc.robot.commands;
 import frc.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
-
-
 public class TunnelIntakeOff extends Command {
   public TunnelIntakeOff() {
     // Use requires() here to declare subsystem dependencies
@@ -25,21 +23,22 @@ public class TunnelIntakeOff extends Command {
   }
 
   // Called repeatedly when this Command is scheduled to run
- // @Override
+  @Override
   protected void execute() {
     Robot.Tunnel.stopTunnel();
   }
 
   // Make this return true when this Command no longer needs to run execute()
- // @Override
+ @Override
   protected boolean isFinished() {
     return false;
 
   }
 
   // Called once after isFinished returns true
- // @Override
-  protected void end() {
+  @Override
+  protected void end() {   
+    Robot.Tunnel.stopTunnel();
   }
 
   // Called when another command which requires one or more of the same

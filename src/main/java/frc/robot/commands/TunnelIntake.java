@@ -21,12 +21,13 @@ public class TunnelIntake extends Command {
   }
 
   // Called just before this Command runs the first time
-  //@Override
+  @Override
   protected void initialize() {
+
   }
 
   // Called repeatedly when this Command is scheduled to run
- // @Override
+  @Override
   protected void execute() {
     Robot.Tunnel.startTunnel();
   }
@@ -34,14 +35,17 @@ public class TunnelIntake extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
+    //Robot.Tunnel.stopTunnel();
     return false;
-    //    Robot.Tunnel.stopTunnel();
 
+     
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
+      Robot.Tunnel.stopTunnel();
+
   }
 
   // Called when another command which requires one or more of the same

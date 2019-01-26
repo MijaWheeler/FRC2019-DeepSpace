@@ -10,23 +10,23 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.commands.TunnelIntakeOff;
 //import com.ctre.CANTalon;
-import edu.wpi.first.wpilibj.Talon;
-//import edu.wpi.first.wpilibj.Spark;
+//import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.Spark;
 
-/**
+/*
  * An example subsystem.  You can replace me with your own Subsystem.
  */
 public class Tunnel_Subsystem extends Subsystem {
 
-  static Talon TunnelSpark = new Talon(6); 
+  static Spark TunnelSRX = new Spark(0); 
   // Put methods for cont
 
   public void startTunnel(){ 
-		TunnelSpark.set(0.75);
+		TunnelSRX.set(0.5);
 	}
 
 	public void stopTunnel(){ 
-		TunnelSpark.set(0);
+		TunnelSRX.set(0.1);
 	}
 
 
