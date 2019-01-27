@@ -12,8 +12,10 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 //Import additional commands *probably could be done in one line of code as command file
-import frc.robot.commands.TunnelIntake;
-import frc.robot.commands.TunnelIntakeOff;
+import frc.robot.commands.HatchArm_Feeder;
+import frc.robot.commands.HatchArm_Ground;
+import frc.robot.commands.HatchArm_Stowed;
+
 
 
 /**
@@ -25,14 +27,17 @@ public class OI {
   //Joystick rightjoy = new Joystick(RobotMap.joystick1port);  //DK added to create new joystick input
   Joystick stick0 = new Joystick(0); //create new joystick input
 
-  Button tunBut = new JoystickButton(stick0, 3); //x button
-  Button tunBut_off = new JoystickButton(stick0, 4); // y button
+  Button StowBut = new JoystickButton(stick0, 2); //b button
+  Button GroundBut = new JoystickButton(stick0, 3); //x button
+  Button FeedBut = new JoystickButton(stick0, 4); // y button
 
 
 public OI() {
   //runs specific command when pressed
-  tunBut.whenPressed(new TunnelIntake());
-  tunBut_off.whenPressed(new TunnelIntakeOff());
+  StowBut.whenPressed(new HatchArm_Stowed());
+  GroundBut.whenPressed(new HatchArm_Ground());
+  FeedBut.whenPressed(new HatchArm_Feeder());
+
 
 }
 
