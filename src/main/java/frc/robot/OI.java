@@ -48,10 +48,10 @@ public class OI {
   // Start the command when the button is pressed and let it run the command
   // until it is finished as determined by it's isFinished method.
   // button.whenPressed(new ExampleCommand());
-  
+
 public OI() {
-  button1.whenPressed(new Box_Intake_On());
-  button2.whenPressed(new Box_Outtake_On());
+  button1.whileHeld(new Box_Intake_On());
+  button2.whileHeld(new Box_Outtake_On());
   button3.whenPressed(new Box_Off());
 }
 
