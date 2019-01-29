@@ -8,17 +8,31 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.RobotMap;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.ControlMode;
+
+import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.CounterBase.EncodingType;
+import edu.wpi.first.wpilibj.command.WaitUntilCommand;
+
+import frc.robot.commands.Feeder_Height_Command;
+
 
 /**
  * Add your docs here.
  */
-public class ScoobyDoo extends Subsystem {
+public class Elevator_Subsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
+  public TalonSRX Elevator_Talon_1 = new TalonSRX(RobotMap.Elevator_Talon_1_ID);
+  public TalonSRX Elevator_Talon_2 = new TalonSRX(RobotMap.Elevator_Talon_2_ID);
 
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
+    setDefaultCommand(new Feeder_Height_Command());
   }
 }
