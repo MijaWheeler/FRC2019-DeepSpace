@@ -29,6 +29,9 @@ public class Elevator_Subsystem extends Subsystem {
   public TalonSRX Elevator_Talon_1 = new TalonSRX(RobotMap.Elevator_Talon_1_ID);
   public TalonSRX Elevator_Talon_2 = new TalonSRX(RobotMap.Elevator_Talon_2_ID);
 
+  // methods
+  // public 
+
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
