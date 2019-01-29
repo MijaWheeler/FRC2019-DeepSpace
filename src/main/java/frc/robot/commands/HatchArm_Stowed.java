@@ -7,6 +7,7 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
@@ -27,7 +28,9 @@ public class HatchArm_Stowed extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.HatchArm.Stow();
+    //Robot.HatchArm.Stow();
+    Robot.HatchArm.Up();
+    Timer.delay(2.5);
 
   }
 
@@ -40,7 +43,8 @@ public class HatchArm_Stowed extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.HatchArm.Feeder();
+    //Robot.HatchArm.Feeder();
+    Robot.HatchArm.Stop();
 
   }
 

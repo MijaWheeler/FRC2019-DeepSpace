@@ -27,7 +27,7 @@ public class HatchArm_Feeder extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.HatchArm.Feeder();
+    //Robot.HatchArm.Feeder();
 
   }
 
@@ -40,7 +40,7 @@ public class HatchArm_Feeder extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.HatchArm.Feeder();
+    //Robot.HatchArm.Feeder();
 
   }
 

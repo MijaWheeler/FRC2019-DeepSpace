@@ -32,6 +32,8 @@ public class OI {
   Button FeedBut = new JoystickButton(stick0, 4); // y button
 
 
+  public static final int HatchArm_Enc = 9;
+
 public OI() {
   //runs specific command when pressed
   StowBut.whenPressed(new HatchArm_Stowed());

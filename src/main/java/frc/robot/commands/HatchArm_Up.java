@@ -13,8 +13,8 @@ import frc.robot.Robot;
 /**
  * An example command.  You can replace me with your own command.
  */
-public class HatchArm_Ground extends Command {
-  public HatchArm_Ground() {
+public class HatchArm_Up extends Command {
+  public HatchArm_Up() {
     // Use requires() here to declare subsystem dependencies
     requires(Robot.HatchArm);
   }
@@ -27,8 +27,9 @@ public class HatchArm_Ground extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-   //Robot.HatchArm.Ground();
-
+    //Robot.HatchArm.Stow();
+    Robot.HatchArm.setSpeed();
+    Robot.HatchArm.Up();
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -41,7 +42,7 @@ public class HatchArm_Ground extends Command {
   @Override
   protected void end() {
     //Robot.HatchArm.Feeder();
-
+    Robot.HatchArm.Stop();
   }
 
   // Called when another command which requires one or more of the same

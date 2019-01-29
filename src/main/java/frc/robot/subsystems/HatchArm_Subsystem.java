@@ -8,17 +8,22 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.OI;
+import frc.robot.commands.HatchArm_Feeder;
 import frc.robot.commands.HatchArm_Stowed;
 
 //import com.ctre.phoenix.motorcontrol.ControlMode;
 //import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+
+import java.beans.Encoder;
+
 import com.ctre.phoenix.motorcontrol.ControlMode;
 
-import edu.wpi.first.wpilibj.Encoder;
+//import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.DigitalInput;
-import edu.wpi.first.wpilibj.CounterBase.EncodingType;
-import edu.wpi.first.wpilibj.command.WaitUntilCommand;
+//import edu.wpi.first.wpilibj.CounterBase.EncodingType;
+//import edu.wpi.first.wpilibj.command.WaitUntilCommand;
 
 
 /**
@@ -29,30 +34,44 @@ public class HatchArm_Subsystem extends Subsystem {
   // here. Call these from Commands.
 
   TalonSRX HA_SRX = new TalonSRX(6);
-  static DigitalInput liftLim1 = new DigitalInput(RobotMap.LiftLimit1); //
-	static DigitalInput liftLim2 = new DigitalInput(RobotMap.LiftLimit2);
-
-
-  // Put methods for cont
+  Encoder HA_enc = new Encoder();
+  //static DigitalInput HatAm_Enc = new DigitalInput(OI.HatchArm_Enc); 
 
   
-  public void Stow(){  // Method 
-		HA_SRX.set(ControlMode.Position, 0);
+  //Direction Methods for motors
+  public void Up(){ 
+		HA_SRX.set(ControlMode.Position, 1.0);
+	}
+	public void Stop(){ 
+    HA_SRX.set(ControlMode.Position, 0);
+	}
+	public void Down(){ 
+    HA_SRX.set(ControlMode.Position, -0.5);
   }
   
-  public void Ground(){  // Method 
-		HA_SRX.set(ControlMode.Position, 270);
+  //Encoder Methods
+  public void reset_enc(){ 
+    reset_enc();
+    //do we need to set and reset a pulse width
   }
-  
-  public void Feeder(){  // Method 
-		HA_SRX.set(ControlMode.Position, 90);
+
+	public void getValue_enc(){ 
+    getValue_enc();
 	}
 
 
+  //Set Speed
+  public void setSpeed() {
+    HA_SRX.set(ControlMode.Position, 1.0);
+}
 
+
+
+  
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
-    setDefaultCommand(new HatchArm_Stowed());
+    setDefaultCommand(new HatchArm_Feeder());
   }
+  
 }
