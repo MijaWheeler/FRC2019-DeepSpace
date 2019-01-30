@@ -18,6 +18,10 @@ public class RobotMap {
   // following variables to use with your drivetrain subsystem.
   // public static int leftMotor = 1;
   // public static int rightMotor = 2;
+public static int Joystick_Port = 0;
+public static int Feeder_Height_Trigger = 1;
+public static int SRX_Test_Trigger = 2;
+
   public static int Elevator_Talon_1_ID = 6;
   public static int Elevator_Talon_2_ID = 7;
 

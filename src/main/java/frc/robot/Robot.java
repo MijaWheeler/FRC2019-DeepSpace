@@ -16,6 +16,8 @@ import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.ExampleSubsystem;
 
 import frc.robot.subsystems.Elevator_Subsystem;
+import frc.robot.commands.Feeder_Height_Command;
+import frc.robot.commands.TalonSRX_Test_Command;
 
 /**
  * The VM is configured to automatically run this class, and to call the

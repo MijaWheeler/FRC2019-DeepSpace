@@ -8,11 +8,13 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.Robot;
 
 public class Hatch_Rocket_Middle_Command extends Command {
   public Hatch_Rocket_Middle_Command() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
+    requires(Robot.Elevator_Subsystem);
   }
 
   // Called just before this Command runs the first time

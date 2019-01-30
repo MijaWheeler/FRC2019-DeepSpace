@@ -26,11 +26,17 @@ import frc.robot.commands.Feeder_Height_Command;
 public class Elevator_Subsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  public TalonSRX Elevator_Talon_1 = new TalonSRX(RobotMap.Elevator_Talon_1_ID);
-  public TalonSRX Elevator_Talon_2 = new TalonSRX(RobotMap.Elevator_Talon_2_ID);
+  TalonSRX Elevator_Talon_1 = new TalonSRX(RobotMap.Elevator_Talon_1_ID);
+  TalonSRX Elevator_Talon_2 = new TalonSRX(RobotMap.Elevator_Talon_2_ID);
 
   // methods
-  // public 
+  public void Feeder_Height_Command(){
+    Elevator_Talon_1.set(ControlMode.PercentOutput, 0.0);
+  }
+
+  public void TalonSRX_Test_Command(){
+    Elevator_Talon_1.set(ControlMode.PercentOutput, 1.0);
+  }
 
   @Override
   public void initDefaultCommand() {

@@ -7,6 +7,9 @@
 
 package frc.robot;
 
+import frc.robot.RobotMap;
+import frc.robot.commands.Feeder_Height_Command;
+import frc.robot.commands.TalonSRX_Test_Command;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -22,7 +25,10 @@ public class OI {
   // You create one by telling it which joystick it's on and which button
   // number it is.
   // Joystick stick = new Joystick(port);
+  Joystick stick0 = new Joystick(RobotMap.Joystick_Port);
   // Button button = new JoystickButton(stick, buttonNumber);
+  Button button1 = new JoystickButton(stick0, RobotMap.Feeder_Height_Trigger);
+  Button button2 = new JoystickButton(stick0, RobotMap.SRX_Test_Trigger);
 
   // There are a few additional built in buttons you can use. Additionally,
   // by subclassing Button you can create custom triggers and bind those to
@@ -37,7 +43,8 @@ public class OI {
   // button.whenPressed(new ExampleCommand());
 
   public OI() {
-    
+    button1.whenPressed(new Feeder_Height_Command());
+    button2.whileHeld(new TalonSRX_Test_Command());
   }
   // Run the command while the button is being held down and interrupt it once
   // the button is released.
