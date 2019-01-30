@@ -16,8 +16,9 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
  * Add your docs here.
  */
 public class LDriveTrain_Subsystem extends Subsystem {
-  public CANSparkMax MotorL1 = new CANSparkMax(2,MotorType.kBrushless);
-  public CANSparkMax MotorL2 = new CANSparkMax(3,MotorType.kBrushless);
+  public CANSparkMax MotorL1 = new CANSparkMax(0,MotorType.kBrushless);
+  public CANSparkMax MotorL2 = new CANSparkMax(2,MotorType.kBrushless);
+  public CANSparkMax MotorL3 = new CANSparkMax(4,MotorType.kBrushless);
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 

@@ -23,6 +23,7 @@ public class LMotor_OFF extends Command {
   protected void execute() {
     Robot.LDriveTrain.MotorL1.stopMotor();
     Robot.LDriveTrain.MotorL2.stopMotor();
+    Robot.LDriveTrain.MotorL3.stopMotor();
   }
 
   @Override

@@ -24,6 +24,7 @@ public class Lforward extends Command {
   protected void execute() {
     Robot.LDriveTrain.MotorL1.set(-OI.getLeftStickY());
     Robot.LDriveTrain.MotorL2.set(-OI.getLeftStickY());
+    Robot.LDriveTrain.MotorL3.set(-OI.getLeftStickY());
   }
 
   @Override
