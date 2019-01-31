@@ -8,7 +8,8 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
-import frc.robot.commands.HatchArm_Feeder;
+//import frc.robot.commands.HatchArm_Feeder;
+import frc.robot.commands.HatchArm_Stowed;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
@@ -27,7 +28,7 @@ public class HatchArmPID_Subsystem extends PIDSubsystem {
 
   public HatchArmPID_Subsystem() {
     // Intert a subsystem name and PID values here
-    super("HatchArmPID_Subsystem", 1, 0, 0);
+    super("HatchArmPID_Subsystem", 0.00009, 0.000154, 0);
     // Use these to get going:
     // setSetpoint() - Sets where the PID controller should move the system
     // to
@@ -36,13 +37,13 @@ public class HatchArmPID_Subsystem extends PIDSubsystem {
     enable(); //enables the PID Controller
     setAbsoluteTolerance(0); //Sets the absolute parameters of PID
     HA_SRX.setSensorPhase(true); //controls the direction of the motor control using boolean
-    HA_SRX.setSelectedSensorPosition(sensorPos, pidIdx, timeoutMs);
+    HA_SRX.setSelectedSensorPosition(0, 0, 1); //sensor position, pidIdx, time out
   }
 
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
-     setDefaultCommand(new HatchArm_Feeder());
+     setDefaultCommand(new HatchArm_Stowed());
   }
 
   @Override
@@ -50,8 +51,9 @@ public class HatchArmPID_Subsystem extends PIDSubsystem {
     // Return your input value for the PID loop
     // e.g. a sensor, like a potentiometer:
     // yourPot.getAverageVoltage() / kYourMaxVoltage;
-    return 0.0;
-    HA_SRX.getSelectedSensorPosition(pidIdx);
+    
+    return HA_SRX.getSelectedSensorPosition(0);
+    
   }
 
   @Override

@@ -17,7 +17,7 @@ import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.ExampleSubsystem;
 
 //Additional Subsystem imports
-import frc.robot.subsystems.HatchArm_Subsystem;
+import frc.robot.subsystems.HatchArmPID_Subsystem;
 
 
 
@@ -38,7 +38,10 @@ public class Robot extends TimedRobot {
 
 
   //New Subsystems
-  public static HatchArm_Subsystem HatchArm = new HatchArm_Subsystem();
+  public static HatchArmPID_Subsystem HatchArm = new HatchArmPID_Subsystem();
+
+
+
 
   /**
    * This function is run when the robot is first started up and should be

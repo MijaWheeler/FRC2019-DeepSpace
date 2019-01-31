@@ -37,8 +37,8 @@ public class OI {
 public OI() {
   //runs specific command when pressed
   StowBut.whenPressed(new HatchArm_Stowed());
-  GroundBut.whenPressed(new HatchArm_Ground());
-  FeedBut.whenPressed(new HatchArm_Feeder());
+  GroundBut.whenPressed(new HatchArm_Ground());//x
+  FeedBut.whenPressed(new HatchArm_Feeder()); //y
 
 
 }

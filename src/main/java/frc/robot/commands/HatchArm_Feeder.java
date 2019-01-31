@@ -9,6 +9,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+//import frc.robot.subsystems.HatchArmPID_Subsystem;
 
 /**
  * An example command.  You can replace me with your own command.
@@ -22,13 +23,13 @@ public class HatchArm_Feeder extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    //Robot.HatchArm.Feeder();
+    
+    Robot.HatchArm.setSetpoint(1024); //Full = 4096; start = 0
 
   }
 
@@ -41,9 +42,7 @@ public class HatchArm_Feeder extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    //Robot.HatchArm.Feeder();
-    Robot.HatchArm.reset_enc();
-
+   
   }
 
   // Called when another command which requires one or more of the same
