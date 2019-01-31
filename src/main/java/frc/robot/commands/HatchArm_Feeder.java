@@ -22,6 +22,7 @@ public class HatchArm_Feeder extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    
   }
 
   // Called repeatedly when this Command is scheduled to run
@@ -41,6 +42,7 @@ public class HatchArm_Feeder extends Command {
   @Override
   protected void end() {
     //Robot.HatchArm.Feeder();
+    Robot.HatchArm.reset_enc();
 
   }
 

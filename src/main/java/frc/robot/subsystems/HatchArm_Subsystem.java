@@ -33,6 +33,8 @@ public class HatchArm_Subsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
+
+  //Hardware declerations
   TalonSRX HA_SRX = new TalonSRX(6);
   Encoder HA_enc = new Encoder();
   //static DigitalInput HatAm_Enc = new DigitalInput(OI.HatchArm_Enc); 
@@ -40,19 +42,19 @@ public class HatchArm_Subsystem extends Subsystem {
   
   //Direction Methods for motors
   public void Up(){ 
-		HA_SRX.set(ControlMode.Position, 1.0);
+    HA_SRX.set(ControlMode.Position, 1.0);
+    
 	}
 	public void Stop(){ 
     HA_SRX.set(ControlMode.Position, 0);
 	}
 	public void Down(){ 
-    HA_SRX.set(ControlMode.Position, -0.5);
+    HA_SRX.set(ControlMode.Position, -1.0);
   }
   
   //Encoder Methods
   public void reset_enc(){ 
     reset_enc();
-    //do we need to set and reset a pulse width
   }
 
 	public void getValue_enc(){ 
