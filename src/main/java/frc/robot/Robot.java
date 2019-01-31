@@ -15,7 +15,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.ExampleSubsystem;
 
-import frc.robot.subsystems.Elevator_Subsystem;
+import frc.robot.subsystems.Elevator_Lift_Subsystem;
 import frc.robot.commands.Feeder_Height_Command;
 import frc.robot.commands.TalonSRX_Test_Command;
 
@@ -33,7 +33,7 @@ public class Robot extends TimedRobot {
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
-  public static Elevator_Subsystem Elevator_Subsystem = new Elevator_Subsystem();
+  public static Elevator_Lift_Subsystem Elevator_Lift_Subsystem = new Elevator_Lift_Subsystem();
 
   /**
    * This function is run when the robot is first started up and should be

@@ -14,7 +14,7 @@ public class Ball_Rocket_Low_Command extends Command {
   public Ball_Rocket_Low_Command() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.Elevator_Subsystem);
+    requires(Robot.Elevator_Lift_Subsystem);
   }
 
   // Called just before this Command runs the first time
@@ -25,6 +25,7 @@ public class Ball_Rocket_Low_Command extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    Robot.Elevator_Lift_Subsystem.setSetpoint(4096*2);
   }
 
   // Make this return true when this Command no longer needs to run execute()

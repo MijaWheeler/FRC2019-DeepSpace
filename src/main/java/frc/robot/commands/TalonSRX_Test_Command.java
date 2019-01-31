@@ -14,7 +14,7 @@ public class TalonSRX_Test_Command extends Command {
   public TalonSRX_Test_Command() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.Elevator_Subsystem);
+    requires(Robot.Elevator_Lift_Subsystem);
   }
 
   // Called just before this Command runs the first time
@@ -25,7 +25,7 @@ public class TalonSRX_Test_Command extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.Elevator_Subsystem.TalonSRX_Test_Command();
+    Robot.Elevator_Lift_Subsystem.setSetpoint(4096);
   }
 
   // Make this return true when this Command no longer needs to run execute()

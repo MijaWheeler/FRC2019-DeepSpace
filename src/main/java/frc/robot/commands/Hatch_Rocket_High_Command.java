@@ -14,7 +14,7 @@ public class Hatch_Rocket_High_Command extends Command {
   public Hatch_Rocket_High_Command() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.Elevator_Subsystem);
+    requires(Robot.Elevator_Lift_Subsystem);
   }
 
   // Called just before this Command runs the first time
