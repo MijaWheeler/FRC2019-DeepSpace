@@ -28,7 +28,7 @@ public class HatchArmPID_Subsystem extends PIDSubsystem {
 
   public HatchArmPID_Subsystem() {
     // Intert a subsystem name and PID values here
-    super("HatchArmPID_Subsystem", 0.00009, 0.000154, 0);
+    super("HatchArmPID_Subsystem", 0.000085, 0, 0.00001031253);
     // Use these to get going:
     // setSetpoint() - Sets where the PID controller should move the system
     // to
