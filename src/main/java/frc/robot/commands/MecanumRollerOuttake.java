@@ -10,24 +10,24 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class MecanumRollerIntake extends Command {
-  public MecanumRollerIntake() {
-    requires(Robot.Roller);
+public class MecanumRollerOuttake extends Command {
+  public MecanumRollerOuttake() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
+    requires(Robot.Roller);
   }
 
   // Called just before this Command runs the first time
   @Override
-  protected void initialize(){
+  protected void initialize() {
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.Roller.startIntake();
+    Robot.Roller.startOuttake();
   }
-  
+
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {

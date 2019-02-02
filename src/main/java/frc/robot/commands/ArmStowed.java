@@ -8,14 +8,14 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-
 import frc.robot.Robot;
 
-public class MecanumRollerPushDown extends Command {
-  public MecanumRollerPushDown() {
-      requires(Robot.Arm);
+public class ArmStowed extends Command {
+  public ArmStowed() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
+    requires(Robot.R_Arm);
+    requires(Robot.L_Arm);
   }
 
   // Called just before this Command runs the first time

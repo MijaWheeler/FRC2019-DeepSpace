@@ -9,6 +9,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Spark;
+import frc.robot.Robot;
 
 /**
  * Add your docs here.
@@ -17,7 +18,15 @@ public class Roller_Subsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  public Spark RollerIntake = new Spark(9);
+  public Spark RollerSpark = new Spark(9);
+
+  public void startIntake(){
+    RollerSpark.set(0.1);
+  }
+
+  public void startOuttake(){
+    RollerSpark.set(-0.1);
+  }
 
   @Override
   public void initDefaultCommand() {
