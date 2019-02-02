@@ -7,9 +7,7 @@
 
 package frc.robot.commands;
 
-//import frc.robot.OI;
 import frc.robot.Robot;
-
 import edu.wpi.first.wpilibj.command.Command;
 
 
@@ -17,7 +15,7 @@ public class TunnelIntake extends Command {
   public TunnelIntake() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.Tunnel);
+    requires(Robot.Tunnel); //Tunnel var defined in Robot.java file
   }
 
   // Called just before this Command runs the first time
@@ -30,7 +28,7 @@ public class TunnelIntake extends Command {
   @Override
   protected void execute() {
     Robot.Tunnel.startTunnel();
-     //while this button pressed, tunel motor runs
+     //while this command is active, motor runs forward using predefined method
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -45,6 +43,7 @@ public class TunnelIntake extends Command {
   @Override
   protected void end() {
       Robot.Tunnel.stopTunnel();
+       //After command is executed, motor goes back to off defalt
 
   }
 

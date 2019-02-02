@@ -14,7 +14,7 @@ public class TunnelIntakeOff extends Command {
   public TunnelIntakeOff() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.Tunnel); // import all recuired subsystems
+    requires(Robot.Tunnel); 
   }
 
   // Called just before this Command runs the first time
@@ -26,7 +26,7 @@ public class TunnelIntakeOff extends Command {
   @Override
   protected void execute() {
     Robot.Tunnel.stopTunnel();
-     //during the execution of this button, stop method runs
+     //during the execution of this command, motor stops via predefined method
 
   }
 
@@ -41,7 +41,7 @@ public class TunnelIntakeOff extends Command {
   @Override
   protected void end() {   
     Robot.Tunnel.stopTunnel(); 
-    // motor remains off, probably could be done w/out this 
+    // motor remains off after the excution isFinished
   }
 
   // Called when another command which requires one or more of the same
