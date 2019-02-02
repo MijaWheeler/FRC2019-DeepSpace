@@ -39,10 +39,7 @@ public OI() {
   StowBut.whenPressed(new HatchArm_Stowed()); //b button
   GroundBut.whenPressed(new HatchArm_Ground());//x
   FeedBut.whenPressed(new HatchArm_Feeder()); //y
-
-
 }
-
 
 
 }
