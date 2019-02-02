@@ -17,16 +17,18 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 /**
  * Add your docs here.
  */
+
 public class Elevator_Lift_Subsystem extends PIDSubsystem {
   /**
    * Add your docs here.
    */
+
   TalonSRX Elevator_Talon_1 = new TalonSRX(RobotMap.Elevator_Talon_1_ID);
   TalonSRX Elevator_Talon_2 = new TalonSRX(RobotMap.Elevator_Talon_2_ID);
 
   public Elevator_Lift_Subsystem() {
     // Intert a subsystem name and PID values here
-    super("Elevator_Lift_Subsystem", 0.0001, 0, 0);
+    super("Elevator_Lift_Subsystem", 0.00008, 0, 0);
     // Use these to get going:
     // setSetpoint() - Sets where the PID controller should move the system
     // to
@@ -42,7 +44,7 @@ public class Elevator_Lift_Subsystem extends PIDSubsystem {
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
-    setDefaultCommand(null);
+    setDefaultCommand(new Feeder_Height_Command());
   }
 
   @Override

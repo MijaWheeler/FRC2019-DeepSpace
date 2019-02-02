@@ -47,10 +47,10 @@ public class OI {
   // button.whenPressed(new ExampleCommand());
 
   public OI() {
-    button1.whileHeld(new Feeder_Height_Command());
-    button2.whileHeld(new TalonSRX_Test_Command());
-    button3.whileHeld(new Ball_Rocket_Low_Command());
-    button4.whileHeld(new Cargo_Load_Command());
+    button1.whenPressed(new Feeder_Height_Command());
+    button2.whenPressed(new TalonSRX_Test_Command());
+    button3.whenPressed(new Ball_Rocket_Low_Command());
+    button4.whenPressed(new Cargo_Load_Command());
   }
   // Run the command while the button is being held down and interrupt it once
   // the button is released.

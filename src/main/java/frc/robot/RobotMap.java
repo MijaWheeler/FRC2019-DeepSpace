@@ -27,6 +27,15 @@ public static int Cargo_Load_Trigger = 4;
   public static int Elevator_Talon_1_ID = 6;
   public static int Elevator_Talon_2_ID = 7;
 
+  public int Elevator_Height = 1; {
+    if (Elevator_Height < 1) {
+      Elevator_Height = 1;
+    }
+    if (Elevator_Height > 3) {
+      Elevator_Height = 3;
+    }
+  }
+
   // If you are using multiple modules, make sure to define both the port
   // number and the module. For example you with a rangefinder:
   // public static int rangefinderPort = 1;
