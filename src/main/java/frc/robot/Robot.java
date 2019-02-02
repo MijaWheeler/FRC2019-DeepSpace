@@ -41,8 +41,6 @@ public class Robot extends TimedRobot {
   public static HatchArmPID_Subsystem HatchArm = new HatchArmPID_Subsystem();
 
 
-
-
   /**
    * This function is run when the robot is first started up and should be
    * used for any initialization code.

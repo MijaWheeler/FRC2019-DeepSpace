@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
-//Import additional commands *probably could be done in one line of code as command file
+//Import additional commands 
 import frc.robot.commands.HatchArm_Feeder;
 import frc.robot.commands.HatchArm_Ground;
 import frc.robot.commands.HatchArm_Stowed;
@@ -36,7 +36,7 @@ public class OI {
 
 public OI() {
   //runs specific command when pressed
-  StowBut.whenPressed(new HatchArm_Stowed());
+  StowBut.whenPressed(new HatchArm_Stowed()); //b button
   GroundBut.whenPressed(new HatchArm_Ground());//x
   FeedBut.whenPressed(new HatchArm_Feeder()); //y
 

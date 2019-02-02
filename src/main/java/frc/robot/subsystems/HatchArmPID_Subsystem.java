@@ -8,7 +8,6 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
-//import frc.robot.commands.HatchArm_Feeder;
 import frc.robot.commands.HatchArm_Stowed;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
