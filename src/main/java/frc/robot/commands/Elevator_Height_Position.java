@@ -10,8 +10,8 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class TalonSRX_Test_Command extends Command {
-  public TalonSRX_Test_Command() {
+public class Elevator_Height_Position extends Command {
+  public Elevator_Height_Position() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.Elevator_Lift_Subsystem);
@@ -25,7 +25,7 @@ public class TalonSRX_Test_Command extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.Elevator_Lift_Subsystem.setSetpoint(4096);
+    // Robot.Elevator_Lift_Subsystem.setSetpoint();
   }
 
   // Make this return true when this Command no longer needs to run execute()

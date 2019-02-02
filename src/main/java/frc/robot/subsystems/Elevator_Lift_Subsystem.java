@@ -8,7 +8,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
-import frc.robot.commands.Feeder_Height_Command;
+// import frc.robot.commands.Feeder_Height_Command;
 import frc.robot.RobotMap;
 
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
@@ -22,7 +22,6 @@ public class Elevator_Lift_Subsystem extends PIDSubsystem {
   /**
    * Add your docs here.
    */
-
   TalonSRX Elevator_Talon_1 = new TalonSRX(RobotMap.Elevator_Talon_1_ID);
   TalonSRX Elevator_Talon_2 = new TalonSRX(RobotMap.Elevator_Talon_2_ID);
 
@@ -44,7 +43,7 @@ public class Elevator_Lift_Subsystem extends PIDSubsystem {
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
-    setDefaultCommand(new Feeder_Height_Command());
+    setDefaultCommand(null);
   }
 
   @Override

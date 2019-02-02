@@ -8,10 +8,10 @@
 package frc.robot;
 
 import frc.robot.RobotMap;
-import frc.robot.commands.Ball_Rocket_Low_Command;
-import frc.robot.commands.Cargo_Load_Command;
-import frc.robot.commands.Feeder_Height_Command;
-import frc.robot.commands.TalonSRX_Test_Command;
+// import frc.robot.commands.Ball_Rocket_Low_Command;
+// import frc.robot.commands.Cargo_Load_Command;
+// import frc.robot.commands.Feeder_Height_Command;
+// import frc.robot.commands.TalonSRX_Test_Command;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -29,10 +29,8 @@ public class OI {
   // Joystick stick = new Joystick(port);
   Joystick stick0 = new Joystick(RobotMap.Joystick_Port);
   // Button button = new JoystickButton(stick, buttonNumber);
-  Button button1 = new JoystickButton(stick0, RobotMap.Feeder_Height_Trigger);
-  Button button2 = new JoystickButton(stick0, RobotMap.SRX_Test_Trigger);
-  Button button3 = new JoystickButton(stick0, RobotMap.Ball_Rocket_Low_Trigger);
-  Button button4 = new JoystickButton(stick0, RobotMap.Cargo_Load_Trigger);
+  Button button1 = new JoystickButton(stick0, RobotMap.MO_Up_Button);
+  Button button2 = new JoystickButton(stick0, RobotMap.MO_Down_Button);
 
   // There are a few additional built in buttons you can use. Additionally,
   // by subclassing Button you can create custom triggers and bind those to
@@ -47,10 +45,8 @@ public class OI {
   // button.whenPressed(new ExampleCommand());
 
   public OI() {
-    button1.whenPressed(new Feeder_Height_Command());
-    button2.whenPressed(new TalonSRX_Test_Command());
-    button3.whenPressed(new Ball_Rocket_Low_Command());
-    button4.whenPressed(new Cargo_Load_Command());
+    // button1.whenPressed(new Elevator_Height + 1);
+    // button2.whenPressed(new TalonSRX_Test_Command());
   }
   // Run the command while the button is being held down and interrupt it once
   // the button is released.
