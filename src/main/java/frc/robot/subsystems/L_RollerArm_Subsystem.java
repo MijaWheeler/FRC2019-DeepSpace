@@ -29,10 +29,16 @@ public class L_RollerArm_Subsystem extends PIDSubsystem {
     // setSetpoint() - Sets where the PID controller should move the system
     // to
     // enable() - Enables the PID controller.
-    enable();
-    setAbsoluteTolerance(0);
-    L_ArmSRX.setSensorPhase(false);
-    L_ArmSRX.setSelectedSensorPosition(0, 0, 1);
+    enable();//setup encoders
+    setAbsoluteTolerance(0);//setup encoders
+    L_ArmSRX.setSensorPhase(false);//setup encoders
+    L_ArmSRX.setSelectedSensorPosition(0, 0, 1); //setup encoders
+
+    L_ArmSRX.configPeakCurrentLimit(15,0); //set max amps to 15
+    L_ArmSRX.configPeakCurrentDuration(0  ,30);
+		L_ArmSRX.configContinuousCurrentLimit(10, 0);
+		L_ArmSRX.enableCurrentLimit(true);
+
   }
 
   @Override
