@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 //import frc.robot.OI;
 //import frc.robot.subsystems.HatchArmPID_Subsystem;
+import frc.robot.RobotMap;
 
 /**
  * An example command.  You can replace me with your own command.
@@ -30,7 +31,7 @@ public class HatchArm_Ground extends Command {
   @Override
   protected void execute() {
     
-    Robot.HatchArm.setSetpoint(2048); //Full = 4096; 180deg = 2048spt
+    Robot.HatchArm.setSetpoint(RobotMap.HatchArm_Enc[]); //Full = 4096; 180deg = 2048spt
   }
 
   // Make this return true when this Command no longer needs to run execute()

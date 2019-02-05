@@ -7,6 +7,10 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -24,8 +28,20 @@ public class RobotMap {
   // public static int rangefinderPort = 1;
   // public static int rangefinderModule = 1;
 
-  /* Joystick Ports */
-  public static int joystick1port = 0;
+
+  /*Button Ports*/ 
+  public static int Stow_Button = 2; //B button
+  public static int Ground_Button = 3; //x button
+  public static int Feeder_Button = 4; //y button
+
+
+  /*Encoder Ports*/ 
+  public static final int HatchArm_Enc = 9;
+
+  public static int[] HatchArm_Position = new int[] {1024, 2048};
+  //{}
+
+
 
 
 }
