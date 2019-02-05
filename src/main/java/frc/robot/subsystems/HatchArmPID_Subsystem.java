@@ -37,6 +37,13 @@ public class HatchArmPID_Subsystem extends PIDSubsystem {
     setAbsoluteTolerance(0); //Sets the absolute parameters of PID
     HA_SRX.setSensorPhase(true); //controls the direction of the motor control using boolean
     HA_SRX.setSelectedSensorPosition(0, 0, 1); //sensor position, pidIdx, time out
+
+
+    //Current Limiting for Talon Motor Control
+    HA_SRX.configPeakCurrentLimit(15,0); //set max amps to 15
+    HA_SRX.configPeakCurrentDuration(0  ,30);//sets time until it does something
+		HA_SRX.configContinuousCurrentLimit(10, 0);//limits the current (amps) that is put out
+		HA_SRX.enableCurrentLimit(true);//turns the current limit on
   }
 
   @Override

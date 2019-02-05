@@ -29,7 +29,7 @@ public class HatchArm_Feeder extends Command {
   @Override
   protected void execute() {
     
-    Robot.HatchArm.setSetpoint(1024); //Full = 4096; start = 0
+   // Robot.HatchArm.setSetpoint(1024); //Full = 4096; start = 0
 
   }
 
@@ -42,7 +42,7 @@ public class HatchArm_Feeder extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-   
+   //Robot.HatchArm.setSetpoint(2048); // 2/4
   }
 
   // Called when another command which requires one or more of the same
