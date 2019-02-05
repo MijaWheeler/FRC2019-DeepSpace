@@ -39,6 +39,11 @@ public class Elevator_Lift_Subsystem extends PIDSubsystem {
 
     Elevator_Talon_1.setSensorPhase(true);
     Elevator_Talon_1.setSelectedSensorPosition(0, 0, 1);
+
+    Elevator_Talon_1.configPeakCurrentLimit(15, 0);
+    Elevator_Talon_1.configPeakCurrentDuration(0, 30);
+    Elevator_Talon_1.configContinuousCurrentLimit(10, 0);
+    Elevator_Talon_1.enableCurrentLimit(true);
   }
 
   @Override
