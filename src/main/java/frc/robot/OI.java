@@ -49,11 +49,11 @@ public class OI {
   // button.whenReleased(new ExampleCommand());
 
     public static double getLeftStickY(){
-      return (stick0.getRawAxis(1));
+      return (stick0.getRawAxis(RobotMap.LeftJoystickID));
     
     }
 
     public static double getRightStickY(){
-      return (stick0.getRawAxis(5));
+      return (stick0.getRawAxis(RobotMap.RightJoystickID));
     }
 }

@@ -8,6 +8,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.RobotMap;
 import frc.robot.commands.Lforward;
 
 import com.revrobotics.CANSparkMax;
@@ -16,9 +17,9 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
  * Add your docs here.
  */
 public class LDriveTrain_Subsystem extends Subsystem {
-  public CANSparkMax MotorL1 = new CANSparkMax(0,MotorType.kBrushless);
-  public CANSparkMax MotorL2 = new CANSparkMax(2,MotorType.kBrushless);
-  public CANSparkMax MotorL3 = new CANSparkMax(4,MotorType.kBrushless);
+  public CANSparkMax MotorL1 = new CANSparkMax(RobotMap.MotorL1ID,MotorType.kBrushless);
+  public CANSparkMax MotorL2 = new CANSparkMax(RobotMap.MotorL2ID,MotorType.kBrushless);
+  public CANSparkMax MotorL3 = new CANSparkMax(RobotMap.MotorL3ID,MotorType.kBrushless);
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
