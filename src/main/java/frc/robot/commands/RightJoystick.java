@@ -8,36 +8,35 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.OI;
+import frc.robot.Robot;
 
-public class ElevatorToHatchRocketMiddleHeight extends Command {
-  public ElevatorToHatchRocketMiddleHeight() {
-    // Use requires() here to declare subsystem dependencies
-    // eg. requires(chassis);
+public class RightJoystick extends Command {
+  public RightJoystick() {
+    requires(Robot.RDriveTrain);
   }
 
-  // Called just before this Command runs the first time
   @Override
   protected void initialize() {
   }
 
-  // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    Robot.RDriveTrain.MotorR1.set(OI.getRightStickY());
+    Robot.RDriveTrain.MotorR2.set(OI.getRightStickY());
+    Robot.RDriveTrain.MotorR3.set(OI.getRightStickY());
+
   }
 
-  // motor moves hatch to rocket middle height
   @Override
   protected boolean isFinished() {
     return false;
   }
 
-  //if at right height then return true, if not then return false
   @Override
   protected void end() {
   }
 
-  // Called when another command which requires one or more of the same
-  // subsystems is scheduled to run
   @Override
   protected void interrupted() {
   }

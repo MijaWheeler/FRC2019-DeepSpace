@@ -9,7 +9,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
-import frc.robot.commands.Lforward;
+import frc.robot.commands.LeftJoystick;
 
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
@@ -25,7 +25,7 @@ public class LDriveTrain_Subsystem extends Subsystem {
 
   @Override
   public void initDefaultCommand() {
-    setDefaultCommand(new Lforward());
+    setDefaultCommand(new LeftJoystick());
 
   }
 }
