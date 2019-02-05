@@ -33,7 +33,10 @@ public class R_RollerArm_Subsystem extends PIDSubsystem {
     setAbsoluteTolerance(0); //Sets the absolute parameters of PID
     R_ArmSRX.setSensorPhase(true); //controls the direction of the motor control using boolean
     R_ArmSRX.setSelectedSensorPosition(0, 0, 1); //sensor position, pidIdx, time out
-
+    R_ArmSRX.configPeakCurrentLimit(15,0); //set max amps to 15
+    R_ArmSRX.configPeakCurrentDuration(0  ,30);
+		R_ArmSRX.configContinuousCurrentLimit(10, 0);
+		R_ArmSRX.enableCurrentLimit(true);
   }
 
   @Override
