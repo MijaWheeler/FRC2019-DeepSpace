@@ -25,7 +25,7 @@ public class RobotMap {
   public static int Elevator_Talon_1_ID = 6;
   public static int Elevator_Talon_2_ID = 7;
 
-  public static int[] Height_List = new int[] {0, 4096, 8192};
+  public static int[] Height_List = new int[] {0, 4096, 8192, 12288, 16384, 20480, 24576};
   
   // If you are using multiple modules, make sure to define both the port
   // number and the module. For example you with a rangefinder:

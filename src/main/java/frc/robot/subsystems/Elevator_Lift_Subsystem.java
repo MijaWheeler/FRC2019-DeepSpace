@@ -8,7 +8,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
-// import frc.robot.commands.Feeder_Height_Command;
+import frc.robot.commands.Elevator_Height_Position;
 import frc.robot.RobotMap;
 
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
@@ -24,6 +24,8 @@ public class Elevator_Lift_Subsystem extends PIDSubsystem {
    */
   TalonSRX Elevator_Talon_1 = new TalonSRX(RobotMap.Elevator_Talon_1_ID);
   TalonSRX Elevator_Talon_2 = new TalonSRX(RobotMap.Elevator_Talon_2_ID);
+
+  public int Elevator_Height = 0;
 
   public Elevator_Lift_Subsystem() {
     // Intert a subsystem name and PID values here
@@ -43,7 +45,7 @@ public class Elevator_Lift_Subsystem extends PIDSubsystem {
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
-    setDefaultCommand(null);
+    setDefaultCommand(new Elevator_Height_Position());
   }
 
   @Override
@@ -59,5 +61,23 @@ public class Elevator_Lift_Subsystem extends PIDSubsystem {
     // Use output to drive your system, like a motor
     // e.g. yourMotor.set(output);
     Elevator_Talon_1.set(ControlMode.PercentOutput, output);
+  }
+
+  public void MO_Up() {
+    if (this.Elevator_Height == 6) {
+      return;
+    } else {
+      this.Elevator_Height = this.Elevator_Height + 1;
+      // System.out.println(this.Elevator_Height);
+    }
+  }
+
+  public void MO_Down() {
+    if (this.Elevator_Height == 0) {
+      return;
+    } else {
+      this.Elevator_Height = this.Elevator_Height - 1;
+      // System.out.println(this.Elevator_Height);
+    }
   }
 }

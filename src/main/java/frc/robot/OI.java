@@ -8,6 +8,8 @@
 package frc.robot;
 
 import frc.robot.RobotMap;
+import frc.robot.commands.Decrement_Command;
+import frc.robot.commands.Increment_Command;
 // import frc.robot.commands.Ball_Rocket_Low_Command;
 // import frc.robot.commands.Cargo_Load_Command;
 // import frc.robot.commands.Feeder_Height_Command;
@@ -45,8 +47,8 @@ public class OI {
   // button.whenPressed(new ExampleCommand());
 
   public OI() {
-    // button1.whenPressed(new Elevator_Height + 1);
-    // button2.whenPressed(new TalonSRX_Test_Command());
+    button1.whenPressed(new Increment_Command());
+    button2.whenPressed(new Decrement_Command());
   }
   // Run the command while the button is being held down and interrupt it once
   // the button is released.
