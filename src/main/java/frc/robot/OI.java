@@ -22,10 +22,10 @@ import frc.robot.commands.TunnelIntakeOff;
  */
 public class OI {
 
-  Joystick stick0 = new Joystick(0); //create new joystick input. stick0 is name of right stick
+  Joystick stick0 = new Joystick(RobotMap.R_joy); //create new joystick input. stick0 is name of right stick
 
-  Button tunBut = new JoystickButton(stick0, 3); //Tunnel starts on X-button
-  Button tunBut_off = new JoystickButton(stick0, 4); //Tunnel turns off on Y-button
+  Button tunBut = new JoystickButton(stick0, RobotMap.TunOn); //Tunnel starts on X-button
+  Button tunBut_off = new JoystickButton(stick0, RobotMap.TunOff); //Tunnel turns off on Y-button
 
 
 public OI() {
