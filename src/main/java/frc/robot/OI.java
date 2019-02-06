@@ -44,10 +44,10 @@ public class OI {
   // until it is finished as determined by it's isFinished method.
   // button.whenPressed(new ExampleCommand());
 public OI(){
-  buttonB.whileHeld(new TurnRight(.5));
-  buttonX.whileHeld(new TurnLeft(.5));
-  buttonY.whileHeld(new DriveForward(.5));
-  buttonA.whileHeld(new DriveBackwards(.5));
+  buttonB.whileHeld(new TurnRight(.05));
+  buttonX.whileHeld(new TurnLeft(.05));
+  buttonY.whileHeld(new DriveForward(.05));
+  buttonA.whileHeld(new DriveBackwards(.05));
 }
 
 

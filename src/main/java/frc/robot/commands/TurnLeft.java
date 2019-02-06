@@ -30,8 +30,8 @@ public class TurnLeft extends Command {
   @Override
   protected void execute() {
 
-    Robot.LDriveTrain.DriveBackLDriveTrain();
-    Robot.RDriveTrain.DriveForRDriveTrain();
+    Robot.LDriveTrain.DriveForLDriveTrain(this.turnSpeed);
+    Robot.RDriveTrain.DriveBackRDriveTrain(this.turnSpeed);
   
   }
 

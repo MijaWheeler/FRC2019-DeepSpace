@@ -20,16 +20,16 @@ public class L_DriveTrain_Subsystem extends Subsystem {
   public CANSparkMax MotorL2 = new CANSparkMax(RobotMap.MotorL2ID,MotorType.kBrushless);
   public CANSparkMax MotorL3 = new CANSparkMax(RobotMap.MotorL3ID,MotorType.kBrushless);
 
-  public void DriveBackLDriveTrain(){
-    Robot.LDriveTrain.MotorL1.set(-0.5);
-    Robot.LDriveTrain.MotorL2.set(-0.5);
-    Robot.LDriveTrain.MotorL3.set(-0.5);
+  public void DriveBackLDriveTrain(double driveSpeed){
+    Robot.LDriveTrain.MotorL1.set(-driveSpeed);
+    Robot.LDriveTrain.MotorL2.set(-driveSpeed);
+    Robot.LDriveTrain.MotorL3.set(-driveSpeed);
   }
 
-  public void DriveForLDriveTrain(){
-    Robot.LDriveTrain.MotorL1.set(0.5);
-    Robot.LDriveTrain.MotorL2.set(0.5);
-    Robot.LDriveTrain.MotorL3.set(0.5);
+  public void DriveForLDriveTrain(double driveSpeed){
+    Robot.LDriveTrain.MotorL1.set(driveSpeed);
+    Robot.LDriveTrain.MotorL2.set(driveSpeed);
+    Robot.LDriveTrain.MotorL3.set(driveSpeed);
   }
 
   @Override

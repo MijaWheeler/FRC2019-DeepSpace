@@ -28,8 +28,8 @@ public class DriveForward extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.LDriveTrain.DriveForLDriveTrain();
-    Robot.RDriveTrain.DriveForRDriveTrain();
+    Robot.LDriveTrain.DriveForLDriveTrain(this.turnSpeed);
+    Robot.RDriveTrain.DriveForRDriveTrain(this.turnSpeed);
   }
 
   // Make this return true when this Command no longer needs to run execute()
