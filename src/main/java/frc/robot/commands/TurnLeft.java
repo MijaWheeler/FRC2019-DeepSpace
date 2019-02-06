@@ -17,7 +17,8 @@ public class TurnLeft extends Command {
     // eg. requires(chassis);
     this.turnSpeed = turnSpeed;
     requires(Robot.Limelight);
-    requires(Robot.DriveTrain);
+    requires(Robot.LDriveTrain);
+    requires(Robot.RDriveTrain);
   }
 
   // Called just before this Command runs the first time
@@ -29,10 +30,8 @@ public class TurnLeft extends Command {
   @Override
   protected void execute() {
 
-      Robot.DriveTrain.MotorR1.set(this.turnSpeed);
-      Robot.DriveTrain.MotorR2.set(this.turnSpeed);
-      Robot.DriveTrain.MotorL1.set(-this.turnSpeed);
-      Robot.DriveTrain.MotorL2.set(-this.turnSpeed);
+    Robot.LDriveTrain.DriveBackLDriveTrain();
+    Robot.RDriveTrain.DriveForRDriveTrain();
   
   }
 

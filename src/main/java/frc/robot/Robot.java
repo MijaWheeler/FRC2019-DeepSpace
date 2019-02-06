@@ -13,7 +13,8 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.Limelight_Subsystem;
-import frc.robot.subsystems.DriveTrain_Subsystem;
+import frc.robot.subsystems.L_DriveTrain_Subsystem;
+import frc.robot.subsystems.R_DriveTrain_Subsystem;
 import frc.robot.commands.TrackLimelightX;
 
 /**
@@ -31,8 +32,8 @@ public class Robot extends TimedRobot {
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
   public static Limelight_Subsystem Limelight = new Limelight_Subsystem();
-  public static DriveTrain_Subsystem DriveTrain = new DriveTrain_Subsystem();
-
+  public static L_DriveTrain_Subsystem LDriveTrain = new L_DriveTrain_Subsystem();
+  public static R_DriveTrain_Subsystem RDriveTrain = new R_DriveTrain_Subsystem();
 
   /**
    * This function is run when the robot is first started up and should be

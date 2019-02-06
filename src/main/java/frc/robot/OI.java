@@ -11,13 +11,16 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.TrackLimelightX;
 import frc.robot.commands.TurnLeft;
-
+import frc.robot.commands.TurnRight;
+import frc.robot.commands.DriveForward;
+import frc.robot.commands.DriveBackwards;
+import frc.robot.RobotMap;
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-  static Joystick stick0 = new Joystick(0);
+  static Joystick stick0 = new Joystick(RobotMap.Controller);
   //// CREATING BUTTONS
   // One type of button is a joystick button which is any button on a
   //// joystick.
@@ -25,8 +28,10 @@ public class OI {
   // number it is.
   // Joystick stick = new Joystick(port);
   // Button button = new JoystickButton(stick, buttonNumber);
-  Button button1 = new JoystickButton(stick0, 1);
-  Button button2 = new JoystickButton(stick0, 2);
+  Button buttonA = new JoystickButton(stick0, RobotMap.Button_A);
+  Button buttonB = new JoystickButton(stick0, RobotMap.Button_B);
+  Button buttonX = new JoystickButton(stick0, RobotMap.Button_X);
+  Button buttonY = new JoystickButton(stick0, RobotMap.Button_Y);
   // There are a few additional built in buttons you can use. Additionally,
   // by subclassing Button you can create custom triggers and bind those to
   // commands the same as any other Button.
@@ -39,8 +44,10 @@ public class OI {
   // until it is finished as determined by it's isFinished method.
   // button.whenPressed(new ExampleCommand());
 public OI(){
-  button1.whenPressed(new TrackLimelightX());
-  button2.whenPressed(new TurnLeft(.5));
+  buttonB.whileHeld(new TurnRight(.5));
+  buttonX.whileHeld(new TurnLeft(.5));
+  buttonY.whileHeld(new DriveForward(.5));
+  buttonA.whileHeld(new DriveBackwards(.5));
 }
 
 

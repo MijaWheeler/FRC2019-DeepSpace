@@ -8,14 +8,17 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-
 import frc.robot.Robot;
 
-public class StopMotors extends Command {
-  public StopMotors() {
+
+public class DriveBackwards extends Command {
+  private double turnSpeed;
+  public DriveBackwards(double turnSpeed) {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.DriveTrain);
+    requires(Robot.LDriveTrain);
+    requires(Robot.RDriveTrain);
+    this.turnSpeed = turnSpeed;
   }
 
   // Called just before this Command runs the first time
@@ -26,16 +29,14 @@ public class StopMotors extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.DriveTrain.MotorL1.stopMotor();
-    Robot.DriveTrain.MotorL2.stopMotor();
-    Robot.DriveTrain.MotorR1.stopMotor();
-    Robot.DriveTrain.MotorR2.stopMotor();
+    Robot.LDriveTrain.DriveBackLDriveTrain();
+    Robot.RDriveTrain.DriveBackRDriveTrain();
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return true;
   }
 
   // Called once after isFinished returns true

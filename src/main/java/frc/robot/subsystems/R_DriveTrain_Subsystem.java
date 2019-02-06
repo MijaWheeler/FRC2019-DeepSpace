@@ -6,21 +6,35 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot.subsystems;
+
 import edu.wpi.first.wpilibj.command.Subsystem;
-import frc.robot.commands.TurnLeft;
-import frc.robot.commands.TurnRight;
-import frc.robot.commands.TrackLimelightX;
+import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.RobotMap;
+import frc.robot.Robot;
+
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 /**
  * Add your docs here.
  */
-public class DriveTrain_Subsystem extends Subsystem {
-  public CANSparkMax MotorL1 = new CANSparkMax(2,MotorType.kBrushless);
-  public CANSparkMax MotorL2 = new CANSparkMax(3,MotorType.kBrushless);
-  public CANSparkMax MotorR1 = new CANSparkMax(0,MotorType.kBrushless);
-  public CANSparkMax MotorR2 = new CANSparkMax(1,MotorType.kBrushless);
+public class R_DriveTrain_Subsystem extends Subsystem {
+  public CANSparkMax MotorR1 = new CANSparkMax(RobotMap.MotorR1ID,MotorType.kBrushless);
+  public CANSparkMax MotorR2 = new CANSparkMax(RobotMap.MotorR2ID,MotorType.kBrushless);
+  public CANSparkMax MotorR3 = new CANSparkMax(RobotMap.MotorR3ID,MotorType.kBrushless);
+  // Put methods for controlling this subsystem
+  // here. Call these from Commands.
+  public void DriveBackRDriveTrain(){
+    Robot.RDriveTrain.MotorR1.set(-0.5);
+    Robot.RDriveTrain.MotorR2.set(-0.5);
+    Robot.RDriveTrain.MotorR3.set(-0.5);
+  }
+
+  public void DriveForRDriveTrain(){
+    Robot.RDriveTrain.MotorR1.set(0.5);
+    Robot.RDriveTrain.MotorR2.set(0.5);
+    Robot.RDriveTrain.MotorR3.set(0.5);
+  }
 
   @Override
   public void initDefaultCommand() {

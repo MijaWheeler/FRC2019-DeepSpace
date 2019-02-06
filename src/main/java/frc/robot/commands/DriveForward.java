@@ -10,13 +10,14 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class TurnRight extends Command {
+public class DriveForward extends Command {
   private double turnSpeed;
-  public TurnRight(double turnSpeed) {
-    this.turnSpeed = turnSpeed;
-    requires(Robot.Limelight);
+  public DriveForward(double turnSpeed) {
+    // Use requires() here to declare subsystem dependencies
+    // eg. requires(chassis);
     requires(Robot.LDriveTrain);
     requires(Robot.RDriveTrain);
+    this.turnSpeed = turnSpeed;
   }
 
   // Called just before this Command runs the first time
@@ -27,7 +28,7 @@ public class TurnRight extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.LDriveTrain.DriveBackLDriveTrain();
+    Robot.LDriveTrain.DriveForLDriveTrain();
     Robot.RDriveTrain.DriveForRDriveTrain();
   }
 
