@@ -9,7 +9,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-//import frc.robot.subsystems.HatchArmPID_Subsystem;
+import frc.robot.RobotMap;
 
 /**
  * An example command.  You can replace me with your own command.
@@ -29,7 +29,7 @@ public class HatchArm_Stowed extends Command {
   @Override
   protected void execute() {
 
-    Robot.HatchArm.setSetpoint(0); //Full = 4096; start = 0
+    Robot.HatchArm.setSetpoint(RobotMap.Stow_Height); //Full = 4096; start = 0
 
   }
 

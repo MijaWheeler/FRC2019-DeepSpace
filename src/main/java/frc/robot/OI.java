@@ -27,14 +27,14 @@ import frc.robot.commands.HatchArm_Stowed;
 public class OI {
 
   //Joystick rightjoy = new Joystick(RobotMap.joystick1port);  //DK added to create new joystick input
-  Joystick stick0 = new Joystick(0); //create new joystick input
+  Joystick stick0 = new Joystick(RobotMap.R_joy); //create new joystick input
 
   Button StowBut = new JoystickButton(stick0, RobotMap.Stow_Button); //b button
   Button GroundBut = new JoystickButton(stick0, RobotMap.Ground_Button); //x button
   Button FeedBut = new JoystickButton(stick0, RobotMap.Feeder_Button); // y button
 
 
-  public static final int HatchArm_Enc = 9;
+  //public static final int HatchArm_Enc = 9;
 
 public OI() {
   //runs specific command when pressed

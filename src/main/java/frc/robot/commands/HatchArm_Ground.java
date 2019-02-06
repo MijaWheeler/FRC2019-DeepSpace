@@ -9,8 +9,6 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-//import frc.robot.OI;
-//import frc.robot.subsystems.HatchArmPID_Subsystem;
 import frc.robot.RobotMap;
 
 /**
@@ -30,8 +28,7 @@ public class HatchArm_Ground extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    
-    Robot.HatchArm.setSetpoint(RobotMap.HatchArm_Enc[]); //Full = 4096; 180deg = 2048spt
+    Robot.HatchArm.setSetpoint(RobotMap.Ground_Height);
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -43,8 +40,6 @@ public class HatchArm_Ground extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    //Robot.HatchArm.setSetpoint(1024); //Full = 4096; start = 0// 2/4
-
   }
 
   // Called when another command which requires one or more of the same

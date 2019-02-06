@@ -7,9 +7,9 @@
 
 package frc.robot;
 
-import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.buttons.Button;
-import edu.wpi.first.wpilibj.buttons.JoystickButton;
+//import edu.wpi.first.wpilibj.Joystick;
+//import edu.wpi.first.wpilibj.buttons.Button;
+//import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -30,17 +30,21 @@ public class RobotMap {
 
 
   /*Button Ports*/ 
-  public static int Stow_Button = 2; //B button
-  public static int Ground_Button = 3; //x button
-  public static int Feeder_Button = 4; //y button
+  public static int Stow_Button   = 2; //B button
+  public static int Ground_Button = 3; //X button
+  public static int Feeder_Button = 4; //Y button
+
+  /*Joystick*/
+  public static int R_joy = 0; 
 
 
   /*Encoder Ports*/ 
   public static final int HatchArm_Enc = 9;
 
-  public static int[] HatchArm_Position = new int[] {1024, 2048};
-  //{}
-
+  /*Hatch Arm Height*/ 
+  public static final int Ground_Height = 1024;
+  public static final int Feed_Height   = 2048;
+  public static final int Stow_Height   = 0;
 
 
 
