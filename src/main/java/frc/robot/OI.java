@@ -6,9 +6,11 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot;
-
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
+import frc.robot.commands.TurnLeft;
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -29,7 +31,7 @@ public class OI {
   // There are a few additional built in buttons you can use. Additionally,
   // by subclassing Button you can create custom triggers and bind those to
   // commands the same as any other Button.
-
+  Button buttonA = new JoystickButton(stick0, RobotMap.ButtonA);
 
 
   //// TRIGGERING COMMANDS WITH BUTTONS
@@ -47,7 +49,9 @@ public class OI {
   // Start the command when the button is released and let it run the command
   // until it is finished as determined by it's isFinished method.
   // button.whenReleased(new ExampleCommand());
-
+  public OI(){
+    buttonA.whenPressed(new TurnLeft());
+  }
     public static double getLeftStickY(){
       return (stick0.getRawAxis(RobotMap.LeftJoystickID));
     
