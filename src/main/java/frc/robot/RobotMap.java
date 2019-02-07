@@ -21,7 +21,7 @@ public class RobotMap {
 
   public static int MotorR1ID = 0;
   public static int MotorR2ID = 2;
-  public static int MotorR3ID = 3;
+  public static int MotorR3ID = 4;
 
   public static int LeftJoystickID = 1;  
   public static int RightJoystickID = 5;
