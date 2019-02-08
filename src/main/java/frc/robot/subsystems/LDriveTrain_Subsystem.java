@@ -13,6 +13,7 @@ import frc.robot.commands.LeftJoystick;
 
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+import com.revrobotics.CANEncoder;
 /**
  * Add your docs here.
  */
@@ -20,6 +21,7 @@ public class LDriveTrain_Subsystem extends Subsystem {
   public CANSparkMax MotorL1 = new CANSparkMax(RobotMap.MotorL1ID,MotorType.kBrushless);
   public CANSparkMax MotorL2 = new CANSparkMax(RobotMap.MotorL2ID,MotorType.kBrushless);
   public CANSparkMax MotorL3 = new CANSparkMax(RobotMap.MotorL3ID,MotorType.kBrushless);
+  public CANEncoder MotorL2_Encoder = MotorL2.getEncoder();
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
