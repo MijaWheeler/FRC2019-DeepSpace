@@ -25,7 +25,8 @@ public class RightJoystick extends Command {
     Robot.RDriveTrain.MotorR1.set(OI.getRightStickY());
     Robot.RDriveTrain.MotorR2.set(OI.getRightStickY());
     Robot.RDriveTrain.MotorR3.set(OI.getRightStickY());
-    System.out.println(Robot.RDriveTrain.MotorR1_Encoder.getPosition());
+    System.out.print("RIGHT MOTOR = ");
+    System.out.println(Robot.RDriveTrain.MotorR2_Encoder.getPosition());
   }
 
   @Override

@@ -25,7 +25,8 @@ public class LeftJoystick extends Command {
     Robot.LDriveTrain.MotorL1.set(-OI.getLeftStickY());
     Robot.LDriveTrain.MotorL2.set(-OI.getLeftStickY());
     Robot.LDriveTrain.MotorL3.set(-OI.getLeftStickY());
-    System.out.println(Robot.LDriveTrain.MotorL1_Encoder.getPosition());
+    System.out.print("LEFT MOTOR = ");
+    System.out.println(Robot.LDriveTrain.MotorL2_Encoder.getPosition());
   }
 
   @Override
