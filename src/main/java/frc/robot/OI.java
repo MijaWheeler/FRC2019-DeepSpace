@@ -50,7 +50,7 @@ public class OI {
   // until it is finished as determined by it's isFinished method.
   // button.whenReleased(new ExampleCommand());
   public OI(){
-    buttonA.whenPressed(new TurnLeft());
+    buttonA.whenPressed(new TurnLeft(90));
   }
     public static double getLeftStickY(){
       return (stick0.getRawAxis(RobotMap.LeftJoystickID));

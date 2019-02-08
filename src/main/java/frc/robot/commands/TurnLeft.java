@@ -11,33 +11,57 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
 public class TurnLeft extends Command {
-  public TurnLeft() {
+  private double degrees;
+  private double currentEncValue;
+  private double axleSpins;
+  private double finalEncValue;
+  public TurnLeft(double degrees) {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
+    requires(Robot.LDriveTrain);
+    requires(Robot.RDriveTrain);
+    this.degrees = degrees;
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    currentEncValue = Robot.LDriveTrain.MotorL2_Encoder.getPosition();
+    axleSpins = degrees * 0.1681735657 / 2; // multiplied by spins p/ 1 degree
+    finalEncValue = currentEncValue - axleSpins;
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    
-    Robot.RDriveTrain.MotorR1.set(.1);
-    Robot.RDriveTrain.MotorR2.set(.1);
-    Robot.RDriveTrain.MotorR3.set(.1);
+    //if angle is positive
+    if (axleSpins > 0){
+      currentEncValue = Robot.LDriveTrain.MotorL2_Encoder.getPosition();
 
-    Robot.LDriveTrain.MotorL1.set(.1);
-    Robot.LDriveTrain.MotorL2.set(.1);
-    Robot.LDriveTrain.MotorL3.set(.1);
+      if(currentEncValue != finalEncValue){
+        //turn left
+        Robot.RDriveTrain.MotorR1.set(-.1);
+        Robot.RDriveTrain.MotorR2.set(-.1);
+        Robot.RDriveTrain.MotorR3.set(-.1);
+    
+        Robot.LDriveTrain.MotorL1.set(-.1);
+        Robot.LDriveTrain.MotorL2.set(-.1);
+        Robot.LDriveTrain.MotorL3.set(-.1);
+
+        System.out.println("Current: " + currentEncValue);
+        System.out.println("Final: " + finalEncValue);
+      }
+    }
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return true;
+    if(currentEncValue <= finalEncValue){
+      return true;
+    }else{
+      return false;
+    }
   }
 
   // Called once after isFinished returns true
