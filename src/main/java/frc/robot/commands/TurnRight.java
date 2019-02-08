@@ -11,12 +11,12 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 
-public class TurnLeft extends Command {
+public class TurnRight extends Command {
   private double degrees;
   private double currentEncValue;
   private double axleSpins;
   private double finalEncValue;
-  public TurnLeft(double degrees) {
+  public TurnRight(double degrees) {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.LDriveTrain);
@@ -27,9 +27,9 @@ public class TurnLeft extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    currentEncValue = Robot.LDriveTrain.MotorL2_Encoder.getPosition();
+    currentEncValue = Robot.RDriveTrain.MotorR2_Encoder.getPosition();
     axleSpins = degrees * RobotMap.axleSpinspDegree; // multiplied by spins p/ 1 degree
-    finalEncValue = currentEncValue - axleSpins;
+    finalEncValue = currentEncValue + axleSpins;
   }
 
   // Called repeatedly when this Command is scheduled to run
@@ -37,17 +37,17 @@ public class TurnLeft extends Command {
   protected void execute() {
     //if angle is positive
     if (axleSpins > 0){
-      currentEncValue = Robot.LDriveTrain.MotorL2_Encoder.getPosition();
+      currentEncValue = Robot.RDriveTrain.MotorR2_Encoder.getPosition();
 
       if(currentEncValue != finalEncValue){
         //turn left
-        Robot.RDriveTrain.MotorR1.set(-.1);
-        Robot.RDriveTrain.MotorR2.set(-.1);
-        Robot.RDriveTrain.MotorR3.set(-.1);
+        Robot.RDriveTrain.MotorR1.set(.1);
+        Robot.RDriveTrain.MotorR2.set(.1);
+        Robot.RDriveTrain.MotorR3.set(.1);
     
-        Robot.LDriveTrain.MotorL1.set(-.1);
-        Robot.LDriveTrain.MotorL2.set(-.1);
-        Robot.LDriveTrain.MotorL3.set(-.1);
+        Robot.LDriveTrain.MotorL1.set(.1);
+        Robot.LDriveTrain.MotorL2.set(.1);
+        Robot.LDriveTrain.MotorL3.set(.1);
 
         System.out.println("Current: " + currentEncValue);
         System.out.println("Final: " + finalEncValue);
@@ -58,7 +58,7 @@ public class TurnLeft extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    if(currentEncValue <= finalEncValue){
+    if(currentEncValue >= finalEncValue){
       return true;
     }else{
       return false;

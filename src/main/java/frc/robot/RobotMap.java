@@ -23,6 +23,8 @@ public class RobotMap {
   public static int MotorR2ID = 2;
   public static int MotorR3ID = 4;
 
+  public static double  axleSpinspDegree = 0.0715585514018692;
+
   public static int LeftJoystickID = 1;  
   public static int RightJoystickID = 5;
 
