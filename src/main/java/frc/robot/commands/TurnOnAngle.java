@@ -14,8 +14,8 @@ import frc.robot.RobotMap;
 
 public class TurnOnAngle extends Command {
   private double degrees;
-  private double currentREncValue;
   private double currentLEncValue;
+  private double currentREncValue;
   private double axleSpins;
   private double finalREncValue;
   private double finalLEncValue;

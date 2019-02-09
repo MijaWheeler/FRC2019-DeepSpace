@@ -10,9 +10,15 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
+import edu.wpi.first.networktables.NetworkTable;
+import edu.wpi.first.networktables.NetworkTableEntry;
+import edu.wpi.first.networktables.NetworkTableInstance;
+
 import frc.robot.commands.TurnLeft;
 import frc.robot.commands.TurnRight;
 import frc.robot.commands.TurnOnAngle;
+
+
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -20,7 +26,9 @@ import frc.robot.commands.TurnOnAngle;
 public class OI {
   static Joystick stick0 = new Joystick(0);
   
-
+  NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
+  NetworkTableEntry tx = table.getEntry("tx");
+  double xAngle = tx.getDouble(0.0);
 
 //// CREATING BUTTONS
   // One type of button is a joystick button which is any button on a
@@ -56,7 +64,7 @@ public class OI {
   public OI(){
     buttonA.whenPressed(new TurnLeft(90));
     buttonX.whenPressed(new TurnRight(90));
-    buttonY.whenPressed(new TurnOnAngle(360));
+    buttonY.whenPressed(new TurnOnAngle(xAngle));
   }
     public static double getLeftStickY(){
       return (stick0.getRawAxis(RobotMap.LeftJoystickID));
