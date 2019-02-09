@@ -12,8 +12,8 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import frc.robot.commands.TurnLeft;
 import frc.robot.commands.TurnRight;
-import frc.robot.commands.getLimelightX;
 import frc.robot.commands.getProportionalSpeed;
+import frc.robot.commands.getLimelightX;
 import frc.robot.commands.TurnOnSpeed;
 
 /**
@@ -38,6 +38,8 @@ public class OI {
   Button buttonA = new JoystickButton(stick0, RobotMap.ButtonA);
   Button buttonX = new JoystickButton(stick0, RobotMap.ButtonX);
   Button buttonY = new JoystickButton(stick0, RobotMap.ButtonY);
+  Button buttonB = new JoystickButton(stick0, RobotMap.ButtonB);
+
 
 
   //// TRIGGERING COMMANDS WITH BUTTONS
@@ -59,7 +61,7 @@ public class OI {
     buttonA.whenPressed(new TurnOnSpeed(.055));
     buttonX.whenPressed(new TurnOnSpeed(-.055));
     buttonY.whileHeld(new getProportionalSpeed());
-
+    buttonY.whenPressed(new getLimelightX());
   }
     public static double getLeftStickY(){
       return (stick0.getRawAxis(RobotMap.LeftJoystickID));
