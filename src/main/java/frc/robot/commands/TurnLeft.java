@@ -9,37 +9,60 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.RobotMap;
 
 public class TurnLeft extends Command {
-  private double turnSpeed;
-  public TurnLeft(double turnSpeed) {
+  private double degrees;
+  private double currentEncValue;
+  private double axleSpins;
+  private double finalEncValue;
+  public TurnLeft(double degrees) {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    this.turnSpeed = turnSpeed;
-    requires(Robot.Limelight);
-    requires(Robot.DriveTrain);
+    requires(Robot.LDriveTrain);
+    requires(Robot.RDriveTrain);
+    this.degrees = degrees;
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    currentEncValue = Robot.LDriveTrain.MotorL2_Encoder.getPosition();
+    axleSpins = degrees * RobotMap.axleSpinspDegree; // multiplied by spins p/ 1 degree
+    finalEncValue = currentEncValue - axleSpins;
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    //if angle is positive
+    if (axleSpins > 0){
+      currentEncValue = Robot.LDriveTrain.MotorL2_Encoder.getPosition();
 
-      Robot.DriveTrain.MotorR1.set(this.turnSpeed);
-      Robot.DriveTrain.MotorR2.set(this.turnSpeed);
-      Robot.DriveTrain.MotorL1.set(-this.turnSpeed);
-      Robot.DriveTrain.MotorL2.set(-this.turnSpeed);
-  
+      if(currentEncValue != finalEncValue){
+        //turn left
+        Robot.RDriveTrain.MotorR1.set(-.1);
+        Robot.RDriveTrain.MotorR2.set(-.1);
+        Robot.RDriveTrain.MotorR3.set(-.1);
+    
+        Robot.LDriveTrain.MotorL1.set(.1);
+        Robot.LDriveTrain.MotorL2.set(.1);
+        Robot.LDriveTrain.MotorL3.set(.1);
+
+        System.out.println("Current: " + currentEncValue);
+        System.out.println("Final: " + finalEncValue);
+      }
+    }
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return true;
+    if(currentEncValue <= finalEncValue){
+      return true;
+    }else{
+      return false;
+    }
   }
 
   // Called once after isFinished returns true

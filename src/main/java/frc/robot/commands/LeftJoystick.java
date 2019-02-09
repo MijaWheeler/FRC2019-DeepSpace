@@ -8,43 +8,34 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-
+import frc.robot.OI;
 import frc.robot.Robot;
 
-public class StopMotors extends Command {
-  public StopMotors() {
-    // Use requires() here to declare subsystem dependencies
-    // eg. requires(chassis);
-    requires(Robot.DriveTrain);
+public class LeftJoystick extends Command {
+  public LeftJoystick() {
+    requires(Robot.LDriveTrain);
   }
 
-  // Called just before this Command runs the first time
   @Override
   protected void initialize() {
   }
 
-  // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.DriveTrain.MotorL1.stopMotor();
-    Robot.DriveTrain.MotorL2.stopMotor();
-    Robot.DriveTrain.MotorR1.stopMotor();
-    Robot.DriveTrain.MotorR2.stopMotor();
+    Robot.LDriveTrain.MotorL1.set(-OI.getLeftStickY());
+    Robot.LDriveTrain.MotorL2.set(-OI.getLeftStickY());
+    Robot.LDriveTrain.MotorL3.set(-OI.getLeftStickY());
   }
 
-  // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
     return false;
   }
 
-  // Called once after isFinished returns true
   @Override
   protected void end() {
   }
 
-  // Called when another command which requires one or more of the same
-  // subsystems is scheduled to run
   @Override
   protected void interrupted() {
   }

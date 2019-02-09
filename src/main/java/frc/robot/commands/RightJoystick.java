@@ -8,14 +8,12 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import frc.robot.Robot;
 
-public class TurnRight extends Command {
-  private double turnSpeed;
-  public TurnRight(double turnSpeed) {
-    this.turnSpeed = turnSpeed;
-    requires(Robot.Limelight);
-    requires(Robot.DriveTrain);
+public class RightJoystick extends Command {
+  public RightJoystick() {
+    // Use requires() here to declare subsystem dependencies
+    // eg. requires(chassis);
+    
   }
 
   // Called just before this Command runs the first time
@@ -26,16 +24,12 @@ public class TurnRight extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-      Robot.DriveTrain.MotorR1.set(-this.turnSpeed);
-      Robot.DriveTrain.MotorR2.set(-this.turnSpeed);
-      Robot.DriveTrain.MotorL1.set(this.turnSpeed);
-      Robot.DriveTrain.MotorL2.set(this.turnSpeed);
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return true;
+    return false;
   }
 
   // Called once after isFinished returns true
