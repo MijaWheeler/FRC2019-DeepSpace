@@ -10,15 +10,15 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
-import edu.wpi.first.networktables.NetworkTable;
-import edu.wpi.first.networktables.NetworkTableEntry;
-import edu.wpi.first.networktables.NetworkTableInstance;
-
 import frc.robot.commands.TurnLeft;
 import frc.robot.commands.TurnRight;
+<<<<<<< HEAD
 import frc.robot.commands.TurnOnAngle;
 import frc.robot.commands.Forward;;
 
+=======
+import frc.robot.commands.getLimelightX;
+>>>>>>> 7644a0975f8bd564bed6cf608a6baa7615c9f0de
 
 
 /**
@@ -28,9 +28,6 @@ import frc.robot.commands.Forward;;
 public class OI {
   static Joystick stick0 = new Joystick(0);
   
-  NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
-  NetworkTableEntry tx = table.getEntry("tx");
-  double xAngle = tx.getDouble(0.0);
 
 //// CREATING BUTTONS
   // One type of button is a joystick button which is any button on a
@@ -68,10 +65,14 @@ public class OI {
   public OI(){
     buttonA.whenPressed(new TurnLeft(90));
     buttonX.whenPressed(new TurnRight(90));
+<<<<<<< HEAD
     buttonY.whenPressed(new TurnOnAngle(xAngle));
     buttonB.whenPressed(new Forward(12)); //inches-move to robot map
 
 
+=======
+    buttonY.whenPressed(new getLimelightX());
+>>>>>>> 7644a0975f8bd564bed6cf608a6baa7615c9f0de
   }
     public static double getLeftStickY(){
       return (stick0.getRawAxis(RobotMap.LeftJoystickID));
