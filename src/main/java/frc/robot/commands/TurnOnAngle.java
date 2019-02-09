@@ -11,12 +11,15 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 
-public class TurnRight extends Command {
+
+public class TurnOnAngle extends Command {
   private double degrees;
-  private double currentEncValue;
+  private double currentREncValue;
+  private double currentLEncValue;
   private double axleSpins;
-  private double finalEncValue;
-  public TurnRight(double degrees) {
+  private double finalREncValue;
+  private double finalLEncValue;
+  public TurnOnAngle(double degrees) {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.LDriveTrain);
@@ -27,19 +30,20 @@ public class TurnRight extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    currentEncValue = Robot.RDriveTrain.MotorR2_Encoder.getPosition();
+    currentREncValue = Robot.RDriveTrain.MotorR2_Encoder.getPosition();
+    currentLEncValue = Robot.LDriveTrain.MotorL2_Encoder.getPosition();
     axleSpins = degrees * RobotMap.axleSpinspDegree; // multiplied by spins p/ 1 degree
-    finalEncValue = currentEncValue + axleSpins;
+    finalREncValue = currentREncValue - axleSpins;
+    finalLEncValue = currentLEncValue - axleSpins;
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    //if angle is positive
-    if (axleSpins > 0){
-      currentEncValue = Robot.RDriveTrain.MotorR2_Encoder.getPosition();
+    if (axleSpins < 0){
+      currentREncValue = Robot.RDriveTrain.MotorR2_Encoder.getPosition();
 
-      if(currentEncValue != finalEncValue){
+      if(currentREncValue != finalREncValue){
         //turn right
         Robot.RDriveTrain.MotorR1.set(.1);
         Robot.RDriveTrain.MotorR2.set(.1);
@@ -48,17 +52,33 @@ public class TurnRight extends Command {
         Robot.LDriveTrain.MotorL1.set(.1);
         Robot.LDriveTrain.MotorL2.set(.1);
         Robot.LDriveTrain.MotorL3.set(.1);
-
-        System.out.println("Current: " + currentEncValue);
-        System.out.println("Final: " + finalEncValue);
+        System.out.println("R Curr: " + currentREncValue);
+        System.out.println("R Final: " + finalREncValue);
       }
+    }else if (axleSpins > 0){
+      currentLEncValue = Robot.LDriveTrain.MotorL2_Encoder.getPosition();
+
+      if(currentLEncValue != finalLEncValue){
+        //turn left
+        Robot.RDriveTrain.MotorR1.set(-.1);
+        Robot.RDriveTrain.MotorR2.set(-.1);
+        Robot.RDriveTrain.MotorR3.set(-.1);
+    
+        Robot.LDriveTrain.MotorL1.set(-.1);
+        Robot.LDriveTrain.MotorL2.set(-.1);
+        Robot.LDriveTrain.MotorL3.set(-.1);
+        System.out.println("R Curr: " + currentLEncValue);
+        System.out.println("R Final: " + finalLEncValue);
     }
   }
+}
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    if(currentEncValue >= finalEncValue){
+    if(axleSpins > 0 && currentLEncValue < finalLEncValue){
+      return true;
+    }else if(axleSpins < 0 && currentREncValue > finalREncValue){
       return true;
     }else{
       return false;
