@@ -17,6 +17,8 @@ import edu.wpi.first.networktables.NetworkTableInstance;
 import frc.robot.commands.TurnLeft;
 import frc.robot.commands.TurnRight;
 import frc.robot.commands.TurnOnAngle;
+import frc.robot.commands.Forward;;
+
 
 
 /**
@@ -44,6 +46,8 @@ public class OI {
   Button buttonA = new JoystickButton(stick0, RobotMap.ButtonA);
   Button buttonX = new JoystickButton(stick0, RobotMap.ButtonX);
   Button buttonY = new JoystickButton(stick0, RobotMap.ButtonY);
+  Button buttonB = new JoystickButton(stick0, RobotMap.ButtonB);
+
 
 
   //// TRIGGERING COMMANDS WITH BUTTONS
@@ -65,6 +69,9 @@ public class OI {
     buttonA.whenPressed(new TurnLeft(90));
     buttonX.whenPressed(new TurnRight(90));
     buttonY.whenPressed(new TurnOnAngle(xAngle));
+    buttonB.whenPressed(new Forward(12)); //inches-move to robot map
+
+
   }
     public static double getLeftStickY(){
       return (stick0.getRawAxis(RobotMap.LeftJoystickID));
