@@ -49,8 +49,8 @@ public class TurnLeft extends Command {
         Robot.LDriveTrain.MotorL2.set(-.1);
         Robot.LDriveTrain.MotorL3.set(-.1);
 
-        System.out.println("Current: " + currentEncValue);
-        System.out.println("Final: " + finalEncValue);
+        System.out.println("L Current: " + currentEncValue);
+        System.out.println("L Final: " + finalEncValue);
       }
     }
   }

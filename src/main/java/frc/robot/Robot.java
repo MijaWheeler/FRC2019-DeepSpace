@@ -13,6 +13,8 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.getProportionalSpeed;
+import frc.robot.commands.TurnOnSpeed;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.LDriveTrain_Subsystem;
 import frc.robot.subsystems.RDriveTrain_Subsystem;
@@ -43,9 +45,15 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     m_oi = new OI();
-    m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
+    //m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
     // chooser.addOption("My Auto", new MyAutoCommand());
-    SmartDashboard.putData("Auto mode", m_chooser);
+   // SmartDashboard.putData("Auto mode", m_chooser);
+
+    SmartDashboard.putData(Limelight);
+    SmartDashboard.putData(RDriveTrain);
+    SmartDashboard.putData(LDriveTrain);
+    SmartDashboard.putData("GetPSpeed", new getProportionalSpeed());
+    SmartDashboard.putData("TurnOnSpeed", new TurnOnSpeed(.055));
   }
 
   /**

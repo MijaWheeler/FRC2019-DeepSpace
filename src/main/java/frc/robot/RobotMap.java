@@ -25,6 +25,9 @@ public class RobotMap {
 
   public static double  axleSpinspDegree = 0.0715585514018692;
 
+  public static double maxTurnSpeed = 0.2;
+  public static double maxLimelightAngle = 27;
+
   public static int LeftJoystickID = 1;  
   public static int RightJoystickID = 5;
 

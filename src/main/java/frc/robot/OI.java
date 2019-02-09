@@ -13,7 +13,8 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.TurnLeft;
 import frc.robot.commands.TurnRight;
 import frc.robot.commands.getLimelightX;
-
+import frc.robot.commands.getProportionalSpeed;
+import frc.robot.commands.TurnOnSpeed;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -55,9 +56,10 @@ public class OI {
   // until it is finished as determined by it's isFinished method.
   // button.whenReleased(new ExampleCommand());
   public OI(){
-    buttonA.whenPressed(new TurnLeft(90));
-    buttonX.whenPressed(new TurnRight(90));
-    buttonY.whenPressed(new getLimelightX());
+    buttonA.whenPressed(new TurnOnSpeed(.055));
+    buttonX.whenPressed(new TurnOnSpeed(-.055));
+    buttonY.whileHeld(new getProportionalSpeed());
+
   }
     public static double getLeftStickY(){
       return (stick0.getRawAxis(RobotMap.LeftJoystickID));

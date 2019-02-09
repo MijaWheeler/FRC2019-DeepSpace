@@ -30,7 +30,9 @@ public class getLimelightX extends Command {
   @Override
   protected void execute() {
     double xAngle = Robot.Limelight.getLimelightX();
-    new TurnOnAngle(xAngle).start();
+    double speed = Robot.Limelight.getPSpeed(xAngle);
+    System.out.println(xAngle);
+    new TurnOnAngle(xAngle, speed).start();
   }
 
   // Make this return true when this Command no longer needs to run execute()

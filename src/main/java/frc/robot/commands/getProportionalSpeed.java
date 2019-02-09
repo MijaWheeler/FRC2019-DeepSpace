@@ -9,60 +9,39 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import frc.robot.RobotMap;
 
-public class TurnRight extends Command {
-  private double degrees;
-  private double currentEncValue;
-  private double axleSpins;
-  private double finalEncValue;
-  public TurnRight(double degrees) {
+public class getProportionalSpeed extends Command {
+  public getProportionalSpeed() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.LDriveTrain);
-    requires(Robot.RDriveTrain);
-    this.degrees = degrees;
+    requires(Robot.Limelight);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    currentEncValue = Robot.RDriveTrain.MotorR2_Encoder.getPosition();
-    axleSpins = degrees * RobotMap.axleSpinspDegree; // multiplied by spins p/ 1 degree
-    finalEncValue = currentEncValue + axleSpins;
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    //if angle is positive
-    if (axleSpins > 0){
-      currentEncValue = Robot.RDriveTrain.MotorR2_Encoder.getPosition();
+    double xAngle = Robot.Limelight.getLimelightX();
+    double speed = Robot.Limelight.getPSpeed(xAngle);
+    System.out.println("P Speed: " + speed);
+    new TurnOnSpeed(speed).start();
 
-      if(currentEncValue != finalEncValue){
-        //turn right
-        Robot.RDriveTrain.MotorR1.set(.1);
-        Robot.RDriveTrain.MotorR2.set(.1);
-        Robot.RDriveTrain.MotorR3.set(.1);
-    
-        Robot.LDriveTrain.MotorL1.set(.1);
-        Robot.LDriveTrain.MotorL2.set(.1);
-        Robot.LDriveTrain.MotorL3.set(.1);
-
-        System.out.println("R Current: " + currentEncValue);
-        System.out.println("R Final: " + finalEncValue);
-      }
-    }
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    if(currentEncValue >= finalEncValue){
+    double xAngle = Robot.Limelight.getLimelightX();
+    //if angle is between -2 and 2
+ //   if (xAngle < .5 || xAngle > -.5){
       return true;
-    }else{
-      return false;
-    }
+   // }else{
+   //   return false;
+   // }
   }
 
   // Called once after isFinished returns true

@@ -14,17 +14,19 @@ import frc.robot.RobotMap;
 
 public class TurnOnAngle extends Command {
   private double degrees;
+  private double speed;
   private double currentLEncValue;
   private double currentREncValue;
   private double axleSpins;
   private double finalREncValue;
   private double finalLEncValue;
-  public TurnOnAngle(double degrees) {
+  public TurnOnAngle(double degrees, double speed) {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.LDriveTrain);
     requires(Robot.RDriveTrain);
     this.degrees = degrees;
+    this.speed = speed;
   }
 
   // Called just before this Command runs the first time
@@ -33,42 +35,44 @@ public class TurnOnAngle extends Command {
     currentREncValue = Robot.RDriveTrain.MotorR2_Encoder.getPosition();
     currentLEncValue = Robot.LDriveTrain.MotorL2_Encoder.getPosition();
     axleSpins = degrees * RobotMap.axleSpinspDegree; // multiplied by spins p/ 1 degree
-    finalREncValue = currentREncValue - axleSpins;
-    finalLEncValue = currentLEncValue - axleSpins;
+    finalREncValue = currentREncValue + axleSpins;
+    finalLEncValue = currentLEncValue + axleSpins;
+    System.out.println("Axle Spins: " + axleSpins);
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if (axleSpins < 0){
+    //when the angle is positive
+    if (axleSpins > 0){
       currentREncValue = Robot.RDriveTrain.MotorR2_Encoder.getPosition();
-
       if(currentREncValue != finalREncValue){
         //turn right
-        Robot.RDriveTrain.MotorR1.set(.1);
-        Robot.RDriveTrain.MotorR2.set(.1);
-        Robot.RDriveTrain.MotorR3.set(.1);
+        Robot.RDriveTrain.MotorR1.set(speed);
+        Robot.RDriveTrain.MotorR2.set(speed);
+        Robot.RDriveTrain.MotorR3.set(speed);
     
-        Robot.LDriveTrain.MotorL1.set(.1);
-        Robot.LDriveTrain.MotorL2.set(.1);
-        Robot.LDriveTrain.MotorL3.set(.1);
+        Robot.LDriveTrain.MotorL1.set(speed);
+        Robot.LDriveTrain.MotorL2.set(speed);
+        Robot.LDriveTrain.MotorL3.set(speed);
         System.out.println("R Curr: " + currentREncValue);
         System.out.println("R Final: " + finalREncValue);
       }
-    }else if (axleSpins > 0){
+      //when angle is negative
+    }else if (axleSpins < 0){
       currentLEncValue = Robot.LDriveTrain.MotorL2_Encoder.getPosition();
 
       if(currentLEncValue != finalLEncValue){
         //turn left
-        Robot.RDriveTrain.MotorR1.set(-.1);
-        Robot.RDriveTrain.MotorR2.set(-.1);
-        Robot.RDriveTrain.MotorR3.set(-.1);
+        Robot.RDriveTrain.MotorR1.set(speed);
+        Robot.RDriveTrain.MotorR2.set(speed);
+        Robot.RDriveTrain.MotorR3.set(speed);
     
-        Robot.LDriveTrain.MotorL1.set(-.1);
-        Robot.LDriveTrain.MotorL2.set(-.1);
-        Robot.LDriveTrain.MotorL3.set(-.1);
-        System.out.println("R Curr: " + currentLEncValue);
-        System.out.println("R Final: " + finalLEncValue);
+        Robot.LDriveTrain.MotorL1.set(speed);
+        Robot.LDriveTrain.MotorL2.set(speed);
+        Robot.LDriveTrain.MotorL3.set(speed);
+        System.out.println("L Curr: " + currentLEncValue);
+        System.out.println("L Final: " + finalLEncValue);
     }
   }
 }
@@ -76,9 +80,10 @@ public class TurnOnAngle extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    if(axleSpins > 0 && currentLEncValue < finalLEncValue){
+    //check if left current encoder is less than final left enc
+    if(axleSpins < 0 && currentLEncValue <= finalLEncValue){
       return true;
-    }else if(axleSpins < 0 && currentREncValue > finalREncValue){
+    }else if(axleSpins > 0 && currentREncValue >= finalREncValue){
       return true;
     }else{
       return false;

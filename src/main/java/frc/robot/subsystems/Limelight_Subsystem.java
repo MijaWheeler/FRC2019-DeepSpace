@@ -9,6 +9,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.networktables.NetworkTableInstance;
+import frc.robot.RobotMap;
 
 /**
  * Add your docs here.
@@ -27,5 +28,10 @@ public class Limelight_Subsystem extends Subsystem {
     double xAngle = NetworkTableInstance.getDefault().getTable("limelight").getEntry("tx").getDouble(0);
     System.out.println(xAngle);
     return xAngle;
+  }
+
+  public double getPSpeed(double degree){
+    double speed = degree *RobotMap.maxTurnSpeed / RobotMap.maxLimelightAngle;
+    return speed;
   }
 }
