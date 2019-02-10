@@ -31,5 +31,7 @@ public class RobotMap {
   public static int ButtonY = 4;
 
   public static double  axleSpinspDegree = 0.0715585514018692;
+  public static double  GearBoxRatio = 1.53;
+
 
 }
