@@ -6,15 +6,17 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot;
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+
+import frc.robot.commands.Forwardx;
+
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
-//Import additional commands *probably could be done in one line of code as command file
-import frc.robot.commands.HatchArm_Feeder;
-import frc.robot.commands.HatchArm_Ground;
-import frc.robot.commands.HatchArm_Stowed;
 
 
 
@@ -23,25 +25,55 @@ import frc.robot.commands.HatchArm_Stowed;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
+  static Joystick stick0 = new Joystick(0);
+  
 
-  //Joystick rightjoy = new Joystick(RobotMap.joystick1port);  //DK added to create new joystick input
-  Joystick stick0 = new Joystick(0); //create new joystick input
+//// CREATING BUTTONS
+  // One type of button is a joystick button which is any button on a
+  //// joystick.
+  // You create one by telling it which joystick it's on and which button
+  // number it is.
+  // Joystick stick = new Joystick(port);
+  // Button button = new JoystickButton(stick, buttonNumber);
 
-  Button StowBut = new JoystickButton(stick0, 2); //b button
-  Button GroundBut = new JoystickButton(stick0, 3); //x button
-  Button FeedBut = new JoystickButton(stick0, 4); // y button
+  // There are a few additional built in buttons you can use. Additionally,
+  // by subclassing Button you can create custom triggers and bind those to
+  // commands the same as any other Button.
+
+  Button buttonA = new JoystickButton(stick0, RobotMap.ButtonA);
+  Button buttonX = new JoystickButton(stick0, RobotMap.ButtonX);
+  Button buttonY = new JoystickButton(stick0, RobotMap.ButtonY);
+  Button buttonB = new JoystickButton(stick0, RobotMap.ButtonB);
 
 
-public OI() {
-  //runs specific command when pressed
-  StowBut.whenPressed(new HatchArm_Stowed());
-  GroundBut.whenPressed(new HatchArm_Ground());
-  FeedBut.whenPressed(new HatchArm_Feeder());
 
+  //// TRIGGERING COMMANDS WITH BUTTONS
+  // Once you have a button, it's trivial to bind it to a button in one of
+  // three ways:
 
+  // Start the command when the button is pressed and let it run the command
+  // until it is finished as determined by it's isFinished method.
+  // button.whenPressed(new ExampleCommand());
+
+  // Run the command while the button is being held down and interrupt it once
+  // the button is released.
+  // button.whileHeld(new ExampleCommand());
+
+  // Start the command when the button is released and let it run the command
+  // until it is finished as determined by it's isFinished method.
+  // button.whenReleased(new ExampleCommand());
+  public OI(){
+   // buttonA.whenPressed(new TurnOnSpeed(.055));
+   // buttonX.whenPressed(new TurnOnSpeed(-.055));
+    //buttonY.whileHeld(new getProportionalSpeed());
+    buttonB.whenPressed(new Forwardx(0.1));
+  }
+    public static double getLeftStickY(){
+      return (stick0.getRawAxis(RobotMap.LeftJoystickID));
+    
+    }
+
+    public static double getRightStickY(){
+      return (stick0.getRawAxis(RobotMap.RightJoystickID));
+    }
 }
-
-
-
-}
-
