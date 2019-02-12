@@ -25,6 +25,7 @@ public class RobotMap {
 
   public static double  axleSpinspDegree = 0.0715585514018692;
   public static double  GearBoxRatio= 1.53;
+ // public static double DriveInches = 100;
 
 
   public static double maxTurnSpeed = 0.2;
@@ -37,6 +38,8 @@ public class RobotMap {
   public static int ButtonB = 2;
   public static int ButtonX = 3;
   public static int ButtonY = 4;
+
+
   // For example to map the left and right motors, you could define the
   // following variables to use with your drivetrain subsystem.
   // public static int leftMotor = 1;

@@ -5,8 +5,8 @@ import frc.robot.Robot;
 import frc.robot.RobotMap;
 
 public class Forwardx extends Command {
-  private double inches;
-  private double currentEncValue;
+  private double inches; 
+  private double currentEncValue ;
   private double axleSpins;
   private double finalEncValue;
   
@@ -20,7 +20,7 @@ public class Forwardx extends Command {
   @Override
   protected void initialize() {
     currentEncValue = Robot.LDriveTrain.MotorL2_Encoder.getPosition();
-    axleSpins = inches / RobotMap.GearBoxRatio; // multiplied by spins p/ 1 degree
+    axleSpins = inches / RobotMap.GearBoxRatio; // inches dividedb by the ration of axel rota.:inches driven
     finalEncValue = currentEncValue - axleSpins;
   }
 
@@ -43,7 +43,7 @@ public class Forwardx extends Command {
         System.out.println("Current: " + currentEncValue);
         System.out.println("Final: " + finalEncValue);
       }
-      }
+     }
 
   }
 
@@ -51,16 +51,20 @@ public class Forwardx extends Command {
   @Override
   protected boolean isFinished() {
     if(currentEncValue <= finalEncValue){
-      return true;
+      //return true; //original value-motors run forever
+      return false; // motor stops after a bit
+
     }else{
-      return false;
+      //return false;  //original value
+      return true; 
+     
     }
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-
+    
   }
 
   // Called when another command which requires one or more of the same
