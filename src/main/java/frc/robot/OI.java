@@ -6,8 +6,12 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot;
-
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.Trigger;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+
+import frc.robot.commands.PrintDPAD;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -16,7 +20,7 @@ import edu.wpi.first.wpilibj.Joystick;
 public class OI {
   static Joystick stick0 = new Joystick(0);
   
-
+  
 
 //// CREATING BUTTONS
   // One type of button is a joystick button which is any button on a
@@ -29,7 +33,10 @@ public class OI {
   // There are a few additional built in buttons you can use. Additionally,
   // by subclassing Button you can create custom triggers and bind those to
   // commands the same as any other Button.
-
+  Button buttonA = new JoystickButton(stick0, RobotMap.ButtonA);
+  Button buttonX = new JoystickButton(stick0, RobotMap.ButtonX);
+  Button buttonY = new JoystickButton(stick0, RobotMap.ButtonY);
+  Button buttonB = new JoystickButton(stick0, RobotMap.ButtonB);
 
 
   //// TRIGGERING COMMANDS WITH BUTTONS
@@ -47,6 +54,14 @@ public class OI {
   // Start the command when the button is released and let it run the command
   // until it is finished as determined by it's isFinished method.
   // button.whenReleased(new ExampleCommand());
+  public OI(){
+    buttonA.whenPressed(new PrintDPAD());
+
+  }
+
+    public static int GetDPadAngle() {
+      return stick0.getPOV();
+    }
 
     public static double getLeftStickY(){
       return (stick0.getRawAxis(RobotMap.LeftJoystickID));
@@ -55,5 +70,13 @@ public class OI {
 
     public static double getRightStickY(){
       return (stick0.getRawAxis(RobotMap.RightJoystickID));
+    }
+
+    public static double getLTrigger(){
+      return (stick0.getRawAxis(2));
+    }
+
+    public static double getRTrigger(){
+      return (stick0.getRawAxis(3));
     }
 }
