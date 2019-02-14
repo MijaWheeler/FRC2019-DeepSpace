@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.subsystems.DPAD_Subsystem;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.LDriveTrain_Subsystem;
 import frc.robot.subsystems.LTrig_Subsystem;
@@ -37,6 +38,7 @@ public class Robot extends TimedRobot {
   public static LDriveTrain_Subsystem LDriveTrain = new LDriveTrain_Subsystem();
   public static RTrig_Subsystem RightTrigger = new RTrig_Subsystem();
   public static LTrig_Subsystem LeftTrigger = new LTrig_Subsystem();
+  public static DPAD_Subsystem DPAD = new DPAD_Subsystem();
 
   /**
    * This function is run when the robot is first started up and should be

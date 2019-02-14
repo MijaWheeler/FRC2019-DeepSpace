@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
-import frc.robot.commands.PrintDPAD;
+import frc.robot.commands.PrintTest;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -32,11 +32,20 @@ public class OI {
   // There are a few additional built in buttons you can use. Additionally,
   // by subclassing Button you can create custom triggers and bind those to
   // commands the same as any other Button.
+
   Button buttonA = new JoystickButton(stick0, RobotMap.ButtonA);
   Button buttonX = new JoystickButton(stick0, RobotMap.ButtonX);
   Button buttonY = new JoystickButton(stick0, RobotMap.ButtonY);
   Button buttonB = new JoystickButton(stick0, RobotMap.ButtonB);
 
+  Button rBackBtn = new JoystickButton(stick0, RobotMap.RButton);
+  Button lBackBtn = new JoystickButton(stick0, RobotMap.LButton);
+
+  Button lMidBtn = new JoystickButton(stick0, RobotMap.LMiddle);
+  Button rMidBtn = new JoystickButton(stick0, RobotMap.RMiddle);
+
+  Button lJoystickBtn = new JoystickButton(stick0, RobotMap.LJoystickBtn);
+  Button rJoystickBtn = new JoystickButton(stick0, RobotMap.RJoystickBtn);
 
   //// TRIGGERING COMMANDS WITH BUTTONS
   // Once you have a button, it's trivial to bind it to a button in one of
@@ -54,7 +63,20 @@ public class OI {
   // until it is finished as determined by it's isFinished method.
   // button.whenReleased(new ExampleCommand());
   public OI(){
-    buttonA.whenPressed(new PrintDPAD());
+    buttonA.whenPressed(new PrintTest("A"));
+    buttonB.whenPressed(new PrintTest("B"));
+    buttonX.whenPressed(new PrintTest("X"));
+    buttonY.whenPressed(new PrintTest("Y"));
+
+    rBackBtn.whenPressed(new PrintTest("RB"));
+    lBackBtn.whenPressed(new PrintTest("LB"));
+
+    lMidBtn.whenPressed(new PrintTest("LMid"));
+    rMidBtn.whenPressed(new PrintTest("RMid"));
+
+    lJoystickBtn.whenPressed(new PrintTest("LJoy"));
+    rJoystickBtn.whenPressed(new PrintTest("RJoy"));
+
 
   }
 
@@ -72,10 +94,10 @@ public class OI {
     }
 
     public static double getLTrigger(){
-      return (stick0.getRawAxis(2));
+      return (stick0.getRawAxis(RobotMap.LTrigger));
     }
 
     public static double getRTrigger(){
-      return (stick0.getRawAxis(3));
+      return (stick0.getRawAxis(RobotMap.RTrigger));
     }
 }
