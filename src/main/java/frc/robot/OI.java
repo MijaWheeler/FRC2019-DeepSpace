@@ -86,7 +86,6 @@ public class OI {
 
     public static double getLeftStickY(){
       return (stick0.getRawAxis(RobotMap.LeftJoystickID));
-    
     }
 
     public static double getRightStickY(){

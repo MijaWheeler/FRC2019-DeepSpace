@@ -12,6 +12,18 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
+
+import org.opencv.core.Mat;
+import org.opencv.core.Point;
+import org.opencv.core.Scalar;
+import org.opencv.imgproc.Imgproc;
+
+import edu.wpi.cscore.AxisCamera;
+import edu.wpi.cscore.CvSink;
+import edu.wpi.cscore.CvSource;
+import edu.wpi.first.cameraserver.CameraServer;
+
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.DPAD_Subsystem;
 import frc.robot.subsystems.ExampleSubsystem;
@@ -44,14 +56,47 @@ public class Robot extends TimedRobot {
    * This function is run when the robot is first started up and should be
    * used for any initialization code.
    */
+  Thread m_visionThread;
   @Override
   public void robotInit() {
-    m_oi = new OI();
-    m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
-    // chooser.addOption("My Auto", new MyAutoCommand());
-    SmartDashboard.putData("Auto mode", m_chooser);
-  }
+    m_visionThread = new Thread(() -> {
+      // Get the Axis camera from CameraServer
+      AxisCamera camera
+          = CameraServer.getInstance().addAxisCamera("limelight-magma","10.30.8.11:5800");
+      // Set the resolution
+      camera.setResolution(640, 480);
 
+      // Get a CvSink. This will capture Mats from the camera
+      CvSink cvSink = CameraServer.getInstance().getVideo();
+      // Setup a CvSource. This will send images back to the Dashboard
+      CvSource outputStream
+          = CameraServer.getInstance().putVideo("LimelightCamera", 640, 480);
+
+      // Mats are very memory expensive. Lets reuse this Mat.
+      Mat mat = new Mat();
+
+      // This cannot be 'true'. The program will never exit if it is. This
+      // lets the robot stop this thread when restarting robot code or
+      // deploying.
+      while (!Thread.interrupted()) {
+        // Tell the CvSink to grab a frame from the camera and put it
+        // in the source mat.  If there is an error notify the output.
+        if (cvSink.grabFrame(mat) == 0) {
+          // Send the output the error.
+          outputStream.notifyError(cvSink.getError());
+          // skip the rest of the current iteration
+          continue;
+        }
+        // Put a rectangle on the image
+        Imgproc.rectangle(mat, new Point(100, 100), new Point(400, 400),
+            new Scalar(255, 255, 255), 5);
+        // Give the output stream a new image to display
+        outputStream.putFrame(mat);
+      }
+    });
+    m_visionThread.setDaemon(true);
+    m_visionThread.start();
+  }
   /**
    * This function is called every robot packet, no matter the mode. Use
    * this for items like diagnostics that you want ran during disabled,
