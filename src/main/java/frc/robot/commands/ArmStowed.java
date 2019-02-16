@@ -26,6 +26,8 @@ public class ArmStowed extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    Robot.L_Arm.setSetpoint(1024); //Full = 4096; start = 0
+    Robot.R_Arm.setSetpoint(1024); //Full = 4096; start = 0
   }
 
   // Make this return true when this Command no longer needs to run execute()

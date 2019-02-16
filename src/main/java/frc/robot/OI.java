@@ -15,7 +15,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-  Joystick stick0 = new Joystick(RobotMap.joystickPort);
+  Joystick stick0 = new Joystick(RobotMap.controllerPort);
   //// CREATING BUTTONS
   // One type of button is a joystick button which is any button on a
   //// joystick.
@@ -27,6 +27,19 @@ public class OI {
   // There are a few additional built in buttons you can use. Additionally,
   // by subclassing Button you can create custom triggers and bind those to
   // commands the same as any other Button.
+  Button buttonA = new JoystickButton(stick0, RobotMap.ButtonA);
+  Button buttonX = new JoystickButton(stick0, RobotMap.ButtonX);
+  Button buttonY = new JoystickButton(stick0, RobotMap.ButtonY);
+  Button buttonB = new JoystickButton(stick0, RobotMap.ButtonB);
+
+  Button rBackBtn = new JoystickButton(stick0, RobotMap.RButton);
+  Button lBackBtn = new JoystickButton(stick0, RobotMap.LButton);
+
+  Button lMidBtn = new JoystickButton(stick0, RobotMap.LMiddle);
+  Button rMidBtn = new JoystickButton(stick0, RobotMap.RMiddle);
+
+  Button lJoystickBtn = new JoystickButton(stick0, RobotMap.LJoystickBtn);
+  Button rJoystickBtn = new JoystickButton(stick0, RobotMap.RJoystickBtn);
 
   //// TRIGGERING COMMANDS WITH BUTTONS
   // Once you have a button, it's trivial to bind it to a button in one of
@@ -43,4 +56,6 @@ public class OI {
   // Start the command when the button is released and let it run the command
   // until it is finished as determined by it's isFinished method.
   // button.whenReleased(new ExampleCommand());
+
 }
+
