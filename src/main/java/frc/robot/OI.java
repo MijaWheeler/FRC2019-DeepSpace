@@ -27,20 +27,20 @@ import frc.robot.commands.HatchArm_Stowed;
 public class OI {
 
   //Joystick rightjoy = new Joystick(RobotMap.joystick1port);  //DK added to create new joystick input
-  Joystick stick0 = new Joystick(RobotMap.R_joy); //create new joystick input
+  Joystick stick0 = new Joystick(RobotMap.controllerPort); //create new joystick input
 
-  Button StowBut = new JoystickButton(stick0, RobotMap.Stow_Button); //b button
-  Button GroundBut = new JoystickButton(stick0, RobotMap.Ground_Button); //x button
-  Button FeedBut = new JoystickButton(stick0, RobotMap.Feeder_Button); // y button
+  Button ButtonB = new JoystickButton(stick0, RobotMap.ButtonB);
+  Button ButtonX = new JoystickButton(stick0, RobotMap.ButtonX);
+  Button ButtonY = new JoystickButton(stick0, RobotMap.ButtonY);
 
 
   //public static final int HatchArm_Enc = 9;
 
 public OI() {
   //runs specific command when pressed
-  StowBut.whenPressed(new HatchArm_Stowed()); //b button
-  GroundBut.whenPressed(new HatchArm_Ground());//x
-  FeedBut.whenPressed(new HatchArm_Feeder()); //y
+  ButtonB.whenPressed(new HatchArm_Stowed()); //b button
+  ButtonX.whenPressed(new HatchArm_Ground());//x
+  ButtonY.whenPressed(new HatchArm_Feeder()); //y
 }
 
 

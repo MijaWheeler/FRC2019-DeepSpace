@@ -28,23 +28,49 @@ public class RobotMap {
   // public static int rangefinderPort = 1;
   // public static int rangefinderModule = 1;
 
+public static int controllerPort = 0;
 
-  /*Button Ports*/ 
-  public static int Stow_Button   = 2; //B button
-  public static int Ground_Button = 3; //X button
-  public static int Feeder_Button = 4; //Y button
+ //left motor ID
+ public static int MotorL1ID = 1;
+ public static int MotorL2ID = 3;
+ public static int MotorL3ID = 5;
 
-  /*Joystick*/
-  public static int R_joy = 0; 
+ //right motor ID
+ public static int MotorR1ID = 0;
+ public static int MotorR2ID = 2;
+ public static int MotorR3ID = 4;
 
+ //letter buttons on right
+ public static int ButtonA = 1;
+ public static int ButtonB = 2;
+ public static int ButtonX = 3;
+ public static int ButtonY = 4;
+
+ //trigger IDs
+ public static int LTrigger = 2;
+ public static int RTrigger = 3;
+
+ //LB and RB on back
+ public static int LButton = 5;
+ public static int RButton = 6;
+
+ //back and start on remote
+ public static int LMiddle = 7;
+ public static int RMiddle = 8;
+
+ //left and right joystick ID and left and right joystick button ID
+ public static int LJoystickBtn = 9;
+ public static int RJoystickBtn = 10;
+ public static int LeftJoystickID = 1;  
+ public static int RightJoystickID = 5;
 
   /*Encoder Ports*/ 
-  public static final int HatchArm_Enc = 9;
+public static final int HatchArm_Enc = 9;
 
   /*Hatch Arm Height*/ 
-  public static final int Ground_Height = 1024;
-  public static final int Feed_Height   = 2048;
-  public static final int Stow_Height   = 0;
+public static final int Ground_Height = 1024;
+public static final int Feed_Height   = 2048;
+public static final int Stow_Height   = 0;
 
 
 
