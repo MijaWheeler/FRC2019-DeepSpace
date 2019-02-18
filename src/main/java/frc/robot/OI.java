@@ -56,10 +56,7 @@ public class OI {
   // until it is finished as determined by it's isFinished method.
   // button.whenReleased(new ExampleCommand());
   public OI(){
-    buttonA.whenPressed(new TurnOnSpeed(.055));
-    buttonX.whenPressed(new TurnOnSpeed(-.055));
-    buttonY.whileHeld(new getProportionalSpeed());
-    buttonY.whenPressed(new getLimelightX());
+    buttonA.whileHeld(new getProportionalSpeed());
   }
     public static double getLeftStickY(){
       return (stick0.getRawAxis(RobotMap.LeftJoystickID));
