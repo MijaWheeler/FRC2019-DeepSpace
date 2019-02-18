@@ -31,8 +31,8 @@ public class OI {
   // Joystick stick = new Joystick(port);
   Joystick stick0 = new Joystick(RobotMap.Joystick_Port);
   // Button button = new JoystickButton(stick, buttonNumber);
-  Button button1 = new JoystickButton(stick0, RobotMap.MO_Up_Button);
-  Button button2 = new JoystickButton(stick0, RobotMap.MO_Down_Button);
+  Button button1 = new JoystickButton(stick0, RobotMap.ButtonA);
+  Button button2 = new JoystickButton(stick0, RobotMap.ButtonB);
 
   // There are a few additional built in buttons you can use. Additionally,
   // by subclassing Button you can create custom triggers and bind those to

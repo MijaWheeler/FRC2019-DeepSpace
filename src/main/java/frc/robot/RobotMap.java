@@ -19,11 +19,11 @@ public class RobotMap {
   // public static int leftMotor = 1;
   // public static int rightMotor = 2;
   public static int Joystick_Port = 0;
-  public static int MO_Up_Button = 1;
-  public static int MO_Down_Button = 2;
+  public static int ButtonA = 1;
+  public static int ButtonB = 2;
 
-  public static int Elevator_Talon_1_ID = 6;
-  public static int Elevator_Talon_2_ID = 7;
+  public static int Elevator_Talon_1_ID = 8;
+  public static int Elevator_Talon_2_ID = 9;
 
   public static int[] Height_List = new int[] {0, 4096, 8192, 12288, 16384, 20480, 24576};
   

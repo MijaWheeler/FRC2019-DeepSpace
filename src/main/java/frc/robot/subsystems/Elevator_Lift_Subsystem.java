@@ -73,7 +73,7 @@ public class Elevator_Lift_Subsystem extends PIDSubsystem {
       return;
     } else {
       this.Elevator_Height = this.Elevator_Height + 1;
-      // System.out.println(this.Elevator_Height);
+      System.out.println(this.Elevator_Height);
     }
   }
 
@@ -82,7 +82,7 @@ public class Elevator_Lift_Subsystem extends PIDSubsystem {
       return;
     } else {
       this.Elevator_Height = this.Elevator_Height - 1;
-      // System.out.println(this.Elevator_Height);
+      System.out.println(this.Elevator_Height);
     }
   }
 }
