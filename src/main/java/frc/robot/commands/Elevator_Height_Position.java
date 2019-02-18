@@ -17,6 +17,7 @@ public class Elevator_Height_Position extends Command {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.Elevator_Lift_Subsystem);
+    requires(Robot.MaisanDaiskue_Subsystem);
     // public int Height_id = Height_ID;
   }
 
@@ -29,6 +30,7 @@ public class Elevator_Height_Position extends Command {
   @Override
   protected void execute() {
     Robot.Elevator_Lift_Subsystem.setSetpoint(RobotMap.Height_List[Robot.Elevator_Lift_Subsystem.Elevator_Height]);
+    Robot.MaisanDaiskue_Subsystem.setSetpoint(RobotMap.Height_List[Robot.Elevator_Lift_Subsystem.Elevator_Height]);
   }
 
   // Make this return true when this Command no longer needs to run execute()

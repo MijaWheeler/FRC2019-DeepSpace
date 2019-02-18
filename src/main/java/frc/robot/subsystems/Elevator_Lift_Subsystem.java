@@ -23,7 +23,6 @@ public class Elevator_Lift_Subsystem extends PIDSubsystem {
    * Add your docs here.
    */
   TalonSRX Elevator_Talon_1 = new TalonSRX(RobotMap.Elevator_Talon_1_ID);
-  TalonSRX Elevator_Talon_2 = new TalonSRX(RobotMap.Elevator_Talon_2_ID);
 
   public int Elevator_Height = 0;
 
