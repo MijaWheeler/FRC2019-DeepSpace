@@ -11,7 +11,8 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import frc.robot.commands.Forwardx;
-
+import frc.robot.commands.TunnelIntake;
+import frc.robot.commands.TunnelIntakeOff;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -67,6 +68,10 @@ public class OI {
    // buttonX.whenPressed(new TurnOnSpeed(-.055));
     //buttonY.whileHeld(new getProportionalSpeed());
     buttonB.whenPressed(new Forwardx(0.1));
+
+    buttonA.whenPressed(new TunnelIntake());
+    buttonX.whenPressed(new TunnelIntakeOff());
+
   }
     public static double getLeftStickY(){
       return (stick0.getRawAxis(RobotMap.LeftJoystickID));
