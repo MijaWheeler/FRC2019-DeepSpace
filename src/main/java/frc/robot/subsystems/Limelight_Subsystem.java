@@ -11,6 +11,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.networktables.NetworkTableInstance;
 import frc.robot.RobotMap;
 
+import frc.robot.commands.setCamMode;
+
 /**
  * Add your docs here.
  */
@@ -22,6 +24,7 @@ public class Limelight_Subsystem extends Subsystem {
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
+    setDefaultCommand(new setCamMode(1));
   }
 
   public double getLimelightX(){

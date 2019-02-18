@@ -10,8 +10,6 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
-import frc.robot.commands.TurnLeft;
-import frc.robot.commands.TurnRight;
 import frc.robot.commands.getProportionalSpeed;
 import frc.robot.commands.getLimelightX;
 import frc.robot.commands.TurnOnSpeed;
