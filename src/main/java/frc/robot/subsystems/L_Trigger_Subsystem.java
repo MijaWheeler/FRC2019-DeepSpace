@@ -20,5 +20,6 @@ public class L_Trigger_Subsystem extends Subsystem {
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
+    setDefaultCommand(null);
   }
 }

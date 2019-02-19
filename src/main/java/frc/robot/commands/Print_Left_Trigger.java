@@ -9,13 +9,15 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import frc.robot.OI;
 
 public class Print_Left_Trigger extends Command {
+  // String Ltrig;
   public Print_Left_Trigger() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.L_Trigger);
+
+    //this.Ltrig = Ltrig;
   }
 
   // Called just before this Command runs the first time
@@ -26,7 +28,7 @@ public class Print_Left_Trigger extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    System.out.println(JoystickAnalogButton()); //fefe
+    System.out.println("Left Trigger Pressed"); 
   }
 
   // Make this return true when this Command no longer needs to run execute()
