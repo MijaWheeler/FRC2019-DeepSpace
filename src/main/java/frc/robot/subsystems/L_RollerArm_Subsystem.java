@@ -8,6 +8,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
+import frc.robot.commands.ArmDirectional;
 import frc.robot.commands.ArmStowed;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
@@ -45,7 +46,7 @@ public class L_RollerArm_Subsystem extends PIDSubsystem {
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
-    setDefaultCommand(new ArmStowed());
+    setDefaultCommand(new ArmDirectional());
 
   }
 
