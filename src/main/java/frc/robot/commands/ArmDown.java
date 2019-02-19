@@ -10,8 +10,8 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class ArmStowed extends Command {
-  public ArmStowed() {
+public class ArmDown extends Command {
+  public ArmDown() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.R_Arm);
@@ -26,14 +26,14 @@ public class ArmStowed extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.L_Arm.setSetpoint(4096); //Full = 4096; start = 0
-    Robot.R_Arm.setSetpoint(4096); //Full = 4096; start = 0
+    Robot.L_Arm.setSetpointRelative(-400); //Full = 4096; start = 0
+    Robot.R_Arm.setSetpointRelative(-400); //Full = 4096; start = 0
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return true;
   }
 
   // Called once after isFinished returns true
