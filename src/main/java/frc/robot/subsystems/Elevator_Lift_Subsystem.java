@@ -23,6 +23,8 @@ public class Elevator_Lift_Subsystem extends PIDSubsystem {
    * Add your docs here.
    */
   TalonSRX Elevator_Talon_1 = new TalonSRX(RobotMap.Elevator_Talon_1_ID);
+  TalonSRX Elevator_Talon_2 = new TalonSRX(RobotMap.Elevator_Talon_2_ID);
+
 
   public int Elevator_Height = 0;
 
@@ -65,6 +67,7 @@ public class Elevator_Lift_Subsystem extends PIDSubsystem {
     // Use output to drive your system, like a motor
     // e.g. yourMotor.set(output);
     Elevator_Talon_1.set(ControlMode.PercentOutput, output);
+    Elevator_Talon_2.set(ControlMode.PercentOutput, -output);
   }
 
   public void MO_Up() {

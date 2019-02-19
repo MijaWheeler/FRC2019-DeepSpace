@@ -15,7 +15,7 @@ public class Decrement_Command extends Command {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.Elevator_Lift_Subsystem);
-    requires(Robot.MaisanDaiskue_Subsystem);
+    //requires(Robot.Elevator_Talon_2_Subsystem);
   }
 
   // Called just before this Command runs the first time
@@ -27,7 +27,7 @@ public class Decrement_Command extends Command {
   @Override
   protected void execute() {
     Robot.Elevator_Lift_Subsystem.MO_Down();
-    Robot.MaisanDaiskue_Subsystem.MO_Down();
+    //Robot.Elevator_Talon_2_Subsystem.MO_Down();
   }
 
   // Make this return true when this Command no longer needs to run execute()

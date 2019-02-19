@@ -14,7 +14,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.ExampleSubsystem;
-import frc.robot.subsystems.MaisanDaiskue_Subsystem;
+// import frc.robot.subsystems.Elevator_Talon_2_Subsystem;
 import frc.robot.subsystems.Elevator_Lift_Subsystem;
 // import frc.robot.commands.Feeder_Height_Command;
 // import frc.robot.commands.Elevator_Height_Position;
@@ -35,7 +35,7 @@ public class Robot extends TimedRobot {
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
   public static Elevator_Lift_Subsystem Elevator_Lift_Subsystem = new Elevator_Lift_Subsystem();
-  public static MaisanDaiskue_Subsystem MaisanDaiskue_Subsystem = new MaisanDaiskue_Subsystem();
+  // public static Elevator_Talon_2_Subsystem Elevator_Talon_2_Subsystem = new Elevator_Talon_2_Subsystem();
   // public ArrayList Height_List = new ArrayList();
 
   /**
