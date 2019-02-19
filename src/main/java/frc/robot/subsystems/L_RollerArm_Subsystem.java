@@ -21,6 +21,7 @@ public class L_RollerArm_Subsystem extends PIDSubsystem {
   /**
    * Add your docs here.
    */
+  TalonSRX R_ArmSRX = new TalonSRX(7);
   TalonSRX L_ArmSRX = new TalonSRX(8);
 
   public L_RollerArm_Subsystem() {
@@ -63,5 +64,6 @@ public class L_RollerArm_Subsystem extends PIDSubsystem {
     // Use output to drive your system, like a motor
     // e.g. yourMotor.set(output);
     L_ArmSRX.set(ControlMode.PercentOutput, output);
+    R_ArmSRX.set(ControlMode.PercentOutput, -output);
   }
 }

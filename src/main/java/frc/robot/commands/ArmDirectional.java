@@ -16,7 +16,6 @@ public class ArmDirectional extends Command {
   public ArmDirectional() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.R_Arm);
     requires(Robot.L_Arm);
   }
 
