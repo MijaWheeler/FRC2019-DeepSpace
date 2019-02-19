@@ -16,7 +16,7 @@ public class ArmDirectional extends Command {
   public ArmDirectional() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.L_Arm);
+    requires(Robot.Roller_Arm);
   }
 
   // Called just before this Command runs the first time
@@ -30,13 +30,11 @@ public class ArmDirectional extends Command {
     DPADAngle = OI.GetDPadAngle();
 
     if (DPADAngle == 180) {
-      //Robot.L_Arm.setSetpointRelative(-400); //Full = 4096; start = 0
-      //Robot.R_Arm.setSetpointRelative(-400); //Full = 4096; start = 0
-      System.out.println("Down Command");
+      Robot.Roller_Arm.setSetpointRelative(-400); //Full = 4096; start = 0
+      //System.out.println("Down Command");
     } else if (DPADAngle == 270) {
-      //Robot.R_Arm.setSetpointRelative(400);
-      //Robot.L_Arm.setSetpointRelative(400);
-      System.out.println("Up Command");
+      Robot.Roller_Arm.setSetpointRelative(400); //setSetPointRelative adds to current position of the encoder
+      //System.out.println("Up Command");
     } else {
       return;
     }

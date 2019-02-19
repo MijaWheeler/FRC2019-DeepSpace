@@ -17,16 +17,16 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 /**
  * Add your docs here.
  */
-public class L_RollerArm_Subsystem extends PIDSubsystem {
+public class RollerArm_Subsystem extends PIDSubsystem {
   /**
    * Add your docs here.
    */
   TalonSRX R_ArmSRX = new TalonSRX(7);
   TalonSRX L_ArmSRX = new TalonSRX(8);
 
-  public L_RollerArm_Subsystem() {
+  public RollerArm_Subsystem() {
     // Intert a subsystem name and PID values here
-    super("L_RollerArmPID_Subsystem", 0.00009, 0, 0);
+    super("Roller_Arm", 0.00009, 0, 0);
     // Use these to get going:
     // setSetpoint() - Sets where the PID controller should move the system
     // to
