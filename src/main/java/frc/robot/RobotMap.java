@@ -16,7 +16,7 @@ package frc.robot;
 public class RobotMap {
 
 public static int Sol = 4; // solenoid
-//hi
+
 
   
   // For example to map the left and right motors, you could define the

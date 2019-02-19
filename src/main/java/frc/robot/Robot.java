@@ -23,6 +23,8 @@ import frc.robot.commands.ExampleCommand;
 // Shouldn't need these imports 
 
 import frc.robot.subsystems.Hatch_Intake_Subsystem; // imports the subsystem
+import frc.robot.subsystems.L_Trigger_Subsystem;
+import frc.robot.subsystems.R_Trigger_Subsystem;
 
 
 
@@ -41,6 +43,8 @@ public class Robot extends TimedRobot {
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
     public static Hatch_Intake_Subsystem Hatch_Intake_Subsystem = new Hatch_Intake_Subsystem(); //creating the subsystem
+    public static L_Trigger_Subsystem L_Trigger = new L_Trigger_Subsystem();
+    public static R_Trigger_Subsystem R_Trigger = new R_Trigger_Subsystem();
 
   /**
    * This function is run when the robot is first started up and should be
