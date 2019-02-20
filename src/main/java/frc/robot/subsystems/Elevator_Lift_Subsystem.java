@@ -67,11 +67,11 @@ public class Elevator_Lift_Subsystem extends PIDSubsystem {
     // Use output to drive your system, like a motor
     // e.g. yourMotor.set(output);
     Elevator_Talon_1.set(ControlMode.PercentOutput, output);
-    Elevator_Talon_2.set(ControlMode.PercentOutput, -output);
+    Elevator_Talon_2.set(ControlMode.PercentOutput, output);
   }
 
   public void MO_Up() {
-    if (this.Elevator_Height == 6) {
+    if (this.Elevator_Height == 5) {
       return;
     } else {
       this.Elevator_Height = this.Elevator_Height + 1;
