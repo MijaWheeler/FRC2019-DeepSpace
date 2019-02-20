@@ -7,57 +7,23 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.command.PIDSubsystem;
+import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.commands.ArmStowed;
-
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 /**
  * Add your docs here.
  */
-public class R_RollerArm_Subsystem extends PIDSubsystem {
-  /**
-   * Add your docs here.
-   */
-  TalonSRX R_ArmSRX = new TalonSRX(7);
-
-  public R_RollerArm_Subsystem() {
-    // Intert a subsystem name and PID values here
-    super("R_RollerArmPID_Subsystem", 0.00009, 0, 0);
-    // Use these to get going:
-    // setSetpoint() - Sets where the PID controller should move the system
-    // to
-    // enable() - Enables the PID controller.
-    enable();
-    setAbsoluteTolerance(0); //Sets the absolute parameters of PID
-    R_ArmSRX.setSensorPhase(true); //controls the direction of the motor control using boolean
-    R_ArmSRX.setSelectedSensorPosition(0, 0, 1); //sensor position, pidIdx, time out
-    R_ArmSRX.configPeakCurrentLimit(15,0); //set max amps to 15
-    R_ArmSRX.configPeakCurrentDuration(0  ,30);
-		R_ArmSRX.configContinuousCurrentLimit(10, 0);
-		R_ArmSRX.enableCurrentLimit(true);
-  }
+public class R_RollerArm_Subsystem extends Subsystem {
+  // Put methods for controlling this subsystem
+  // here. Call these from Commands.
+  TalonSRX L_ArmSRX = new TalonSRX(8);
 
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
     setDefaultCommand(new ArmStowed());
-  }
-
-  @Override
-  protected double returnPIDInput() {
-    // Return your input value for the PID loop
-    // e.g. a sensor, like a potentiometer:
-    // yourPot.getAverageVoltage() / kYourMaxVoltage;
-    return R_ArmSRX.getSelectedSensorPosition(0);
-  }
-
-  @Override
-  protected void usePIDOutput(double output) {
-    // Use output to drive your system, like a motor
-    // e.g. yourMotor.set(output);
-    R_ArmSRX.set(ControlMode.PercentOutput, output);
   }
 }

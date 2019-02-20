@@ -20,6 +20,9 @@ public class RobotMap {
   // public static int rightMotor = 2;
 public static int controllerPort = 0;
 
+public static int MecanumArmRightSRXID = 11;
+public static int MecanumArmLeftSRXID = 9;
+
 //left motor ID
 public static int MotorL1ID = 1;
 public static int MotorL2ID = 3;

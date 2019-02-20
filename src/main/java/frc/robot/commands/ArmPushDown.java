@@ -12,7 +12,6 @@ import frc.robot.Robot;
 
 public class ArmPushDown extends Command {
   public ArmPushDown() {
-      requires(Robot.R_Arm);
       requires(Robot.L_Arm);
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
@@ -27,7 +26,6 @@ public class ArmPushDown extends Command {
   @Override
   protected void execute() {
     Robot.L_Arm.setSetpoint(1024); //Full = 4096; start = 0
-    Robot.R_Arm.setSetpoint(1024); //Full = 4096; start = 0
   }
 
   // Make this return true when this Command no longer needs to run execute()
