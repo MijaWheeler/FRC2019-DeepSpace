@@ -42,8 +42,8 @@ public class RobotMap {
   public static int RTrigger = 3;
 
   //LB and RB on back
-  public static int LButton = 5;
-  public static int RButton = 6;
+  public static int LBumper = 5;
+  public static int RBumper = 6;
 
   //back and start on remote
   public static int LMiddle = 7;

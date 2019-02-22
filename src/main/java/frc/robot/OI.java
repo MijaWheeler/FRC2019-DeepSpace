@@ -8,6 +8,7 @@
 package frc.robot;
 
 import frc.robot.RobotMap;
+import edu.wpi.first.wpilibj.GenericHID;
 import frc.robot.commands.Decrement_Command;
 import frc.robot.commands.Increment_Command;
 // import frc.robot.commands.Ball_Rocket_Low_Command;
@@ -31,9 +32,10 @@ public class OI {
   // Joystick stick = new Joystick(port);
   Joystick stick0 = new Joystick(RobotMap.JoystickPort);
   // Button button = new JoystickButton(stick, buttonNumber);
-  Button button1 = new JoystickButton(stick0, RobotMap.ButtonA);
-  Button button2 = new JoystickButton(stick0, RobotMap.ButtonB);
-
+  Button LBumper = new JoystickButton(stick0, RobotMap.LBumper);
+  
+  public JoystickAnalogButton TriggerL = new JoystickAnalogButton(stick0, RobotMap.LTrigger);
+  
   // There are a few additional built in buttons you can use. Additionally,
   // by subclassing Button you can create custom triggers and bind those to
   // commands the same as any other Button.
@@ -47,8 +49,8 @@ public class OI {
   // button.whenPressed(new ExampleCommand());
 
   public OI() {
-    button1.whenPressed(new Increment_Command());
-    button2.whenPressed(new Decrement_Command());
+    TriggerL.whenPressed(new Increment_Command()); //play around with this; may or may not use whileHeld
+    LBumper.whenPressed(new Decrement_Command());
   }
   // Run the command while the button is being held down and interrupt it once
   // the button is released.
@@ -57,4 +59,63 @@ public class OI {
   // Start the command when the button is released and let it run the command
   // until it is finished as determined by it's isFinished method.
   // button.whenReleased(new ExampleCommand());
+  public class JoystickAnalogButton extends Button {
+
+    GenericHID m_joystick;
+    int m_axisNumber;
+    private double THRESHOLD = 0.5;
+  
+    /**
+     * Create a button for triggering commands off a joystick's analog axis
+     * 
+     * @param joystick The GenericHID object that has the button (e.g. Joystick, KinectStick, etc)
+     * @param axisNumber The axis number
+     */
+    public JoystickAnalogButton(GenericHID joystick, int axisNumber) {
+        m_joystick = joystick;
+        m_axisNumber = axisNumber;
+    }
+  
+    /**
+     * Create a button for triggering commands off a joystick's analog axis
+     * 
+     * @param joystick The GenericHID object that has the button (e.g. Joystick, KinectStick, etc)
+     * @param axisNumber The axis number
+     * @param threshold The threshold to trigger above (positive) or below (negative)
+     */
+    public JoystickAnalogButton(GenericHID joystick, int axisNumber, double threshold) {
+      m_joystick = joystick;
+      m_axisNumber = axisNumber;
+      THRESHOLD = threshold;
+    }
+  
+    /**
+     * Set the value above which triggers should occur (for positive thresholds)
+     *  or below which triggers should occur (for negative thresholds)
+     * The default threshold value is 0.5
+     *  
+     * @param threshold the threshold value (1 to -1)
+     */
+    public void setThreshold(double threshold){
+      THRESHOLD = threshold;
+    }
+   
+    /**
+     * Get the defined threshold value.
+     * @return the threshold value
+     */
+    public double getThreshold(){
+      return THRESHOLD;
+    }
+    
+  
+    public boolean get() {
+      if(THRESHOLD < 0){
+        return m_joystick.getRawAxis(m_axisNumber) < THRESHOLD;    //Return true if axis value is less than negative threshold
+      } else {
+        return m_joystick.getRawAxis(m_axisNumber) > THRESHOLD;    //Return true if axis value is greater than positive threshold
+      }
+    }
+  
+  }
 }
