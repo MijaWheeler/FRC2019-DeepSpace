@@ -15,7 +15,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.Roller_Subsystem;
-import frc.robot.subsystems.L_RollerArm_Subsystem;
 import frc.robot.subsystems.R_RollerArm_Subsystem;
 
 /**
@@ -28,7 +27,6 @@ import frc.robot.subsystems.R_RollerArm_Subsystem;
 
 public class Robot extends TimedRobot {
   public static Roller_Subsystem Roller = new Roller_Subsystem();
-  public static L_RollerArm_Subsystem L_Arm = new L_RollerArm_Subsystem();
   public static R_RollerArm_Subsystem R_Arm = new R_RollerArm_Subsystem();
 
   public static ExampleSubsystem m_subsystem = new ExampleSubsystem();

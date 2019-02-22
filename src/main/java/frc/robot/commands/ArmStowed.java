@@ -13,7 +13,6 @@ public class ArmStowed extends Command {
   public ArmStowed() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.L_Arm);
     requires(Robot.R_Arm);
   }
 
@@ -25,8 +24,8 @@ public class ArmStowed extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    System.out.println(Robot.L_Arm.getPosition());
-    //Robot.L_Arm.setSetpoint(1024); //Full = 4096; start = 0
+    System.out.println(Robot.R_Arm.getPosition());
+    Robot.R_Arm.setSetpoint(0); //Full = 4096; start = 0
   }
 
   // Make this return true when this Command no longer needs to run execute()
