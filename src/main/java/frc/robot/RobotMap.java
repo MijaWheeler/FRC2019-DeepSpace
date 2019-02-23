@@ -15,7 +15,8 @@ package frc.robot;
  */
 public class RobotMap {
 
-public static int Sol = 4; // solenoid
+  public static int HatchSolenoid = 4; // these are the ports they are plugged into on the PCM (electrical)
+  public static int HighGearSolenoid = 5; // change as need
 
 
   
