@@ -31,7 +31,7 @@ public class OI {
   // number it is.
   // Joystick stick = new Joystick(port);
   // Button button = new JoystickButton(stick, buttonNumber)
-  Joystick stick0 = new Joystick(0);
+  static Joystick stick0 = new Joystick(RobotMap.JoystickPort);
 
   Button button1 = new JoystickButton(stick0, 1);
   Button button2 = new JoystickButton(stick0, 2);

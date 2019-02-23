@@ -16,9 +16,6 @@ import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.ExampleSubsystem;
 
 import frc.robot.subsystems.Box_Subsystem;
-import frc.robot.commands.Box_Intake_On;
-import frc.robot.commands.Box_Outtake_On;
-import frc.robot.commands.Box_Off;
 
 /**
  * The VM is configured to automatically run this class, and to call the
