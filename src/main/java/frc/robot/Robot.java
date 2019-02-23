@@ -22,6 +22,8 @@ import frc.robot.subsystems.LDriveTrain_Subsystem;
 import frc.robot.subsystems.RDriveTrain_Subsystem;
 import edu.wpi.first.wpilibj.DriverStation;
 
+import frc.robot.subsystems.Box_Subsystem;
+
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the TimedRobot
@@ -32,6 +34,8 @@ import edu.wpi.first.wpilibj.DriverStation;
 public class Robot extends TimedRobot {
   public static ExampleSubsystem m_subsystem = new ExampleSubsystem();
   public static OI m_oi;
+
+  public static Box_Subsystem Box_Subsystem = new Box_Subsystem(); 
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
