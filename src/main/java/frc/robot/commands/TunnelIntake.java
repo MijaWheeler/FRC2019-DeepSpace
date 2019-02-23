@@ -35,14 +35,12 @@ public class TunnelIntake extends Command {
   @Override
   protected boolean isFinished() {
     return false;
-
-     
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-      Robot.Tunnel.stopTunnel();
+    Robot.Tunnel.stopTunnel();
        //After command is executed, motor goes back to off defalt
 
   }

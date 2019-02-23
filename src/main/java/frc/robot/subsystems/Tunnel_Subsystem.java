@@ -8,7 +8,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-
+import frc.robot.RobotMap;
 import frc.robot.commands.TunnelIntakeOff; //command needed in order to set defalt 
 import edu.wpi.first.wpilibj.Spark;
 
@@ -17,15 +17,15 @@ import edu.wpi.first.wpilibj.Spark;
  */
 public class Tunnel_Subsystem extends Subsystem {
 
-  static Spark TunnelSRX = new Spark(0); //(port number)
+  static Spark TunnelSpark = new Spark(RobotMap.TunnelSparkCANID); //(port number)
   
   //***Methods to be used within commands
   public void startTunnel(){  // Method makes motor move forward
-		TunnelSRX.set(0.5);
+		TunnelSpark.set(0.5);
 	}
 
 	public void stopTunnel(){ //Method makes motor stop
-		TunnelSRX.set(0.1);
+		TunnelSpark.set(0.1);
 	}
 
 
