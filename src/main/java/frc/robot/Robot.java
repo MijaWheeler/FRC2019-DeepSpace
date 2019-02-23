@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.ExampleSubsystem;
+import frc.robot.subsystems.Elevator_Lift_Subsystem;
 import frc.robot.subsystems.LDriveTrain_Subsystem;
 import frc.robot.subsystems.RDriveTrain_Subsystem;
 
@@ -25,12 +26,14 @@ import frc.robot.subsystems.RDriveTrain_Subsystem;
  * project.
  */
 public class Robot extends TimedRobot {
+  
   public static ExampleSubsystem m_subsystem = new ExampleSubsystem();
   public static OI m_oi;
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
+  public static Elevator_Lift_Subsystem Elevator_Lift_Subsystem = new Elevator_Lift_Subsystem();
   public static RDriveTrain_Subsystem RDriveTrain = new RDriveTrain_Subsystem();
   public static LDriveTrain_Subsystem LDriveTrain = new LDriveTrain_Subsystem();
 
