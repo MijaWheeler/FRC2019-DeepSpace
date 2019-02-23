@@ -14,10 +14,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.ExampleSubsystem;
-// import frc.robot.subsystems.Elevator_Talon_2_Subsystem;
 import frc.robot.subsystems.Elevator_Lift_Subsystem;
-// import frc.robot.commands.Feeder_Height_Command;
-// import frc.robot.commands.Elevator_Height_Position;
+import frc.robot.subsystems.LDriveTrain_Subsystem;
+import frc.robot.subsystems.RDriveTrain_Subsystem;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -35,8 +34,8 @@ public class Robot extends TimedRobot {
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
   public static Elevator_Lift_Subsystem Elevator_Lift_Subsystem = new Elevator_Lift_Subsystem();
-  // public static Elevator_Talon_2_Subsystem Elevator_Talon_2_Subsystem = new Elevator_Talon_2_Subsystem();
-  // public ArrayList Height_List = new ArrayList();
+  public static RDriveTrain_Subsystem RDriveTrain = new RDriveTrain_Subsystem();
+  public static LDriveTrain_Subsystem LDriveTrain = new LDriveTrain_Subsystem();
 
   /**
    * This function is run when the robot is first started up and should be
