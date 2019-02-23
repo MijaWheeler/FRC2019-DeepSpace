@@ -30,7 +30,7 @@ public class OI {
   // You create one by telling it which joystick it's on and which button
   // number it is.
   // Joystick stick = new Joystick(port);
-  Joystick stick0 = new Joystick(RobotMap.JoystickPort);
+  static Joystick stick0 = new Joystick(RobotMap.JoystickPort);
   // Button button = new JoystickButton(stick, buttonNumber);
   Button LBumper = new JoystickButton(stick0, RobotMap.LBumper);
   
