@@ -10,12 +10,10 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-
 import frc.robot.commands.Box_Intake_On;
 import frc.robot.commands.Box_Outtake_On;
 import frc.robot.commands.Box_Off;
 import edu.wpi.first.wpilibj.GenericHID;
-
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -24,7 +22,7 @@ import edu.wpi.first.wpilibj.GenericHID;
 
 
 public class OI {
-  //// CREATING BUTTONS
+//// CREATING BUTTONS
   // One type of button is a joystick button which is any button on a
   //// joystick.
   // You create one by telling it which joystick it's on and which button
@@ -39,6 +37,8 @@ public class OI {
   // There are a few additional built in buttons you can use. Additionally,
   // by subclassing Button you can create custom triggers and bind those to
   // commands the same as any other Button.
+
+
 
   //// TRIGGERING COMMANDS WITH BUTTONS
   // Once you have a button, it's trivial to bind it to a button in one of
@@ -61,6 +61,7 @@ public class OI {
   // Start the command when the button is released and let it run the command
   // until it is finished as determined by it's isFinished method.
   // button.whenReleased(new ExampleCommand());
+
   public class JoystickAnalogButton extends Button {
 
     GenericHID m_joystick;
@@ -118,6 +119,14 @@ public class OI {
         return m_joystick.getRawAxis(m_axisNumber) > THRESHOLD;    //Return true if axis value is greater than positive threshold
       }
     }
-  
   }
+
+    public static double getLeftStickY(){
+      return (stick0.getRawAxis(RobotMap.LeftJoystickID));
+    
+    }
+
+    public static double getRightStickY(){
+      return (stick0.getRawAxis(RobotMap.RightJoystickID));
+    }
 }

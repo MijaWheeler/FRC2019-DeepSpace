@@ -13,7 +13,14 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.Set_LEDs_BLUE;
+import frc.robot.commands.Set_LEDs_PartyMode;
+import frc.robot.commands.Set_LEDs_RED;
+import frc.robot.subsystems.Arduino_LED_Subsystem;
 import frc.robot.subsystems.ExampleSubsystem;
+import frc.robot.subsystems.LDriveTrain_Subsystem;
+import frc.robot.subsystems.RDriveTrain_Subsystem;
+import edu.wpi.first.wpilibj.DriverStation;
 
 import frc.robot.subsystems.Box_Subsystem;
 
@@ -33,6 +40,11 @@ public class Robot extends TimedRobot {
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
+  public static RDriveTrain_Subsystem RDriveTrain = new RDriveTrain_Subsystem();
+  public static LDriveTrain_Subsystem LDriveTrain = new LDriveTrain_Subsystem();
+
+  public static Arduino_LED_Subsystem Arduino_LED = new Arduino_LED_Subsystem();
+
   /**
    * This function is run when the robot is first started up and should be
    * used for any initialization code.
@@ -43,6 +55,19 @@ public class Robot extends TimedRobot {
     m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
+
+    SmartDashboard.putData("LEDs Blue", new Set_LEDs_BLUE());
+    SmartDashboard.putData("LEDs Red", new Set_LEDs_RED());
+    SmartDashboard.putData("PArty", new Set_LEDs_PartyMode());
+
+    DriverStation.Alliance color;
+    color = DriverStation.getInstance().getAlliance();
+    if(color == DriverStation.Alliance.Blue){
+      new Set_LEDs_BLUE().start();
+    }
+    else{
+      new Set_LEDs_RED().start();
+    }
   }
 
   /**
@@ -64,6 +89,10 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void disabledInit() {
+    //Set LEDs to party mode
+    Robot.Arduino_LED.Party.set(true); //turn on party mode
+
+    
   }
 
   @Override
