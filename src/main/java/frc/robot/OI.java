@@ -10,6 +10,9 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+
+import frc.robot.commands.TunnelIntake;
+import frc.robot.commands.TunnelIntakeOff;
 import frc.robot.commands.Box_Intake_On;
 import frc.robot.commands.Box_Outtake_On;
 import frc.robot.commands.Box_Off;
@@ -30,14 +33,17 @@ public class OI {
   // Joystick stick = new Joystick(port);
 
   static Joystick stick0 = new Joystick(RobotMap.JoystickPort);
-  // Button button = new JoystickButton(stick, buttonNumber);
+  
   Button LBumper = new JoystickButton(stick0, RobotMap.LBumper);
   
   public JoystickAnalogButton TriggerL = new JoystickAnalogButton(stick0, RobotMap.LTrigger);
-
+  public JoystickAnalogButton RTrigger = new JoystickAnalogButton(stick0, RobotMap.RTrigger);
+  
   Button RMiddle = new JoystickButton(stick0, RobotMap.RMiddle);
-  JoystickAnalogButton RTrigger = new JoystickAnalogButton(stick0, RobotMap.RTrigger);
   Button LMiddle = new JoystickButton(stick0, RobotMap.LMiddle);
+  
+  Button tunBut = new JoystickButton(stick0, RobotMap.ButtonX); //Tunnel starts on X-button
+  Button tunBut_off = new JoystickButton(stick0, RobotMap.ButtonY); //Tunnel turns off on Y-button
 
   // There are a few additional built in buttons you can use. Additionally,
   // by subclassing Button you can create custom triggers and bind those to
@@ -57,6 +63,8 @@ public class OI {
     RMiddle.whileHeld(new Box_Outtake_On());
     RTrigger.whileHeld(new Box_Intake_On());
     LMiddle.whileHeld(new Box_Off());
+    tunBut.whenPressed(new TunnelIntake()); 
+    tunBut_off.whenPressed(new TunnelIntakeOff());
   }
 
   // Run the command while the button is being held down and interrupt it once

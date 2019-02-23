@@ -13,12 +13,13 @@ package frc.robot;
  * the wiring easier and significantly reduces the number of magic numbers
  * floating around.
  */
+
 public class RobotMap {
 
   //Joystick port
   public static int JoystickPort = 0;
+  
   //left motor ID
-
   public static int MotorL1ID = 1;
   public static int MotorL2ID = 3;
   public static int MotorL3ID = 5;
@@ -47,10 +48,13 @@ public class RobotMap {
   public static int RMiddle = 8;
 
   //left and right joystick ID and left and right joystick button ID
+
   public static int LJoystickBtn = 9;
   public static int RJoystickBtn = 10;
   public static int LeftJoystickID = 1;  
   public static int RightJoystickID = 5;
+  
+  public static int TunnelSparkCANID = 0;
 
   // For example to map the left and right motors, you could define the
   // following variables to use with your drivetrain subsystem.

@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.Set_LEDs_BLUE;
 import frc.robot.commands.Set_LEDs_PartyMode;
@@ -24,7 +25,12 @@ import edu.wpi.first.wpilibj.DriverStation;
 
 import frc.robot.subsystems.Box_Subsystem;
 
+//Additional Subsystem imports
+import frc.robot.subsystems.Tunnel_Subsystem;
+
+
 /**
+
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the TimedRobot
  * documentation. If you change the name of this class or the package after
@@ -40,9 +46,10 @@ public class Robot extends TimedRobot {
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
+  //New Subsystems
+  public static Tunnel_Subsystem Tunnel = new Tunnel_Subsystem();
   public static RDriveTrain_Subsystem RDriveTrain = new RDriveTrain_Subsystem();
   public static LDriveTrain_Subsystem LDriveTrain = new LDriveTrain_Subsystem();
-
   public static Arduino_LED_Subsystem Arduino_LED = new Arduino_LED_Subsystem();
 
   /**
