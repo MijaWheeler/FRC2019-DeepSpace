@@ -51,9 +51,7 @@ public class RobotMap {
   public static int RJoystickBtn = 10;
   public static int LeftJoystickID = 1;  
   public static int RightJoystickID = 5;
-=======
-  public static int LeftJoystickID = 1;  
-  public static int RightJoystickID = 5;
+
   // For example to map the left and right motors, you could define the
   // following variables to use with your drivetrain subsystem.
   // public static int leftMotor = 1;
