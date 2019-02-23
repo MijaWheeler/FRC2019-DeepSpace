@@ -28,17 +28,12 @@ public class OI {
   // You create one by telling it which joystick it's on and which button
   // number it is.
   // Joystick stick = new Joystick(port);
-
+  // Button button = new JoystickButton(stick, buttonNumber)
   static Joystick stick0 = new Joystick(RobotMap.JoystickPort);
-  // Button button = new JoystickButton(stick, buttonNumber);
-  Button LBumper = new JoystickButton(stick0, RobotMap.LBumper);
-  
-  public JoystickAnalogButton TriggerL = new JoystickAnalogButton(stick0, RobotMap.LTrigger);
 
   Button RMiddle = new JoystickButton(stick0, RobotMap.RMiddle);
   JoystickAnalogButton RTrigger = new JoystickAnalogButton(stick0, RobotMap.RTrigger);
   Button LMiddle = new JoystickButton(stick0, RobotMap.LMiddle);
-
   // There are a few additional built in buttons you can use. Additionally,
   // by subclassing Button you can create custom triggers and bind those to
   // commands the same as any other Button.
