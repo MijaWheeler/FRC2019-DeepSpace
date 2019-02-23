@@ -10,12 +10,11 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class Increment_Command extends Command {
-  public Increment_Command() {
+public class Box_Intake_On extends Command {
+  public Box_Intake_On() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.Elevator_Lift_Subsystem);
-    //requires(Robot.Elevator_Talon_2_Subsystem);
+    requires(Robot.Box_Subsystem);
   }
 
   // Called just before this Command runs the first time
@@ -26,8 +25,7 @@ public class Increment_Command extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.Elevator_Lift_Subsystem.MO_Up();
-    //Robot.Elevator_Talon_2_Subsystem.MO_Up();
+    Robot.Box_Subsystem.Box_Intake();
   }
 
   // Make this return true when this Command no longer needs to run execute()

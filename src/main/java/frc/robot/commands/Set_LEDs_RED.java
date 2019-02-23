@@ -9,16 +9,12 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import frc.robot.RobotMap;
 
-public class Elevator_Height_Position extends Command {
-
-  public Elevator_Height_Position() {
+public class Set_LEDs_RED extends Command {
+  public Set_LEDs_RED() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.Elevator_Lift_Subsystem);
-    //requires(Robot.Elevator_Talon_2_Subsystem);
-    // public int Height_id = Height_ID;
+    requires(Robot.Arduino_LED);
   }
 
   // Called just before this Command runs the first time
@@ -29,8 +25,8 @@ public class Elevator_Height_Position extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.Elevator_Lift_Subsystem.setSetpoint(RobotMap.Height_List[Robot.Elevator_Lift_Subsystem.Elevator_Height]);
-    //Robot.Elevator_Talon_2_Subsystem.setSetpoint(RobotMap.Height_List[Robot.Elevator_Lift_Subsystem.Elevator_Height]);
+    Robot.Arduino_LED.Red_or_Blue.set(false);  //arduino sets leds to blue when 5V is on digital input
+    Robot.Arduino_LED.Party.set(false); //turn off party mode
   }
 
   // Make this return true when this Command no longer needs to run execute()

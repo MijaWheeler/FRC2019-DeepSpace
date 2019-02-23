@@ -10,12 +10,11 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class Decrement_Command extends Command {
-  public Decrement_Command() {
+public class Set_LEDs_PartyMode extends Command {
+  public Set_LEDs_PartyMode() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.Elevator_Lift_Subsystem);
-    //requires(Robot.Elevator_Talon_2_Subsystem);
+    requires(Robot.Arduino_LED);
   }
 
   // Called just before this Command runs the first time
@@ -26,14 +25,13 @@ public class Decrement_Command extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.Elevator_Lift_Subsystem.MO_Down();
-    //Robot.Elevator_Talon_2_Subsystem.MO_Down();
+    Robot.Arduino_LED.Party.set(true); //turn on party mode
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return true;
+    return false;
   }
 
   // Called once after isFinished returns true

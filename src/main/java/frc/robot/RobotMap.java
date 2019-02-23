@@ -13,15 +13,12 @@ package frc.robot;
  * the wiring easier and significantly reduces the number of magic numbers
  * floating around.
  */
-
-  // For example to map the left and right motors, you could define the
-  // following variables to use with your drivetrain subsystem.
-  // public static int leftMotor = 1;
-  // public static int rightMotor = 2;
 public class RobotMap {
+
   //Joystick port
   public static int JoystickPort = 0;
   //left motor ID
+
   public static int MotorL1ID = 1;
   public static int MotorL2ID = 3;
   public static int MotorL3ID = 5;
@@ -42,28 +39,26 @@ public class RobotMap {
   public static int RTrigger = 3;
 
   //LB and RB on back
-  public static int LBumper = 5;
-  public static int RBumper = 6;
+  public static int LButton = 5;
+  public static int RButton = 6;
 
   //back and start on remote
   public static int LMiddle = 7;
   public static int RMiddle = 8;
 
   //left and right joystick ID and left and right joystick button ID
-  public static int LStickButton = 9;
-  public static int RStickButton = 10;
+  public static int LJoystickBtn = 9;
+  public static int RJoystickBtn = 10;
   public static int LeftJoystickID = 1;  
   public static int RightJoystickID = 5;
 
-  //elevator talons
-  public static int Elevator_Talon_1_ID = 8;
-  public static int Elevator_Talon_2_ID = 7;
+  // For example to map the left and right motors, you could define the
+  // following variables to use with your drivetrain subsystem.
+  // public static int leftMotor = 1;
+  // public static int rightMotor = 2;
 
-  //arrays for encoder position values
-  public static int[] Height_List = new int[] {476, 1314, 5022, 6487, 9454, 11809};
-
-// If you are using multiple modules, make sure to define both the port
-// number and the module. For example you with a rangefinder:
-// public static int rangefinderPort = 1;
-// public static int rangefinderModule = 1;
+  // If you are using multiple modules, make sure to define both the port
+  // number and the module. For example you with a rangefinder:
+  // public static int rangefinderPort = 1;
+  // public static int rangefinderModule = 1;
 }
