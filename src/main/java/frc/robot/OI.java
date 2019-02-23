@@ -50,7 +50,6 @@ public class OI {
   // until it is finished as determined by it's isFinished method.
   // button.whenPressed(new ExampleCommand());
   public OI() {
-    // button1.whileHeld(new Hatch_Intake_On());
     button1.whenPressed(new Hatch_Intake_On_For_T());
     button2.whenPressed(new Hatch_Intake_Off());
   }
@@ -120,7 +119,5 @@ public class OI {
   // Start the command when the button is released and let it run the command
   // until it is finished as determined by it's isFinished method.
   // button.whenReleased(new ExampleCommand());
-
-  
 }
 

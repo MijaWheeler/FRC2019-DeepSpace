@@ -25,7 +25,7 @@ public class Hatch_Intake_On extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.Hatch_Intake_Subsystem.Sol.set(true); // Sol is the solenoid
+    Robot.Hatch_Intake_Subsystem.HatchSolenoid.set(true); // Sol is the solenoid
   }
 
   // Make this return true when this Command no longer needs to run execute()

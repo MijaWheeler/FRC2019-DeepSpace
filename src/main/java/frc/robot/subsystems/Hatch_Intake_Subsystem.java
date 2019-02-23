@@ -20,7 +20,7 @@ public class Hatch_Intake_Subsystem extends Subsystem {
   // here. Call these from Commands.
   // public Solenoid Sol;
 
-  public Solenoid Sol = new Solenoid(12, 0); // Solenoid(CAN ID, Port #)
+  public Solenoid HatchSolenoid = new Solenoid(12, 0); // Solenoid(CAN ID, Port #)
   
   @Override
   public void initDefaultCommand() {

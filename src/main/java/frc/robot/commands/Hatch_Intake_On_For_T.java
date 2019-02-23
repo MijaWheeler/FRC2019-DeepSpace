@@ -29,7 +29,7 @@ public class Hatch_Intake_On_For_T extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.Hatch_Intake_Subsystem.Sol.set(true); // Sol is the solenoid
+    Robot.Hatch_Intake_Subsystem.HatchSolenoid.set(true); // Sol is the solenoid
 
     Delay_Time = Delay_Time + 20;
   }
@@ -44,7 +44,7 @@ public class Hatch_Intake_On_For_T extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.Hatch_Intake_Subsystem.Sol.set(false);
+    Robot.Hatch_Intake_Subsystem.HatchSolenoid.set(false);
   }
 
   // Called when another command which requires one or more of the same
