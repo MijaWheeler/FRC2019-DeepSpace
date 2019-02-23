@@ -33,8 +33,8 @@ public class OI {
   // Button button = new JoystickButton(stick, buttonNumber)
   static Joystick stick0 = new Joystick(RobotMap.JoystickPort);
 
-  Button button1 = new JoystickButton(stick0, 1);
-  Button button2 = new JoystickButton(stick0, 2);
+  Button button1 = new JoystickButton(stick0, RobotMap.RMiddle);
+  // Button button2 = new JoystickButton(stick0, 0);
   Button button3 = new JoystickButton(stick0, 3);
 
   // There are a few additional built in buttons you can use. Additionally,
@@ -51,7 +51,7 @@ public class OI {
 
 public OI() {
   button1.whileHeld(new Box_Intake_On());
-  button2.whileHeld(new Box_Outtake_On());
+  // button2.whileHeld(new Box_Outtake_On());
   button3.whenPressed(new Box_Off());
 }
 
