@@ -16,6 +16,7 @@ package frc.robot;
 public class RobotMap {
 
 public static int Sol = 4; // solenoid
+public static int stick0 = 0;
 
 
   
