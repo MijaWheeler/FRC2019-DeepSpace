@@ -16,6 +16,7 @@ package frc.robot;
 
 public class RobotMap {
 
+ /*CONTROLER */ 
   //Joystick port
   public static int JoystickPort = 0;
   
@@ -48,13 +49,17 @@ public class RobotMap {
   public static int RMiddle = 8;
 
   //left and right joystick ID and left and right joystick button ID
-
   public static int LJoystickBtn = 9;
   public static int RJoystickBtn = 10;
   public static int LeftJoystickID = 1;  
   public static int RightJoystickID = 5;
-  
+
+  /*MOTOR CONTROL */
   public static int TunnelSparkCANID = 0;
+
+ /*OTHER */
+ public static int Sol = 4; // solenoid
+
 
   // For example to map the left and right motors, you could define the
   // following variables to use with your drivetrain subsystem.
