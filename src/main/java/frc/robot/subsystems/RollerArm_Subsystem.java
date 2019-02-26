@@ -16,27 +16,30 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 /**
  * Add your docs here.
  */
-public class R_RollerArm_Subsystem extends PIDSubsystem {
+public class RollerArm_Subsystem extends PIDSubsystem {
   /**
    * Add your docs here.
    */
+  TalonSRX L_ArmSRX = new TalonSRX(8);
   TalonSRX R_ArmSRX = new TalonSRX(7);
 
-  public R_RollerArm_Subsystem() {
+  public RollerArm_Subsystem() {
     // Intert a subsystem name and PID values here
-    super("R_RollerArmPID_Subsystem", 0.00009, 0, 0);
+    super("RollerArmPID_Subsystem", 0.00009, 0, 0);
     // Use these to get going:
     // setSetpoint() - Sets where the PID controller should move the system
     // to
     // enable() - Enables the PID controller.
-    enable();
-    setAbsoluteTolerance(0); //Sets the absolute parameters of PID
-    R_ArmSRX.setSensorPhase(true); //controls the direction of the motor control using boolean
-    R_ArmSRX.setSelectedSensorPosition(0, 0, 1); //sensor position, pidIdx, time out
-    R_ArmSRX.configPeakCurrentLimit(15,0); //set max amps to 15
-    R_ArmSRX.configPeakCurrentDuration(0  ,30);
-		R_ArmSRX.configContinuousCurrentLimit(10, 0);
-		R_ArmSRX.enableCurrentLimit(true);
+    enable();//setup encoders
+    setAbsoluteTolerance(0);//setup encoders
+    L_ArmSRX.setSensorPhase(false);//setup encoders
+    L_ArmSRX.setSelectedSensorPosition(0, 0, 1); //setup encoders
+
+    L_ArmSRX.configPeakCurrentLimit(15,0); //set max amps to 15
+    L_ArmSRX.configPeakCurrentDuration(0  ,30);
+		L_ArmSRX.configContinuousCurrentLimit(10, 0);
+		L_ArmSRX.enableCurrentLimit(true);
+
   }
 
   @Override
@@ -44,6 +47,7 @@ public class R_RollerArm_Subsystem extends PIDSubsystem {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
     setDefaultCommand(new ArmStowed());
+
   }
 
   @Override
@@ -51,13 +55,13 @@ public class R_RollerArm_Subsystem extends PIDSubsystem {
     // Return your input value for the PID loop
     // e.g. a sensor, like a potentiometer:
     // yourPot.getAverageVoltage() / kYourMaxVoltage;
-    return R_ArmSRX.getSelectedSensorPosition(0);
+    return L_ArmSRX.getSelectedSensorPosition(0);
   }
 
   @Override
   protected void usePIDOutput(double output) {
     // Use output to drive your system, like a motor
     // e.g. yourMotor.set(output);
-    R_ArmSRX.set(ControlMode.PercentOutput, output);
+    L_ArmSRX.set(ControlMode.PercentOutput, output);
   }
 }

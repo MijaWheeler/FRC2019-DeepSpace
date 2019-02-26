@@ -9,9 +9,11 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.OI;
 
-public class ArmDown extends Command {
-  public ArmDown() {
+public class ArmDirectional extends Command {
+  public int DPADAngle;
+  public ArmDirectional() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.Roller_Arm);
@@ -25,7 +27,15 @@ public class ArmDown extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.Roller_Arm.setSetpointRelative(-400); //Full = 4096; start = 0
+    DPADAngle = OI.GetDPadAngle();
+
+    if (DPADAngle == 180) {
+      Robot.Roller_Arm.setSetpointRelative(-400); //Full = 4096; start = 0
+    } else if (DPADAngle == 270) {
+      Robot.Roller_Arm.setSetpointRelative(400); //setSetPointRelative adds to current position of the encoder
+    } else {
+      return;
+    }
   }
 
   // Make this return true when this Command no longer needs to run execute()

@@ -1,4 +1,4 @@
-/*----------------------------------------------------------------------------*/
+ /*----------------------------------------------------------------------------*/
 /* Copyright (c) 2018 FIRST. All Rights Reserved.                             */
 /* Open Source Software - may be modified and shared by FRC teams. The code   */
 /* must be accompanied by the FIRST BSD license file in the root directory of */
@@ -14,8 +14,7 @@ public class ArmStowed extends Command {
   public ArmStowed() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.R_Arm);
-    requires(Robot.L_Arm);
+    requires(Robot.Roller_Arm);
   }
 
   // Called just before this Command runs the first time
@@ -26,8 +25,7 @@ public class ArmStowed extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.L_Arm.setSetpoint(4096); //Full = 4096; start = 0
-    Robot.R_Arm.setSetpoint(4096); //Full = 4096; start = 0
+    Robot.Roller_Arm.setSetpoint(4096); //Full = 4096; start = 0
   }
 
   // Make this return true when this Command no longer needs to run execute()

@@ -14,8 +14,7 @@ public class ArmUp extends Command {
   //public double R_ArmSRX_Position;
 
   public ArmUp() {
-      requires(Robot.R_Arm);
-      requires(Robot.L_Arm);
+      requires(Robot.Roller_Arm);
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     //this.R_ArmSRX_Position = R_ArmSRX_Position;
@@ -30,8 +29,7 @@ public class ArmUp extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.R_Arm.setSetpointRelative(400);
-    Robot.L_Arm.setSetpointRelative(400);
+    Robot.Roller_Arm.setSetpointRelative(400);
   }
 
   // Make this return true when this Command no longer needs to run execute()
