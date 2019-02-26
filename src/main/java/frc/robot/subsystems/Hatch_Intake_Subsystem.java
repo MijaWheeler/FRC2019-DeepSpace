@@ -18,6 +18,7 @@ public class Hatch_Intake_Subsystem extends Subsystem {
   // here. Call these from Commands.
   // public Solenoid Sol;
 
+
   public Solenoid HatchSolenoid = new Solenoid(RobotMap.HatchSolCANID, RobotMap.SolPort); 
       // Solenoid(CAN ID, Port #)
   
