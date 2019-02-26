@@ -8,7 +8,9 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
-import frc.robot.commands.ArmStowed;
+import frc.robot.RobotMap;
+import frc.robot.commands.ArmDirectional;
+// import frc.robot.commands.ArmStowed;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
@@ -20,8 +22,8 @@ public class RollerArm_Subsystem extends PIDSubsystem {
   /**
    * Add your docs here.
    */
-  TalonSRX L_ArmSRX = new TalonSRX(8);
-  TalonSRX R_ArmSRX = new TalonSRX(7);
+  TalonSRX L_ArmSRX = new TalonSRX(RobotMap.Mecanum_SRX_ID_1);
+  TalonSRX R_ArmSRX = new TalonSRX(RobotMap.Mecanum_SRX_ID_2);
 
   public RollerArm_Subsystem() {
     // Intert a subsystem name and PID values here
@@ -46,8 +48,7 @@ public class RollerArm_Subsystem extends PIDSubsystem {
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
-    setDefaultCommand(new ArmStowed());
-
+    setDefaultCommand(new ArmDirectional());
   }
 
   @Override
@@ -63,5 +64,6 @@ public class RollerArm_Subsystem extends PIDSubsystem {
     // Use output to drive your system, like a motor
     // e.g. yourMotor.set(output);
     L_ArmSRX.set(ControlMode.PercentOutput, output);
+    R_ArmSRX.set(ControlMode.PercentOutput, output);
   }
 }

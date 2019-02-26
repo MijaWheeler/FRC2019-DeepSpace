@@ -54,6 +54,10 @@ public class RobotMap {
   public static int Elevator_Talon_1_ID = 8;
   public static int Elevator_Talon_2_ID = 7;
 
+  //mecanum intake talons
+  public static int Mecanum_SRX_ID_1 = 5; // !!!: CHANGE THESE TO THE PROPER CAN IDS
+  public static int Mecanum_SRX_ID_2 = 6;
+
   //arrays for encoder position values
   public static int[] Height_List = new int[] {476, 1314, 5022, 6487, 9454, 11809};
 
