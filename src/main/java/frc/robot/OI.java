@@ -44,7 +44,7 @@ public class OI {
   
   Button LBumper = new JoystickButton(stick0, RobotMap.LBumper);
   
-  public JoystickAnalogButton TriggerL = new JoystickAnalogButton(stick0, RobotMap.LTrigger);
+  public JoystickAnalogButton LTrigger = new JoystickAnalogButton(stick0, RobotMap.LTrigger);
   public JoystickAnalogButton RTrigger = new JoystickAnalogButton(stick0, RobotMap.RTrigger);
   
   Button RMiddle = new JoystickButton(stick0, RobotMap.RMiddle);
@@ -53,8 +53,7 @@ public class OI {
   Button tunBut = new JoystickButton(stick0, RobotMap.ButtonX); //Tunnel starts on X-button
   Button tunBut_off = new JoystickButton(stick0, RobotMap.ButtonY); //Tunnel turns off on Y-button
 
-  Button button1 = new JoystickButton(stick0, 1);
-  Button button2 = new JoystickButton(stick0, 2);
+
   // There are a few additional built in buttons you can use. Additionally,
   // by subclassing Button you can create custom triggers and bind those to
   // commands the same as any other Button.
@@ -73,10 +72,12 @@ public class OI {
     RMiddle.whileHeld(new Box_Outtake_On());
     RTrigger.whileHeld(new Box_Intake_On());
     LMiddle.whileHeld(new Box_Off());
+    
     tunBut.whenPressed(new TunnelIntake()); 
     tunBut_off.whenPressed(new TunnelIntakeOff());
-    button1.whenPressed(new Hatch_Intake_On_For_T());
-    button2.whenPressed(new Hatch_Intake_Off());
+
+    LTrigger.whenPressed(new Hatch_Intake_On_For_T());
+    RTrigger.whenPressed(new Hatch_Intake_Off());
 
   }
 

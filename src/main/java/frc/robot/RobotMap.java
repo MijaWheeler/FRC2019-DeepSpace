@@ -56,9 +56,10 @@ public class RobotMap {
 
   /*MOTOR CONTROL */
   public static int TunnelSparkCANID = 0;
+  public static int HatchSolCANID = 12;
 
- /*OTHER */
- public static int Sol = 4; // solenoid
+  /*OTHER */
+   public static int SolPort = 4; // Hatch Outake Solonoid port
 
 
   // For example to map the left and right motors, you could define the
