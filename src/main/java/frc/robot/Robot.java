@@ -22,7 +22,7 @@ import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.LDriveTrain_Subsystem;
 import frc.robot.subsystems.RDriveTrain_Subsystem;
 import edu.wpi.first.wpilibj.DriverStation;
-
+import frc.robot.subsystems.Hatch_Intake_Subsystem;
 import frc.robot.subsystems.Box_Subsystem;
 
 //Additional Subsystem imports
@@ -41,7 +41,7 @@ public class Robot extends TimedRobot {
   public static ExampleSubsystem m_subsystem = new ExampleSubsystem();
   public static OI m_oi;
 
-  public static Box_Subsystem Box_Subsystem = new Box_Subsystem(); 
+  
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -51,7 +51,8 @@ public class Robot extends TimedRobot {
   public static RDriveTrain_Subsystem RDriveTrain = new RDriveTrain_Subsystem();
   public static LDriveTrain_Subsystem LDriveTrain = new LDriveTrain_Subsystem();
   public static Arduino_LED_Subsystem Arduino_LED = new Arduino_LED_Subsystem();
-
+  public static Box_Subsystem Box_Subsystem = new Box_Subsystem(); 
+  public static Hatch_Intake_Subsystem Hatch_Intake_Subsystem = new Hatch_Intake_Subsystem(); //creating the subsystem
   /**
    * This function is run when the robot is first started up and should be
    * used for any initialization code.

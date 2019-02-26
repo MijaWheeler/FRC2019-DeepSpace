@@ -10,13 +10,21 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.GenericHID;
 
+
+/*COMMADS */
 import frc.robot.commands.TunnelIntake;
 import frc.robot.commands.TunnelIntakeOff;
 import frc.robot.commands.Box_Intake_On;
 import frc.robot.commands.Box_Outtake_On;
 import frc.robot.commands.Box_Off;
-import edu.wpi.first.wpilibj.GenericHID;
+import frc.robot.commands.Hatch_Intake_On_For_T;
+import frc.robot.commands.Hatch_Intake_Off;
+
+
+
+
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -36,7 +44,7 @@ public class OI {
   
   Button LBumper = new JoystickButton(stick0, RobotMap.LBumper);
   
-  public JoystickAnalogButton TriggerL = new JoystickAnalogButton(stick0, RobotMap.LTrigger);
+  public JoystickAnalogButton LTrigger = new JoystickAnalogButton(stick0, RobotMap.LTrigger);
   public JoystickAnalogButton RTrigger = new JoystickAnalogButton(stick0, RobotMap.RTrigger);
   
   Button RMiddle = new JoystickButton(stick0, RobotMap.RMiddle);
@@ -44,6 +52,7 @@ public class OI {
   
   Button tunBut = new JoystickButton(stick0, RobotMap.ButtonX); //Tunnel starts on X-button
   Button tunBut_off = new JoystickButton(stick0, RobotMap.ButtonY); //Tunnel turns off on Y-button
+
 
   // There are a few additional built in buttons you can use. Additionally,
   // by subclassing Button you can create custom triggers and bind those to
@@ -63,8 +72,13 @@ public class OI {
     RMiddle.whileHeld(new Box_Outtake_On());
     RTrigger.whileHeld(new Box_Intake_On());
     LMiddle.whileHeld(new Box_Off());
+    
     tunBut.whenPressed(new TunnelIntake()); 
     tunBut_off.whenPressed(new TunnelIntakeOff());
+
+    LTrigger.whenPressed(new Hatch_Intake_On_For_T());
+    RTrigger.whenPressed(new Hatch_Intake_Off());
+
   }
 
   // Run the command while the button is being held down and interrupt it once
