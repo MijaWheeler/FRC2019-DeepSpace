@@ -30,9 +30,9 @@ public class ArmDirectional extends Command {
     DPADAngle = OI.GetDPadAngle();
 
     if (DPADAngle == 180) {
-      Robot.Roller_Arm.setSetpointRelative(-200); //Full = 4096; start = 0
+      Robot.Roller_Arm.setSetpointRelative(-20); //Full = 4096; start = 0
     } else if (DPADAngle == 270) {
-      Robot.Roller_Arm.setSetpointRelative(200); //setSetPointRelative adds to current position of the encoder
+      Robot.Roller_Arm.setSetpointRelative(20); //setSetPointRelative adds to current position of the encoder
     } else {
       return;
     }
