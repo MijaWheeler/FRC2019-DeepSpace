@@ -21,6 +21,8 @@ import frc.robot.commands.Box_Outtake_On;
 import frc.robot.commands.Box_Off;
 import frc.robot.commands.Hatch_Intake_On_For_T;
 import frc.robot.commands.Hatch_Intake_Off;
+import frc.robot.commands.Elevator_Up;
+import frc.robot.commands.Elevator_Down;
 
 
 
@@ -42,8 +44,6 @@ public class OI {
 
   static Joystick stick0 = new Joystick(RobotMap.JoystickPort);
   
-  Button LBumper = new JoystickButton(stick0, RobotMap.LBumper);
-  
   public JoystickAnalogButton LTrigger = new JoystickAnalogButton(stick0, RobotMap.LTrigger);
   public JoystickAnalogButton RTrigger = new JoystickAnalogButton(stick0, RobotMap.RTrigger);
   
@@ -52,6 +52,9 @@ public class OI {
   
   Button tunBut = new JoystickButton(stick0, RobotMap.ButtonX); //Tunnel starts on X-button
   Button tunBut_off = new JoystickButton(stick0, RobotMap.ButtonY); //Tunnel turns off on Y-button
+
+  Button LBumper = new JoystickButton(stick0, RobotMap.LBumper); // elevator goes down
+  public JoystickAnalogButton TriggerL = new JoystickAnalogButton(stick0, RobotMap.LTrigger); // elevator goes up
 
 
   // There are a few additional built in buttons you can use. Additionally,
@@ -79,6 +82,8 @@ public class OI {
     LTrigger.whenPressed(new Hatch_Intake_On_For_T());
     RTrigger.whenPressed(new Hatch_Intake_Off());
 
+    TriggerL.whileHeld(new Elevator_Up()); //play around with this; may or may not use whileHeld
+    LBumper.whileHeld(new Elevator_Down());
   }
 
   // Run the command while the button is being held down and interrupt it once
