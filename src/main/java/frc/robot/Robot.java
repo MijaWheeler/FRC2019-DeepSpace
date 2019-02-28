@@ -24,6 +24,8 @@ import frc.robot.subsystems.RDriveTrain_Subsystem;
 import edu.wpi.first.wpilibj.DriverStation;
 import frc.robot.subsystems.Hatch_Intake_Subsystem;
 import frc.robot.subsystems.Box_Subsystem;
+import frc.robot.subsystems.Roller_Subsystem;
+import frc.robot.subsystems.RollerArm_Subsystem;
 
 //Additional Subsystem imports
 import frc.robot.subsystems.Tunnel_Subsystem;
@@ -52,7 +54,10 @@ public class Robot extends TimedRobot {
   public static LDriveTrain_Subsystem LDriveTrain = new LDriveTrain_Subsystem();
   public static Arduino_LED_Subsystem Arduino_LED = new Arduino_LED_Subsystem();
   public static Box_Subsystem Box_Subsystem = new Box_Subsystem(); 
-  public static Hatch_Intake_Subsystem Hatch_Intake_Subsystem = new Hatch_Intake_Subsystem(); //creating the subsystem
+  public static Hatch_Intake_Subsystem Hatch_Intake_Subsystem = new Hatch_Intake_Subsystem(); 
+  public static Roller_Subsystem Roller = new Roller_Subsystem();
+  public static RollerArm_Subsystem Roller_Arm = new RollerArm_Subsystem();
+
   /**
    * This function is run when the robot is first started up and should be
    * used for any initialization code.

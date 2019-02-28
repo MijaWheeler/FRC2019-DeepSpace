@@ -61,6 +61,9 @@ public class RobotMap {
   /*OTHER */
    public static int SolPort = 4; // Hatch Outake Solonoid port
 
+  //mecanum intake talons
+  public static int Mecanum_SRX_ID_1 = 5; // !!!: CHANGE THESE TO THE PROPER CAN IDS (PHEONIX TUNER)
+  public static int Mecanum_SRX_ID_2 = 6;
 
   // For example to map the left and right motors, you could define the
   // following variables to use with your drivetrain subsystem.
