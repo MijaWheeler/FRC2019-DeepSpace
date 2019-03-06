@@ -16,11 +16,9 @@ import edu.wpi.first.wpilibj.GenericHID;
 /*COMMADS */
 import frc.robot.commands.TunnelIntake;
 import frc.robot.commands.TunnelIntakeOff;
-import frc.robot.commands.Box_Intake_On;
-import frc.robot.commands.Box_Outtake_On;
-import frc.robot.commands.Box_Off;
 import frc.robot.commands.Hatch_Intake_On_For_T;
-import frc.robot.commands.Hatch_Intake_Off;
+import frc.robot.commands.MecanumRollerOuttake;
+import frc.robot.commands.RollerTunnelBox_CommandGroup;
 
 
 
@@ -40,18 +38,26 @@ public class OI {
   // number it is.
   // Joystick stick = new Joystick(port);
 
-  static Joystick stick0 = new Joystick(RobotMap.JoystickPort);
+  //Joystick
+  static Joystick stick0 = new Joystick(RobotMap.JoystickPort); //Rioght Joystick
   
+  //Bumpers
   Button LBumper = new JoystickButton(stick0, RobotMap.LBumper);
+  Button RBumper = new JoystickButton(stick0, RobotMap.RBumper);
   
+  //Trigger
   public JoystickAnalogButton LTrigger = new JoystickAnalogButton(stick0, RobotMap.LTrigger);
   public JoystickAnalogButton RTrigger = new JoystickAnalogButton(stick0, RobotMap.RTrigger);
   
+  //Center Console
   Button RMiddle = new JoystickButton(stick0, RobotMap.RMiddle);
   Button LMiddle = new JoystickButton(stick0, RobotMap.LMiddle);
   
-  Button tunBut = new JoystickButton(stick0, RobotMap.ButtonX); //Tunnel starts on X-button
-  Button tunBut_off = new JoystickButton(stick0, RobotMap.ButtonY); //Tunnel turns off on Y-button
+  //Letters
+  Button A = new JoystickButton(stick0, RobotMap.ButtonA); 
+  Button B = new JoystickButton(stick0, RobotMap.ButtonB); 
+  Button X = new JoystickButton(stick0, RobotMap.ButtonX); 
+  Button Y = new JoystickButton(stick0, RobotMap.ButtonY); 
 
 
   // There are a few additional built in buttons you can use. Additionally,
@@ -69,15 +75,16 @@ public class OI {
   // button.whenPressed(new ExampleCommand());
 
   public OI() {
-    RMiddle.whileHeld(new Box_Outtake_On());
-    RTrigger.whileHeld(new Box_Intake_On());
-    LMiddle.whileHeld(new Box_Off());
+   
+    RMiddle.whileHeld(new MecanumRollerOuttake());
+    //RTrigger.whileHeld(new Box_Intake_On());
+    //LMiddle.whileHeld(new Box_Off());
     
-    tunBut.whenPressed(new TunnelIntake()); 
-    tunBut_off.whenPressed(new TunnelIntakeOff());
+    X.whenPressed(new TunnelIntake()); 
+    Y.whenPressed(new TunnelIntakeOff());
 
     LTrigger.whenPressed(new Hatch_Intake_On_For_T());
-    RTrigger.whenPressed(new Hatch_Intake_Off());
+    RTrigger.whileHeld(new RollerTunnelBox_CommandGroup()); //Intake COmmand Group = Right Trigger
 
   }
 
