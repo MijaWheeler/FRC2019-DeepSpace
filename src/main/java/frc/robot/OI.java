@@ -17,8 +17,14 @@ import edu.wpi.first.wpilibj.GenericHID;
 import frc.robot.commands.TunnelIntake;
 import frc.robot.commands.TunnelIntakeOff;
 import frc.robot.commands.Hatch_Intake_On_For_T;
+<<<<<<< HEAD
 import frc.robot.commands.MecanumRollerOuttake;
 import frc.robot.commands.RollerTunnelBox_CommandGroup;
+=======
+import frc.robot.commands.Hatch_Intake_Off;
+import frc.robot.commands.Elevator_Up;
+import frc.robot.commands.Elevator_Down;
+>>>>>>> 90308fd84ec45e6038bc0a8efdc179ecc34d111b
 
 
 
@@ -41,11 +47,14 @@ public class OI {
   //Joystick
   static Joystick stick0 = new Joystick(RobotMap.JoystickPort); //Rioght Joystick
   
+<<<<<<< HEAD
   //Bumpers
   Button LBumper = new JoystickButton(stick0, RobotMap.LBumper);
   Button RBumper = new JoystickButton(stick0, RobotMap.RBumper);
   
   //Trigger
+=======
+>>>>>>> 90308fd84ec45e6038bc0a8efdc179ecc34d111b
   public JoystickAnalogButton LTrigger = new JoystickAnalogButton(stick0, RobotMap.LTrigger);
   public JoystickAnalogButton RTrigger = new JoystickAnalogButton(stick0, RobotMap.RTrigger);
   
@@ -58,6 +67,9 @@ public class OI {
   Button B = new JoystickButton(stick0, RobotMap.ButtonB); 
   Button X = new JoystickButton(stick0, RobotMap.ButtonX); 
   Button Y = new JoystickButton(stick0, RobotMap.ButtonY); 
+
+  Button LBumper = new JoystickButton(stick0, RobotMap.LBumper); // elevator goes down
+  public JoystickAnalogButton TriggerL = new JoystickAnalogButton(stick0, RobotMap.LTrigger); // elevator goes up
 
 
   // There are a few additional built in buttons you can use. Additionally,
@@ -86,6 +98,8 @@ public class OI {
     LTrigger.whenPressed(new Hatch_Intake_On_For_T());
     RTrigger.whileHeld(new RollerTunnelBox_CommandGroup()); //Intake COmmand Group = Right Trigger
 
+    TriggerL.whileHeld(new Elevator_Up()); //play around with this; may or may not use whileHeld
+    LBumper.whileHeld(new Elevator_Down());
   }
 
   // Run the command while the button is being held down and interrupt it once

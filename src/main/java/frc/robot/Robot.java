@@ -30,6 +30,7 @@ import frc.robot.subsystems.Hatch_Intake_Subsystem;
 import frc.robot.subsystems.Box_Subsystem;
 import frc.robot.subsystems.Roller_Subsystem;
 import frc.robot.subsystems.RollerArm_Subsystem;
+import frc.robot.subsystems.Elevator_Lift_Subsystem;
 
 import frc.robot.subsystems.Elevator_Subsystem;;
 
@@ -59,6 +60,8 @@ public class Robot extends TimedRobot {
   public static Hatch_Intake_Subsystem Hatch_Intake_Subsystem = new Hatch_Intake_Subsystem(); 
   public static Roller_Subsystem Roller = new Roller_Subsystem();
   public static RollerArm_Subsystem Roller_Arm = new RollerArm_Subsystem();
+  public static Elevator_Lift_Subsystem Elevator_Lift_Subsystem = new Elevator_Lift_Subsystem();
+  
 
   public static Elevator_Subsystem Elevator = new Elevator_Subsystem();
 

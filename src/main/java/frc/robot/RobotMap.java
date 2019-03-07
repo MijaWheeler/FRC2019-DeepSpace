@@ -65,6 +65,13 @@ public class RobotMap {
   public static int Mecanum_SRX_ID_1 = 5; // !!!: CHANGE THESE TO THE PROPER CAN IDS (PHEONIX TUNER)
   public static int Mecanum_SRX_ID_2 = 6;
 
+  //elevator talons
+  public static int Elevator_Talon_1_ID = 8;
+  public static int Elevator_Talon_2_ID = 7;
+
+  //arrays for encoder position values
+  public static int[] Height_List = new int[] {476, 1314, 5022, 6487, 9454, 11809};
+
   // For example to map the left and right motors, you could define the
   // following variables to use with your drivetrain subsystem.
   // public static int leftMotor = 1;
