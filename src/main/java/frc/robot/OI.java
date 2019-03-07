@@ -10,27 +10,21 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import edu.wpi.first.wpilibj.GenericHID;
 
-
-/*COMMADS */
 import frc.robot.commands.TunnelIntake;
 import frc.robot.commands.TunnelIntakeOff;
-import frc.robot.commands.Hatch_Intake_On_For_T;
-<<<<<<< HEAD
-import frc.robot.commands.MecanumRollerOuttake;
-import frc.robot.commands.RollerTunnelBox_CommandGroup;
-=======
-import frc.robot.commands.Hatch_Intake_Off;
-import frc.robot.commands.Elevator_Up;
+import frc.robot.commands.Box_Intake_On;
+import frc.robot.commands.Box_Outtake_On;
 import frc.robot.commands.Elevator_Down;
->>>>>>> 90308fd84ec45e6038bc0a8efdc179ecc34d111b
+import frc.robot.commands.Elevator_Up;
+import frc.robot.commands.MecanumArmRollerDeploy;
+import frc.robot.commands.MecanumArmStowed;
+import frc.robot.commands.MecanumRollerOuttake;
+import frc.robot.commands.Box_Off;
+import edu.wpi.first.wpilibj.GenericHID;
+import frc.robot.commands.RollerTunnelBox_CommandGroup;;
 
-
-
-
-
-/**
+/**e
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
  */
@@ -42,36 +36,28 @@ public class OI {
   //// joystick.
   // You create one by telling it which joystick it's on and which button
   // number it is.
-  // Joystick stick = new Joystick(port);
 
-  //Joystick
-  static Joystick stick0 = new Joystick(RobotMap.JoystickPort); //Rioght Joystick
+  //Joystcick
+  static Joystick stick0 = new Joystick(RobotMap.JoystickPort);
   
-<<<<<<< HEAD
   //Bumpers
   Button LBumper = new JoystickButton(stick0, RobotMap.LBumper);
   Button RBumper = new JoystickButton(stick0, RobotMap.RBumper);
-  
-  //Trigger
-=======
->>>>>>> 90308fd84ec45e6038bc0a8efdc179ecc34d111b
+
+  //Triggers
   public JoystickAnalogButton LTrigger = new JoystickAnalogButton(stick0, RobotMap.LTrigger);
   public JoystickAnalogButton RTrigger = new JoystickAnalogButton(stick0, RobotMap.RTrigger);
   
   //Center Console
   Button RMiddle = new JoystickButton(stick0, RobotMap.RMiddle);
   Button LMiddle = new JoystickButton(stick0, RobotMap.LMiddle);
-  
-  //Letters
-  Button A = new JoystickButton(stick0, RobotMap.ButtonA); 
-  Button B = new JoystickButton(stick0, RobotMap.ButtonB); 
-  Button X = new JoystickButton(stick0, RobotMap.ButtonX); 
-  Button Y = new JoystickButton(stick0, RobotMap.ButtonY); 
-
-  Button LBumper = new JoystickButton(stick0, RobotMap.LBumper); // elevator goes down
-  public JoystickAnalogButton TriggerL = new JoystickAnalogButton(stick0, RobotMap.LTrigger); // elevator goes up
-
-
+ 
+  //Letter Buttons
+  Button Button_A = new JoystickButton(stick0, RobotMap.ButtonA); //Tunnel starts on X-button
+  Button Button_B = new JoystickButton(stick0, RobotMap.ButtonB);
+  Button Button_X = new JoystickButton(stick0, RobotMap.ButtonX); //Tunnel starts on X-button
+  Button Button_Y = new JoystickButton(stick0, RobotMap.ButtonY); //Tunnel turns off on Y-button
+ 
   // There are a few additional built in buttons you can use. Additionally,
   // by subclassing Button you can create custom triggers and bind those to
   // commands the same as any other Button.
@@ -87,19 +73,31 @@ public class OI {
   // button.whenPressed(new ExampleCommand());
 
   public OI() {
-   
-    RMiddle.whileHeld(new MecanumRollerOuttake());
-    //RTrigger.whileHeld(new Box_Intake_On());
-    //LMiddle.whileHeld(new Box_Off());
+    /* 
     
-    X.whenPressed(new TunnelIntake()); 
-    Y.whenPressed(new TunnelIntakeOff());
+    */
 
-    LTrigger.whenPressed(new Hatch_Intake_On_For_T());
-    RTrigger.whileHeld(new RollerTunnelBox_CommandGroup()); //Intake COmmand Group = Right Trigger
+    //Trigger
+    RTrigger.whileHeld(new RollerTunnelBox_CommandGroup() ); //Command
+    LTrigger.whileHeld(new Elevator_Down() ); //Lift Down
 
-    TriggerL.whileHeld(new Elevator_Up()); //play around with this; may or may not use whileHeld
-    LBumper.whileHeld(new Elevator_Down());
+   //Bumpers
+    RBumper.whileHeld(new Elevator_Up() ); // LIft Up
+    //LBumper.whileHeld(new Box_Intake_On()); // Lift High Gear- NA for Deluth
+    
+    //Letter Button
+    Button_A.whenPressed(new TunnelIntake()); //*** */Vision Targeting
+    Button_B.whenPressed(new MecanumArmStowed() ); //Hatch Arm [Stow]
+    Button_X.whenPressed(new TunnelIntake());  // ***Hatch Arm [Floor]
+    Button_Y.whenPressed(new MecanumArmRollerDeploy() ); //HAtch Arm [Place]
+
+    //Center COnsole
+    RMiddle.whileHeld(new MecanumRollerOuttake() ); //Roller Outtake
+    //LMiddle.whileHeld(new Box_Off() );
+
+    //D-Pad
+    
+
   }
 
   // Run the command while the button is being held down and interrupt it once
