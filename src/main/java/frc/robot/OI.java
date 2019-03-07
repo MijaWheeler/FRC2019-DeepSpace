@@ -21,11 +21,15 @@ import frc.robot.commands.Box_Outtake_On;
 import frc.robot.commands.Box_Off;
 import frc.robot.commands.Hatch_Intake_On_For_T;
 import frc.robot.commands.Hatch_Intake_Off;
-//import frc.robot.commands.TrackLimelightX;
+
+import frc.robot.commands.TrackLimelightX;
 import frc.robot.commands.TurnLeft;
 import frc.robot.commands.TurnRight;
 import frc.robot.commands.DriveForward;
 import frc.robot.commands.DriveBackwards;
+import frc.robot.commands.Elevator_Up;
+import frc.robot.commands.Elevator_Down;
+
 
 
 
@@ -47,18 +51,23 @@ public class OI {
 
   static Joystick stick0 = new Joystick(RobotMap.JoystickPort);
   
-  Button LBumper = new JoystickButton(stick0, RobotMap.LBumper);
-  
   public JoystickAnalogButton LTrigger = new JoystickAnalogButton(stick0, RobotMap.LTrigger);
   public JoystickAnalogButton RTrigger = new JoystickAnalogButton(stick0, RobotMap.RTrigger);
   
   Button RMiddle = new JoystickButton(stick0, RobotMap.RMiddle);
   Button LMiddle = new JoystickButton(stick0, RobotMap.LMiddle);
   
+
   Button buttonA = new JoystickButton(stick0, RobotMap.ButtonA);
   Button buttonB = new JoystickButton(stick0, RobotMap.ButtonB);
   Button buttonX = new JoystickButton(stick0, RobotMap.ButtonX);
   Button buttonY = new JoystickButton(stick0, RobotMap.ButtonY);
+
+  
+  Button LBumper = new JoystickButton(stick0, RobotMap.LBumper); // elevator goes down
+  public JoystickAnalogButton TriggerL = new JoystickAnalogButton(stick0, RobotMap.LTrigger); // elevator goes up
+
+
 
   // There are a few additional built in buttons you can use. Additionally,
   // by subclassing Button you can create custom triggers and bind those to
@@ -87,6 +96,8 @@ public class OI {
     LTrigger.whenPressed(new Hatch_Intake_On_For_T());
     RTrigger.whenPressed(new Hatch_Intake_Off());
 
+    TriggerL.whileHeld(new Elevator_Up()); //play around with this; may or may not use whileHeld
+    LBumper.whileHeld(new Elevator_Down());
   }
 
   // Run the command while the button is being held down and interrupt it once
