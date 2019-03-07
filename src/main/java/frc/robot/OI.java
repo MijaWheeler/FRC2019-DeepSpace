@@ -14,15 +14,22 @@ import edu.wpi.first.wpilibj.GenericHID;
 
 
 /*COMMADS */
-import frc.robot.commands.TunnelIntake;
-import frc.robot.commands.TunnelIntakeOff;
+//import frc.robot.commands.TunnelIntake;
+//import frc.robot.commands.TunnelIntakeOff;
 import frc.robot.commands.Box_Intake_On;
 import frc.robot.commands.Box_Outtake_On;
 import frc.robot.commands.Box_Off;
 import frc.robot.commands.Hatch_Intake_On_For_T;
 import frc.robot.commands.Hatch_Intake_Off;
+
+import frc.robot.commands.TrackLimelightX;
+import frc.robot.commands.TurnLeft;
+import frc.robot.commands.TurnRight;
+import frc.robot.commands.DriveForward;
+import frc.robot.commands.DriveBackwards;
 import frc.robot.commands.Elevator_Up;
 import frc.robot.commands.Elevator_Down;
+
 
 
 
@@ -50,11 +57,16 @@ public class OI {
   Button RMiddle = new JoystickButton(stick0, RobotMap.RMiddle);
   Button LMiddle = new JoystickButton(stick0, RobotMap.LMiddle);
   
-  Button tunBut = new JoystickButton(stick0, RobotMap.ButtonX); //Tunnel starts on X-button
-  Button tunBut_off = new JoystickButton(stick0, RobotMap.ButtonY); //Tunnel turns off on Y-button
 
+  Button buttonA = new JoystickButton(stick0, RobotMap.ButtonA);
+  Button buttonB = new JoystickButton(stick0, RobotMap.ButtonB);
+  Button buttonX = new JoystickButton(stick0, RobotMap.ButtonX);
+  Button buttonY = new JoystickButton(stick0, RobotMap.ButtonY);
+
+  
   Button LBumper = new JoystickButton(stick0, RobotMap.LBumper); // elevator goes down
   public JoystickAnalogButton TriggerL = new JoystickAnalogButton(stick0, RobotMap.LTrigger); // elevator goes up
+
 
 
   // There are a few additional built in buttons you can use. Additionally,
@@ -76,9 +88,11 @@ public class OI {
     RTrigger.whileHeld(new Box_Intake_On());
     LMiddle.whileHeld(new Box_Off());
     
-    tunBut.whenPressed(new TunnelIntake()); 
-    tunBut_off.whenPressed(new TunnelIntakeOff());
-
+    buttonB.whileHeld(new TurnRight(.05));
+    buttonX.whileHeld(new TurnLeft(.05));
+    buttonY.whileHeld(new DriveForward(.05));
+    buttonA.whileHeld(new DriveBackwards(.05));
+    
     LTrigger.whenPressed(new Hatch_Intake_On_For_T());
     RTrigger.whenPressed(new Hatch_Intake_Off());
 
