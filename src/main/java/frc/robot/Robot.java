@@ -22,14 +22,16 @@ import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.LDriveTrain_Subsystem;
 import frc.robot.subsystems.RDriveTrain_Subsystem;
 import edu.wpi.first.wpilibj.DriverStation;
+
+
+//Additional Subsystem imports
+import frc.robot.subsystems.Tunnel_Subsystem;
 import frc.robot.subsystems.Hatch_Intake_Subsystem;
 import frc.robot.subsystems.Box_Subsystem;
 import frc.robot.subsystems.Roller_Subsystem;
 import frc.robot.subsystems.RollerArm_Subsystem;
 
-//Additional Subsystem imports
-import frc.robot.subsystems.Tunnel_Subsystem;
-
+import frc.robot.subsystems.Elevator_Subsystem;;
 
 /**
 
@@ -57,6 +59,8 @@ public class Robot extends TimedRobot {
   public static Hatch_Intake_Subsystem Hatch_Intake_Subsystem = new Hatch_Intake_Subsystem(); 
   public static Roller_Subsystem Roller = new Roller_Subsystem();
   public static RollerArm_Subsystem Roller_Arm = new RollerArm_Subsystem();
+
+  public static Elevator_Subsystem Elevator = new Elevator_Subsystem();
 
   /**
    * This function is run when the robot is first started up and should be
