@@ -17,18 +17,23 @@ import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.Set_LEDs_BLUE;
 import frc.robot.commands.Set_LEDs_PartyMode;
 import frc.robot.commands.Set_LEDs_RED;
-import frc.robot.subsystems.Arduino_LED_Subsystem;
-import frc.robot.subsystems.ExampleSubsystem;
-import frc.robot.subsystems.LDriveTrain_Subsystem;
-import frc.robot.subsystems.RDriveTrain_Subsystem;
 import edu.wpi.first.wpilibj.DriverStation;
+import frc.robot.commands.TrackLimelightX;
+
+
+//Additional Subsystem imports
+import frc.robot.subsystems.Tunnel_Subsystem;
 import frc.robot.subsystems.Hatch_Intake_Subsystem;
 import frc.robot.subsystems.Box_Subsystem;
 import frc.robot.subsystems.Roller_Subsystem;
 import frc.robot.subsystems.RollerArm_Subsystem;
-
-//Additional Subsystem imports
-import frc.robot.subsystems.Tunnel_Subsystem;
+import frc.robot.subsystems.Arduino_LED_Subsystem;
+import frc.robot.subsystems.ExampleSubsystem;
+import frc.robot.subsystems.LDriveTrain_Subsystem;
+import frc.robot.subsystems.RDriveTrain_Subsystem;
+import frc.robot.subsystems.Limelight_Subsystem;
+import frc.robot.subsystems.L_DriveTrain_Subsystem;
+import frc.robot.subsystems.R_DriveTrain_Subsystem;
 
 
 /**
@@ -50,13 +55,16 @@ public class Robot extends TimedRobot {
 
   //New Subsystems
   public static Tunnel_Subsystem Tunnel = new Tunnel_Subsystem();
-  public static RDriveTrain_Subsystem RDriveTrain = new RDriveTrain_Subsystem();
-  public static LDriveTrain_Subsystem LDriveTrain = new LDriveTrain_Subsystem();
+  public static RDriveTrain_Subsystem RDriveTrainLL = new RDriveTrain_Subsystem(); //Limelight DriveTrain
+  public static LDriveTrain_Subsystem LDriveTrainLL = new LDriveTrain_Subsystem(); //Limelight Drive Train
   public static Arduino_LED_Subsystem Arduino_LED = new Arduino_LED_Subsystem();
   public static Box_Subsystem Box_Subsystem = new Box_Subsystem(); 
   public static Hatch_Intake_Subsystem Hatch_Intake_Subsystem = new Hatch_Intake_Subsystem(); 
   public static Roller_Subsystem Roller = new Roller_Subsystem();
   public static RollerArm_Subsystem Roller_Arm = new RollerArm_Subsystem();
+  public static Limelight_Subsystem Limelight = new Limelight_Subsystem();
+  public static L_DriveTrain_Subsystem LDriveTrain = new L_DriveTrain_Subsystem();
+  public static R_DriveTrain_Subsystem RDriveTrain = new R_DriveTrain_Subsystem();
 
   /**
    * This function is run when the robot is first started up and should be
@@ -72,6 +80,9 @@ public class Robot extends TimedRobot {
     SmartDashboard.putData("LEDs Blue", new Set_LEDs_BLUE());
     SmartDashboard.putData("LEDs Red", new Set_LEDs_RED());
     SmartDashboard.putData("PArty", new Set_LEDs_PartyMode());
+
+    super.robotInit();
+    SmartDashboard.putData("TrackLimelightX", new TrackLimelightX());
 
     DriverStation.Alliance color;
     color = DriverStation.getInstance().getAlliance();
