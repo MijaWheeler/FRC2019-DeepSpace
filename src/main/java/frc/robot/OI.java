@@ -76,7 +76,7 @@ public class OI {
 
   public OI() {
    // RMiddle.whileHeld(new Box_Outtake_On());
-    LTrigger.whileHeld(new Elevator_Up() ); //
+    buttonX.whenPressed(new Elevator_Up() ); //
    // LMiddle.whileHeld(new Box_Off());
     
    // buttonX.whenPressed(new TunnelIntake());  //
@@ -85,7 +85,7 @@ public class OI {
     //buttonA.whenPressed(new Elevator_Up() );
     //buttonY.whenPressed(new MecanumRollerIntake() );
 
-    RTrigger.whenPressed(new Elevator_Down() );
+    buttonY.whenPressed(new Elevator_Down() );
 
     //TriggerL.whileHeld(new Elevator_Up()); //play around with this; may or may not use whileHeld
     //buttonB.whenPressed(new Elevator_Down());
