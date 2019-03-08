@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.Set_LEDs_BLUE;
 import frc.robot.commands.Set_LEDs_PartyMode;
@@ -21,8 +22,18 @@ import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.LDriveTrain_Subsystem;
 import frc.robot.subsystems.RDriveTrain_Subsystem;
 import edu.wpi.first.wpilibj.DriverStation;
+import frc.robot.subsystems.Hatch_Intake_Subsystem;
+import frc.robot.subsystems.Box_Subsystem;
+import frc.robot.subsystems.Roller_Subsystem;
+import frc.robot.subsystems.RollerArm_Subsystem;
+import frc.robot.subsystems.Elevator_Lift_Subsystem;
+
+//Additional Subsystem imports
+import frc.robot.subsystems.Tunnel_Subsystem;
+
 
 /**
+
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the TimedRobot
  * documentation. If you change the name of this class or the package after
@@ -33,13 +44,22 @@ public class Robot extends TimedRobot {
   public static ExampleSubsystem m_subsystem = new ExampleSubsystem();
   public static OI m_oi;
 
+  
+
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
+  //New Subsystems
+  public static Tunnel_Subsystem Tunnel = new Tunnel_Subsystem();
   public static RDriveTrain_Subsystem RDriveTrain = new RDriveTrain_Subsystem();
   public static LDriveTrain_Subsystem LDriveTrain = new LDriveTrain_Subsystem();
-
   public static Arduino_LED_Subsystem Arduino_LED = new Arduino_LED_Subsystem();
+  public static Box_Subsystem Box_Subsystem = new Box_Subsystem(); 
+  public static Hatch_Intake_Subsystem Hatch_Intake_Subsystem = new Hatch_Intake_Subsystem(); 
+  public static Roller_Subsystem Roller = new Roller_Subsystem();
+  public static RollerArm_Subsystem Roller_Arm = new RollerArm_Subsystem();
+  public static Elevator_Lift_Subsystem Elevator_Lift_Subsystem = new Elevator_Lift_Subsystem();
+  
 
   /**
    * This function is run when the robot is first started up and should be
