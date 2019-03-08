@@ -9,15 +9,15 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import frc.robot.RobotMap;
-import frc.robot.subsystems.Elevator_Lift_Subsystem;;
 
-public class Elevator_Height_Position extends Command {
-
-  public Elevator_Height_Position() {
+public class DriveForward extends Command {
+  private double turnSpeed;
+  public DriveForward(double turnSpeed) {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.Elevator_Lift_Subsystem);
+    requires(Robot.LDriveTrain);
+    requires(Robot.RDriveTrain);
+    this.turnSpeed = turnSpeed;
   }
 
   // Called just before this Command runs the first time
@@ -28,13 +28,14 @@ public class Elevator_Height_Position extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.Elevator_Lift_Subsystem.setSetpoint(RobotMap.Height_List[Robot.Elevator_Lift_Subsystem.Elevator_Height]);
+    Robot.LDriveTrain.DriveForLDriveTrain(this.turnSpeed);
+    Robot.RDriveTrain.DriveForRDriveTrain(this.turnSpeed);
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return true;
   }
 
   // Called once after isFinished returns true

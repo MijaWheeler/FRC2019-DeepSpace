@@ -10,21 +10,23 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-
+import edu.wpi.first.wpilibj.buttons.POVButton;
+/*COMMADS */
 import frc.robot.commands.TunnelIntake;
-import frc.robot.commands.TunnelIntakeOff;
-import frc.robot.commands.Box_Intake_On;
-import frc.robot.commands.Box_Outtake_On;
-import frc.robot.commands.Elevator_Down;
+import frc.robot.commands.TrackLimelightX;
 import frc.robot.commands.Elevator_Up;
+import frc.robot.commands.Elevator_Down;
 import frc.robot.commands.MecanumArmRollerDeploy;
 import frc.robot.commands.MecanumArmStowed;
 import frc.robot.commands.MecanumRollerOuttake;
-import frc.robot.commands.Box_Off;
+import frc.robot.commands.MecanumRollerIntake;
 import edu.wpi.first.wpilibj.GenericHID;
-import frc.robot.commands.RollerTunnelBox_CommandGroup;;
+import frc.robot.commands.RollerTunnelBox_CommandGroup;
 
-/**e
+
+
+
+/**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
  */
@@ -57,7 +59,13 @@ public class OI {
   Button Button_B = new JoystickButton(stick0, RobotMap.ButtonB);
   Button Button_X = new JoystickButton(stick0, RobotMap.ButtonX); //Tunnel starts on X-button
   Button Button_Y = new JoystickButton(stick0, RobotMap.ButtonY); //Tunnel turns off on Y-button
- 
+
+  //D-Pad
+  POVButton POV_UP = new POVButton(stick0, RobotMap.POV_up);
+  POVButton POV_Down = new POVButton(stick0, RobotMap.POV_down);
+  POVButton POV_R = new POVButton(stick0, RobotMap.POV_right);
+  POVButton POV_L = new POVButton(stick0, RobotMap.POV_left);
+
   // There are a few additional built in buttons you can use. Additionally,
   // by subclassing Button you can create custom triggers and bind those to
   // commands the same as any other Button.
@@ -78,7 +86,7 @@ public class OI {
     */
 
     //Trigger
-    RTrigger.whileHeld(new RollerTunnelBox_CommandGroup() ); //Command
+    RTrigger.whileHeld(new RollerTunnelBox_CommandGroup() ); //Command group [Tunnel, Box, Mec Rollers]
     LTrigger.whileHeld(new Elevator_Down() ); //Lift Down
 
    //Bumpers
@@ -86,17 +94,20 @@ public class OI {
     //LBumper.whileHeld(new Box_Intake_On()); // Lift High Gear- NA for Deluth
     
     //Letter Button
-    Button_A.whenPressed(new TunnelIntake()); //*** */Vision Targeting
-    Button_B.whenPressed(new MecanumArmStowed() ); //Hatch Arm [Stow]
+    Button_A.whenPressed(new TrackLimelightX() ); //Vision Targeting
+    Button_B.whenPressed(new MecanumArmStowed() ); //*** */Hatch Arm [Stow]
     Button_X.whenPressed(new TunnelIntake());  // ***Hatch Arm [Floor]
-    Button_Y.whenPressed(new MecanumArmRollerDeploy() ); //HAtch Arm [Place]
+    Button_Y.whenPressed(new MecanumArmRollerDeploy() ); //*** */HAtch Arm [Place]
 
     //Center COnsole
     RMiddle.whileHeld(new MecanumRollerOuttake() ); //Roller Outtake
     //LMiddle.whileHeld(new Box_Off() );
 
     //D-Pad
-    
+    POV_UP.whileHeld(new MecanumRollerIntake() );
+   // POV_Down.whileHeld(new HatchArm() ); //Mech Arm[Down]
+   // POV_R.whileHeld(new MecanumRollerIntake() );  //Mech Arm[stow]
+    //POV_L.whileHeld(new MecanumRollerIntake() ); //mech arm [up]
 
   }
 

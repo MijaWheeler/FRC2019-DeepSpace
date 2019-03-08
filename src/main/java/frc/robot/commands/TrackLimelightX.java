@@ -6,18 +6,20 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot.commands;
-
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.networktables.NetworkTable;
+import edu.wpi.first.networktables.NetworkTableEntry;
+import edu.wpi.first.networktables.NetworkTableInstance;
+import frc.robot.commands.TurnLeft;
+import frc.robot.commands.TurnRight;
 import frc.robot.Robot;
-import frc.robot.RobotMap;
-import frc.robot.subsystems.Elevator_Lift_Subsystem;;
 
-public class Elevator_Height_Position extends Command {
 
-  public Elevator_Height_Position() {
+public class TrackLimelightX extends Command {
+  public TrackLimelightX() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.Elevator_Lift_Subsystem);
+    requires(Robot.Limelight);
   }
 
   // Called just before this Command runs the first time
@@ -28,7 +30,19 @@ public class Elevator_Height_Position extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.Elevator_Lift_Subsystem.setSetpoint(RobotMap.Height_List[Robot.Elevator_Lift_Subsystem.Elevator_Height]);
+    NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
+    NetworkTableEntry tx = table.getEntry("tx");
+    double xCoord = tx.getDouble(0.0);
+    double turnSpeed = xCoord/27;
+
+    if (xCoord > 0){
+      new TurnLeft(turnSpeed).start();
+    }else if (xCoord < 0){
+      new TurnRight(turnSpeed).start();
+    }
+
+    System.out.println(xCoord);
+    
   }
 
   // Make this return true when this Command no longer needs to run execute()

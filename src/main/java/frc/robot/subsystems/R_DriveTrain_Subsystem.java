@@ -8,8 +8,9 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+//import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
-import frc.robot.commands.RightJoystick;
+import frc.robot.Robot;
 
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
@@ -17,15 +18,27 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 /**
  * Add your docs here.
  */
-public class RDriveTrain_Subsystem extends Subsystem {
-  public CANSparkMax MotorR1 = new CANSparkMax(RobotMap.MotorR1ID, MotorType.kBrushless);
+public class R_DriveTrain_Subsystem extends Subsystem {
+  public CANSparkMax MotorR1 = new CANSparkMax(RobotMap.MotorR1ID,MotorType.kBrushless);
   public CANSparkMax MotorR2 = new CANSparkMax(RobotMap.MotorR2ID,MotorType.kBrushless);
   public CANSparkMax MotorR3 = new CANSparkMax(RobotMap.MotorR3ID,MotorType.kBrushless);
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
+  public void DriveBackRDriveTrain(double driveSpeed){
+    Robot.RDriveTrain.MotorR1.set(-driveSpeed);
+    Robot.RDriveTrain.MotorR2.set(-driveSpeed);
+    Robot.RDriveTrain.MotorR3.set(-driveSpeed);
+  }
+
+  public void DriveForRDriveTrain(double driveSpeed){
+    Robot.RDriveTrain.MotorR1.set(driveSpeed);
+    Robot.RDriveTrain.MotorR2.set(driveSpeed);
+    Robot.RDriveTrain.MotorR3.set(driveSpeed);
+  }
 
   @Override
   public void initDefaultCommand() {
-    setDefaultCommand(new RightJoystick());
+    // Set the default command for a subsystem here.
+    // setDefaultCommand(new MySpecialCommand());
   }
 }

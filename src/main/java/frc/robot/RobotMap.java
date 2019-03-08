@@ -61,16 +61,23 @@ public class RobotMap {
   /*OTHER */
    public static int SolPort = 4; // Hatch Outake Solonoid port
 
-  //mecanum intake talons
+  //Mecanum Intake Talons
   public static int Mecanum_SRX_ID_1 = 5; // !!!: CHANGE THESE TO THE PROPER CAN IDS (PHEONIX TUNER)
   public static int Mecanum_SRX_ID_2 = 6;
 
-  //elevator talons
+  //Elevator Talons
   public static int Elevator_Talon_1_ID = 8;
   public static int Elevator_Talon_2_ID = 7;
 
   //arrays for encoder position values
   public static int[] Height_List = new int[] {476, 1314, 5022, 6487, 9454, 11809};
+
+  //D-Pad Angles
+  public static int POV_up = 270;
+  public static int POV_down = 90;
+  public static int POV_left = 180;
+  public static int POV_right= 0;
+
 
   // For example to map the left and right motors, you could define the
   // following variables to use with your drivetrain subsystem.
