@@ -17,7 +17,7 @@ public class Roller_Subsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  public Spark RollerSpark = new Spark(9);
+  public Spark RollerSpark = new Spark(2);
 
   public void startIntake(){
     RollerSpark.set(0.1);

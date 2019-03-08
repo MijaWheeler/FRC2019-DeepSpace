@@ -91,11 +91,13 @@ public class Elevator_Lift_Subsystem extends PIDSubsystem {
   }
 
   public void Elevator_Up() {
-    if (this.Elevator_Encoder_Value >= 11809) {
+
+    if (this.Elevator_Encoder_Value >= 118090) {
       return;
     } else {
       Robot.Elevator_Lift_Subsystem.setSetpointRelative(20);
     }
+
   }
 
   public void Elevator_Down() {

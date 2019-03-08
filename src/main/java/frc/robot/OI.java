@@ -20,6 +20,7 @@ import frc.robot.commands.Box_Intake_On;
 import frc.robot.commands.Box_Outtake_On;
 import frc.robot.commands.Box_Off;
 import frc.robot.commands.Hatch_Intake_On_For_T;
+import frc.robot.commands.MecanumRollerIntake;
 import frc.robot.commands.Hatch_Intake_Off;
 import frc.robot.commands.Elevator_Up;
 import frc.robot.commands.Elevator_Down;
@@ -50,10 +51,12 @@ public class OI {
   Button RMiddle = new JoystickButton(stick0, RobotMap.RMiddle);
   Button LMiddle = new JoystickButton(stick0, RobotMap.LMiddle);
   
-  Button tunBut = new JoystickButton(stick0, RobotMap.ButtonX); //Tunnel starts on X-button
-  Button tunBut_off = new JoystickButton(stick0, RobotMap.ButtonY); //Tunnel turns off on Y-button
+  Button buttonX  = new JoystickButton(stick0, RobotMap.ButtonX); //Tunnel starts on X-button
+  Button buttonY = new JoystickButton(stick0, RobotMap.ButtonY); //Tunnel turns off on Y-button
+  Button buttonA  = new JoystickButton(stick0, RobotMap.ButtonA); //Tunnel starts on X-button
+  Button buttonB = new JoystickButton(stick0, RobotMap.ButtonB); //Tunnel turns off on Y-button
 
-  Button LBumper = new JoystickButton(stick0, RobotMap.LBumper); // elevator goes down
+ // Button LBumper = new JoystickButton(stick0, RobotMap.LBumper); // elevator goes down
   public JoystickAnalogButton TriggerL = new JoystickAnalogButton(stick0, RobotMap.LTrigger); // elevator goes up
 
 
@@ -72,23 +75,25 @@ public class OI {
   // button.whenPressed(new ExampleCommand());
 
   public OI() {
-    RMiddle.whileHeld(new Box_Outtake_On());
-    RTrigger.whileHeld(new Box_Intake_On());
-    LMiddle.whileHeld(new Box_Off());
+   // RMiddle.whileHeld(new Box_Outtake_On());
+    LTrigger.whileHeld(new Elevator_Up() ); //
+   // LMiddle.whileHeld(new Box_Off());
     
-    tunBut.whenPressed(new TunnelIntake()); 
-    tunBut_off.whenPressed(new TunnelIntakeOff());
+   // buttonX.whenPressed(new TunnelIntake());  //
+    //buttonY.whenPressed(new TunnelIntakeOff());
 
-    LTrigger.whenPressed(new Hatch_Intake_On_For_T());
-    RTrigger.whenPressed(new Hatch_Intake_Off());
+    //buttonA.whenPressed(new Elevator_Up() );
+    //buttonY.whenPressed(new MecanumRollerIntake() );
 
-    TriggerL.whileHeld(new Elevator_Up()); //play around with this; may or may not use whileHeld
-    LBumper.whileHeld(new Elevator_Down());
+    RTrigger.whenPressed(new Elevator_Down() );
+
+    //TriggerL.whileHeld(new Elevator_Up()); //play around with this; may or may not use whileHeld
+    //buttonB.whenPressed(new Elevator_Down());
   }
 
   // Run the command while the button is being held down and interrupt it once
   // the button is released.
-  // button.whileHeld(new ExampleCommand());
+  // button.whileHeld(nexampleCommand());
 
   // Start the command when the button is released and let it run the command
   // until it is finished as determined by it's isFinished method.
