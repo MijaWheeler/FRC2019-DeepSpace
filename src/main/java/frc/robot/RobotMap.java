@@ -48,7 +48,7 @@ public class RobotMap {
   public static int LMiddle = 7;
   public static int RMiddle = 8;
 
-  //left and right joystick ID and left and right joystick button ID
+  //left and right joystick ID and left and right SRjoystick button ID
   public static int LJoystickBtn = 9;
   public static int RJoystickBtn = 10;
   public static int LeftJoystickID = 1;  
@@ -59,10 +59,10 @@ public class RobotMap {
   public static int HatchSolCANID = 12;
 
   /*OTHER */
-   public static int SolPort = 4; // Hatch Outake Solonoid port
+  // public static int SolPort = 4; // Hatch Outake Solonoid port
 
   //mecanum intake talons
-  public static int Mecanum_SRX_ID_1 = 5; // !!!: CHANGE THESE TO THE PROPER CAN IDS (PHEONIX TUNER)
+  //public static int Mecanum_SRX_ID_1 = 11; 
   public static int Mecanum_SRX_ID_2 = 6;
 
   //elevator talons

@@ -11,6 +11,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 import frc.robot.commands.LeftJoystick;
 
+
+
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 /**
@@ -23,6 +25,11 @@ public class LDriveTrain_Subsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
+  public LDriveTrain_Subsystem() {
+    addChild(MotorL1);
+    addChild(MotorL2);
+    addChild(MotorL3);
+  }
   @Override
   public void initDefaultCommand() {
     setDefaultCommand(new LeftJoystick());

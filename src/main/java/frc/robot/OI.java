@@ -10,6 +10,9 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+
+import javax.swing.Box;
+
 import edu.wpi.first.wpilibj.GenericHID;
 
 
@@ -19,11 +22,12 @@ import frc.robot.commands.TunnelIntakeOff;
 import frc.robot.commands.Box_Intake_On;
 import frc.robot.commands.Box_Outtake_On;
 import frc.robot.commands.Box_Off;
-import frc.robot.commands.Hatch_Intake_On_For_T;
 import frc.robot.commands.MecanumRollerIntake;
-import frc.robot.commands.Hatch_Intake_Off;
+//import frc.robot.commands.Hatch_Intake_Off;
 import frc.robot.commands.Elevator_Up;
 import frc.robot.commands.Elevator_Down;
+import frc.robot.commands.Elevator_Slow;
+
 
 
 
@@ -43,21 +47,26 @@ public class OI {
   // number it is.
   // Joystick stick = new Joystick(port);
 
+  //Joystick
   static Joystick stick0 = new Joystick(RobotMap.JoystickPort);
   
+  //Trigger
   public JoystickAnalogButton LTrigger = new JoystickAnalogButton(stick0, RobotMap.LTrigger);
   public JoystickAnalogButton RTrigger = new JoystickAnalogButton(stick0, RobotMap.RTrigger);
   
-  Button RMiddle = new JoystickButton(stick0, RobotMap.RMiddle);
-  Button LMiddle = new JoystickButton(stick0, RobotMap.LMiddle);
+  //Center Console
+  Button RMiddle = new JoystickButton(stick0, RobotMap.RMiddle); //
+  Button LMiddle = new JoystickButton(stick0, RobotMap.LMiddle); //
   
-  Button buttonX  = new JoystickButton(stick0, RobotMap.ButtonX); //Tunnel starts on X-button
-  Button buttonY = new JoystickButton(stick0, RobotMap.ButtonY); //Tunnel turns off on Y-button
-  Button buttonA  = new JoystickButton(stick0, RobotMap.ButtonA); //Tunnel starts on X-button
-  Button buttonB = new JoystickButton(stick0, RobotMap.ButtonB); //Tunnel turns off on Y-button
+  //Letter button
+  Button buttonX  = new JoystickButton(stick0, RobotMap.ButtonX); 
+  Button buttonY = new JoystickButton(stick0, RobotMap.ButtonY); 
+  Button buttonA  = new JoystickButton(stick0, RobotMap.ButtonA);
+  Button buttonB = new JoystickButton(stick0, RobotMap.ButtonB); 
 
- // Button LBumper = new JoystickButton(stick0, RobotMap.LBumper); // elevator goes down
-  public JoystickAnalogButton TriggerL = new JoystickAnalogButton(stick0, RobotMap.LTrigger); // elevator goes up
+  //Bumper
+  Button LBumper = new JoystickButton(stick0, RobotMap.LBumper); 
+  Button RBumper = new JoystickButton(stick0, RobotMap.RBumper); 
 
 
   // There are a few additional built in buttons you can use. Additionally,
@@ -75,17 +84,29 @@ public class OI {
   // button.whenPressed(new ExampleCommand());
 
   public OI() {
+
    // RMiddle.whileHeld(new Box_Outtake_On());
-    buttonX.whenPressed(new Elevator_Up() ); //
+
+    buttonX.whileHeld(new Elevator_Up() ); //
+    buttonX.whenReleased(new Elevator_Down());
+
+    buttonA.whileHeld(new Box_Intake_On());
+    buttonA.whenReleased(new Box_Off() );
+
+    buttonA.whileHeld(new Box_Intake_On());
+    buttonA.whenReleased(new Box_Off() );
+
+   
+
    // LMiddle.whileHeld(new Box_Off());
     
    // buttonX.whenPressed(new TunnelIntake());  //
     //buttonY.whenPressed(new TunnelIntakeOff());
 
     //buttonA.whenPressed(new Elevator_Up() );
-    //buttonY.whenPressed(new MecanumRollerIntake() );
+    buttonY.whenPressed(new MecanumRollerIntake() );
 
-    buttonY.whenPressed(new Elevator_Down() );
+    //buttonY.whileHeld(new Elevator_Down() );
 
     //TriggerL.whileHeld(new Elevator_Up()); //play around with this; may or may not use whileHeld
     //buttonB.whenPressed(new Elevator_Down());

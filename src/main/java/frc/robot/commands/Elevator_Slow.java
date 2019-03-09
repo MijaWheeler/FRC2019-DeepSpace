@@ -9,14 +9,11 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import frc.robot.OI;
 
-public class ArmDirectional extends Command {
-  public int DPADAngle;
-  public ArmDirectional() {
+public class Elevator_Slow extends Command {
+  public Elevator_Slow() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.Roller_Arm);
   }
 
   // Called just before this Command runs the first time
@@ -27,21 +24,13 @@ public class ArmDirectional extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    DPADAngle = OI.GetDPadAngle();
-
-    if (DPADAngle == 180) {
-      Robot.Roller_Arm.setSetpointRelative(-20); //Full = 4096; start = 0
-    } else if (DPADAngle == 270) {
-      Robot.Roller_Arm.setSetpointRelative(20); //setSetPointRelative adds to current position of the encoder
-    } else {
-      return;
-    }
+    Robot.Elevator_Lift_Subsystem.Elevator_Slow();
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return true;
+    return false;
   }
 
   // Called once after isFinished returns true
