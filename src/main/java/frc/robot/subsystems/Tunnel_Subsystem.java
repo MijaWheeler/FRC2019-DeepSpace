@@ -21,7 +21,7 @@ public class Tunnel_Subsystem extends Subsystem {
   
   //***Methods to be used within commands
   public void startTunnel(){  // Method makes motor move forward
-		TunnelSpark.set(0.5);
+		TunnelSpark.set(-0.5);
 	}
 
 	public void stopTunnel(){ //Method makes motor stop

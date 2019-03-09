@@ -20,11 +20,15 @@ public class Roller_Subsystem extends Subsystem {
   public Spark RollerSpark = new Spark(2);
 
   public void startIntake(){
-    RollerSpark.set(0.1);
+    RollerSpark.set(-0.5);
   }
 
   public void startOuttake(){
-    RollerSpark.set(-0.1);
+    RollerSpark.set(0.5);
+  }
+
+  public void stopRoller(){
+    RollerSpark.set(0);
   }
 
   @Override

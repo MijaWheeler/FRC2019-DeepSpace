@@ -7,6 +7,8 @@
 
 package frc.robot;
 
+import frc.robot.commands.MecanumArmFullReset;
+
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -61,16 +63,31 @@ public class RobotMap {
   /*OTHER */
   // public static int SolPort = 4; // Hatch Outake Solonoid port
 
-  //mecanum intake talons
-  //public static int Mecanum_SRX_ID_1 = 11; 
-  public static int Mecanum_SRX_ID_2 = 6;
+  //mecanum roller arm talons
+  public static int Mecanum_SRX_ID_1 = 11; 
+  public static int Mecanum_SRX_ID_2 = 9;
 
   //elevator talons
-  public static int Elevator_Talon_1_ID = 8;
+  public static int Elevator_Talon_1_ID = 6;
   public static int Elevator_Talon_2_ID = 7;
 
   //arrays for encoder position values
   public static int[] Height_List = new int[] {476, 1314, 5022, 6487, 9454, 11809};
+
+
+  //Mecanum Arm Roller Setpoints
+     //Full = 4096; start = 0
+  public static int RA_Deploy = -5000;
+  //public static int RA_Deploy = -1024;
+  public static int RA_Stow = 5000;
+  //  public static int RA_Stow = 4096;
+  public static int RA_Reset = 6000;
+
+  
+
+
+
+
 
   // For example to map the left and right motors, you could define the
   // following variables to use with your drivetrain subsystem.

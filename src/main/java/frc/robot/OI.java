@@ -10,24 +10,31 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-
-import javax.swing.Box;
-
 import edu.wpi.first.wpilibj.GenericHID;
 
 
 /*COMMADS */
 import frc.robot.commands.TunnelIntake;
 import frc.robot.commands.TunnelIntakeOff;
+
 import frc.robot.commands.Box_Intake_On;
 import frc.robot.commands.Box_Outtake_On;
 import frc.robot.commands.Box_Off;
+
 import frc.robot.commands.MecanumRollerIntake;
+import frc.robot.commands.MecanumRollerOuttake;
 //import frc.robot.commands.Hatch_Intake_Off;
 import frc.robot.commands.Elevator_Up;
 import frc.robot.commands.Elevator_Down;
 import frc.robot.commands.Elevator_Slow;
 
+import frc.robot.commands.MecanumArmRollerDeploy;
+import frc.robot.commands.MecanumArmStowed;
+import frc.robot.commands.MecanumArmFullReset;
+import frc.robot.commands.ArmDirectional;
+
+import frc.robot.commands.RollerTunnelBox_Group;
+import frc.robot.commands.RollerTunnelBox_GroupStop;
 
 
 
@@ -85,40 +92,34 @@ public class OI {
 
   public OI() {
 
-   // RMiddle.whileHeld(new Box_Outtake_On());
+   /*Buttons */
+    //buttonX.whileHeld(new Elevator_Up() ); //Hatch Arm Floor
+    //buttonX.whenReleased(new Elevator_Down()); 
 
-    buttonX.whileHeld(new Elevator_Up() ); //
-    buttonX.whenReleased(new Elevator_Down());
+    buttonA.whenPressed(new MecanumArmFullReset()); //Limelight
+    //buttonA.whenReleased(new Box_Off() );
 
-    buttonA.whileHeld(new Box_Intake_On());
-    buttonA.whenReleased(new Box_Off() );
+    buttonY.whenPressed(new MecanumArmRollerDeploy()); //Hatch Arm Deploy
+    //buttonY.whenReleased(new Box_Off() );
 
-    buttonA.whileHeld(new Box_Intake_On());
-    buttonA.whenReleased(new Box_Off() );
+    buttonB.whileHeld(new MecanumArmStowed()); //Hatch Amr Stow
+    //buttonB.whenReleased(new Box_Off() );
 
-   
+    /* Triggers*/
+   // LTrigger.whileHeld(new Elevator_Down()); //
+    //LTrigger.whenReleased(new Elevator_Up()); //
 
-   // LMiddle.whileHeld(new Box_Off());
+    //RTrigger.whileHeld(new Elevator_Up()); //------
+    //RTrigger.whenReleased(new Elevator_Up()); //----
     
-   // buttonX.whenPressed(new TunnelIntake());  //
-    //buttonY.whenPressed(new TunnelIntakeOff());
+    /*Bumpers */
+    LBumper.whileHeld(new Elevator_Up() ); // Elevator Down
+    //LBumper.whenReleased(new Elevator_Up() ); //
 
-    //buttonA.whenPressed(new Elevator_Up() );
-    buttonY.whenPressed(new MecanumRollerIntake() );
+    RBumper.whenPressed(new RollerTunnelBox_Group() ); // command group with tunnel, box, and rollers
+    RBumper.whenReleased(new RollerTunnelBox_GroupStop() ); //
 
-    //buttonY.whileHeld(new Elevator_Down() );
-
-    //TriggerL.whileHeld(new Elevator_Up()); //play around with this; may or may not use whileHeld
-    //buttonB.whenPressed(new Elevator_Down());
   }
-
-  // Run the command while the button is being held down and interrupt it once
-  // the button is released.
-  // button.whileHeld(nexampleCommand());
-
-  // Start the command when the button is released and let it run the command
-  // until it is finished as determined by it's isFinished method.
-  // button.whenReleased(new ExampleCommand());
   public static int GetDPadAngle() {
     return stick0.getPOV();
   }

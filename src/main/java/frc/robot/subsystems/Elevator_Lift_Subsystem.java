@@ -60,6 +60,8 @@ public class Elevator_Lift_Subsystem extends PIDSubsystem {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
     setDefaultCommand(new Elevator_Height_Position());
+    Elevator_Talon_1.setNeutralMode(NeutralMode.Coast);
+    Elevator_Talon_2.setNeutralMode(NeutralMode.Coast);
   }
 
   @Override
@@ -97,14 +99,16 @@ public class Elevator_Lift_Subsystem extends PIDSubsystem {
   }
 
   public void Elevator_Up() {
-    if (this.Elevator_Encoder_Value >= 11809) {
-      Elevator_Talon_1.set(ControlMode.PercentOutput, 0.4);
-      Elevator_Talon_2.set(ControlMode.PercentOutput, 0.4);
+    if (this.Elevator_Encoder_Value >= 11809) { //11809
+      //Elevator_Talon_1.set(ControlMode.PercentOutput, 0.4);
+      //Elevator_Talon_2.set(ControlMode.PercentOutput, 0.4);
       return;
     } else {
-      Robot.Elevator_Lift_Subsystem.setSetpointRelative(2000);
-      Elevator_Talon_1.set(ControlMode.PercentOutput, 0.5);
-      Elevator_Talon_2.set(ControlMode.PercentOutput, 0.5);
+      Elevator_Talon_1.setNeutralMode(NeutralMode.Coast);
+      Elevator_Talon_2.setNeutralMode(NeutralMode.Coast);
+      Robot.Elevator_Lift_Subsystem.setSetpointRelative(200);
+      Elevator_Talon_1.set(ControlMode.PercentOutput, 0.6);
+      Elevator_Talon_2.set(ControlMode.PercentOutput, 0.6);
 
     }
 
@@ -125,7 +129,7 @@ public class Elevator_Lift_Subsystem extends PIDSubsystem {
     if (this.Elevator_Encoder_Value <= 0) {
       return;
     } else {
-      Robot.Elevator_Lift_Subsystem.setSetpointRelative(20);
+      Robot.Elevator_Lift_Subsystem.setSetpointRelative(-20);
       Elevator_Talon_1.set(ControlMode.PercentOutput, -0.5);
       Elevator_Talon_2.set(ControlMode.PercentOutput, -0.5);
     }

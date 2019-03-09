@@ -1,0 +1,26 @@
+Deluth  |
+________|
+
+THings to rember next time
+--------------------------
+-Update every motor control before each event, or at least download the software into a computer and on a flashdrive
+    -Google it for the updates at least a week in advance [Talons, Sparks, RoboRio, and Driver Station]
+-ASK the CSA's for help. They will do their best if only you ASK
+
+Things to do next time
+----------------------
+-Get [2] Ethnet dongles for the team
+-Get the limelight working
+    -merge the seperate drive trains together
+-GEt the elevator encoder heights working
+-download all of the updated software on to the computers
+
+[Day 1]
+Everything didnt work. We were missing the updates for various eletrical and software components.
+ we also had connectivity issues with the robot and the FMS. During the match, the robot would give short burst of 
+ drive before disconnecting again. All of these issues were resolved by the end of the day after the CSA's downloaded 
+ all the new software.
+
+[Day 2]
+Everything works. We still need to apply the limelight.
+ 
