@@ -6,14 +6,17 @@ THings to rember next time
 -Update every motor control before each event, or at least download the software into a computer and on a flashdrive
     -Google it for the updates at least a week in advance [Talons, Sparks, RoboRio, and Driver Station]
 -ASK the CSA's for help. They will do their best if only you ASK
+-Turn off the WiFi when you test
+-Double check to make sure you have the Ethernet dongles
 
 Things to do next time
 ----------------------
 -Get [2] Ethnet dongles for the team
--Get the limelight working
-    -merge the seperate drive trains together
--GEt the elevator encoder heights working
--download all of the updated software on to the computers
+-download all of the updated software on to the computers before the competion
+
+-Tune lift PID
+-Tune Hatch Arm: go up/down
+-Make limelight a basic camera
 
 [Day 1]
 Everything didnt work. We were missing the updates for various eletrical and software components.
@@ -22,5 +25,6 @@ Everything didnt work. We were missing the updates for various eletrical and sof
  all the new software.
 
 [Day 2]
-Everything works. We still need to apply the limelight.
+Everything works. We still need to apply the limelight. Will go over what needs to
+get done at a later date.
  

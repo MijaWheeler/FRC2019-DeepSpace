@@ -7,8 +7,6 @@
 
 package frc.robot;
 
-import frc.robot.commands.MecanumArmFullReset;
-
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -64,14 +62,18 @@ public class RobotMap {
   // public static int SolPort = 4; // Hatch Outake Solonoid port
 
   //mecanum roller arm talons
-  public static int Mecanum_SRX_ID_1 = 11; 
-  public static int Mecanum_SRX_ID_2 = 9;
+  public static int Mecanum_Talon_ID_1 = 11; 
+  public static int Mecanum_Talon_ID_2 = 9;
 
   //elevator talons
   public static int Elevator_Talon_1_ID = 6;
   public static int Elevator_Talon_2_ID = 7;
 
-  //arrays for encoder position values
+  //Baby Shark talon
+  public static int Shark_Talon_ID = 8;
+
+
+  //arrays for encoder positivalues
   public static int[] Height_List = new int[] {476, 1314, 5022, 6487, 9454, 11809};
 
 

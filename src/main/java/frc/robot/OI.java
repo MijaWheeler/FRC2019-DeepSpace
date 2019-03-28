@@ -14,25 +14,11 @@ import edu.wpi.first.wpilibj.GenericHID;
 
 
 /*COMMADS */
-import frc.robot.commands.TunnelIntake;
-import frc.robot.commands.TunnelIntakeOff;
-
-import frc.robot.commands.Box_Intake_On;
-import frc.robot.commands.Box_Outtake_On;
-import frc.robot.commands.Box_Off;
-
-import frc.robot.commands.MecanumRollerIntake;
-import frc.robot.commands.MecanumRollerOuttake;
-//import frc.robot.commands.Hatch_Intake_Off;
+import frc.robot.commands.Shark_Down;
+import frc.robot.commands.Shark_Up;
 import frc.robot.commands.Elevator_Up;
 import frc.robot.commands.Elevator_Down;
-import frc.robot.commands.Elevator_Slow;
-
-import frc.robot.commands.MecanumArmRollerDeploy;
-import frc.robot.commands.MecanumArmStowed;
-import frc.robot.commands.MecanumArmFullReset;
 import frc.robot.commands.ArmDirectional;
-
 import frc.robot.commands.RollerTunnelBox_Group;
 import frc.robot.commands.RollerTunnelBox_GroupStop;
 
@@ -93,36 +79,23 @@ public class OI {
   public OI() {
 
    /*Buttons */
-    //buttonX.whileHeld(new Elevator_Up() ); //Hatch Arm Floor
-    //buttonX.whenReleased(new Elevator_Down()); 
+    buttonX.whileHeld(new Shark_Up()); 
+    buttonA.whileHeld(new Shark_Down());
+    //buttonY.whenPressed(new ArmDirectional() ); 
+    //buttonB.whenPressed(new Shark_Down())
 
-    buttonA.whenPressed(new MecanumArmFullReset()); //Limelight
-    //buttonA.whenReleased(new Box_Off() );
-
-    buttonY.whenPressed(new MecanumArmRollerDeploy()); //Hatch Arm Deploy
-    //buttonY.whenReleased(new Box_Off() );
-
-    buttonB.whileHeld(new MecanumArmStowed()); //Hatch Amr Stow
-    //buttonB.whenReleased(new Box_Off() );
-
-    /* Triggers*/
-   // LTrigger.whileHeld(new Elevator_Down()); //
-    //LTrigger.whenReleased(new Elevator_Up()); //
-
-    //RTrigger.whileHeld(new Elevator_Up()); //------
-    //RTrigger.whenReleased(new Elevator_Up()); //----
-    
     /*Bumpers */
-    LBumper.whileHeld(new Elevator_Up() ); // Elevator Down
-    //LBumper.whenReleased(new Elevator_Up() ); //
+    LBumper.whileHeld(new Elevator_Down());
+    LTrigger.whileHeld(new Elevator_Up());
 
-    RBumper.whenPressed(new RollerTunnelBox_Group() ); // command group with tunnel, box, and rollers
-    RBumper.whenReleased(new RollerTunnelBox_GroupStop() ); //
+    RBumper.whileHeld(new RollerTunnelBox_Group() ); // command group with tunnel, box, and rollers
+    
 
   }
+  
   public static int GetDPadAngle() {
     return stick0.getPOV();
-  }
+  } 
 
   public class JoystickAnalogButton extends Button {
 

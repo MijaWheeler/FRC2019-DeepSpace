@@ -21,8 +21,8 @@ public class RollerArm_Subsystem extends PIDSubsystem {
   /**
    * Add your docs here.
    */
-  TalonSRX L_ArmSRX = new TalonSRX(RobotMap.Mecanum_SRX_ID_1);
-  TalonSRX R_ArmSRX = new TalonSRX(RobotMap.Mecanum_SRX_ID_2);
+  TalonSRX L_ArmSRX = new TalonSRX(RobotMap.Mecanum_Talon_ID_1);
+  TalonSRX R_ArmSRX = new TalonSRX(RobotMap.Mecanum_Talon_ID_2);
 
   public RollerArm_Subsystem() {
     // Intert a subsystem name and PID values here

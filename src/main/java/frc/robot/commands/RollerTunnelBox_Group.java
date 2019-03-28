@@ -8,17 +8,15 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
-import frc.robot.Robot;
-import edu.wpi.first.wpilibj.command.Command;
 
 public class RollerTunnelBox_Group extends CommandGroup {
   /**
    * Add your docs here.
    */
   public RollerTunnelBox_Group() {
-    addSequential(new MecanumRollerIntake() );
     addParallel(new TunnelIntake());
     addParallel(new Box_Intake_On());
+    addSequential(new MecanumRollerIntake());
     // Add Commands here:
     // e.g. addSequential(new Command1());
     // addSequential(new Command2());

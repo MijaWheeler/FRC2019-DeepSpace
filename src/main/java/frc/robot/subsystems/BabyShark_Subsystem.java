@@ -8,35 +8,38 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import frc.robot.commands.Roller_Stop;
-import edu.wpi.first.wpilibj.Spark;
+import frc.robot.RobotMap;
+import frc.robot.commands.Shark_Stop;
+
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+
 
 /**
  * Add your docs here.
  */
-public class Roller_Subsystem extends Subsystem {
+public class BabyShark_Subsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
+  TalonSRX Shark_SRX = new TalonSRX(RobotMap.Shark_Talon_ID);
 
-  public Spark RollerSpark = new Spark(2);
-
-  public void startIntake(){
-    RollerSpark.set(-0.5);
+  public void Shark_Up(){
+    Shark_SRX.set(ControlMode.PercentOutput, -0.5);
   }
 
-  public void startOuttake(){
-    RollerSpark.set(0.5);
+  public void Shark_Down(){
+    Shark_SRX.set(ControlMode.PercentOutput, 0.5);
   }
 
-  public void stopRoller(){
-    RollerSpark.set(0);
+  public void Shark_Stop(){
+    Shark_SRX.set(ControlMode.PercentOutput, 0.0);
   }
+
 
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
-    setDefaultCommand(new Roller_Stop());
+    setDefaultCommand(new Shark_Stop());
 
   }
 }

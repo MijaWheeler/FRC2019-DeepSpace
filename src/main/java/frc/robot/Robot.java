@@ -18,6 +18,7 @@ import frc.robot.commands.Set_LEDs_BLUE;
 import frc.robot.commands.Set_LEDs_PartyMode;
 import frc.robot.commands.Set_LEDs_RED;
 import frc.robot.subsystems.Arduino_LED_Subsystem;
+import frc.robot.subsystems.BabyShark_Subsystem;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.LDriveTrain_Subsystem;
 import frc.robot.subsystems.RDriveTrain_Subsystem;
@@ -27,7 +28,7 @@ import frc.robot.subsystems.Box_Subsystem;
 import frc.robot.subsystems.Roller_Subsystem;
 import frc.robot.subsystems.RollerArm_Subsystem;
 import frc.robot.subsystems.Elevator_Lift_Subsystem;
-
+//import frc.robot.subsystems.BabyShark_Subsystem;
 //Additional Subsystem imports
 import frc.robot.subsystems.Tunnel_Subsystem;
 
@@ -59,7 +60,8 @@ public class Robot extends TimedRobot {
   public static Roller_Subsystem Roller = new Roller_Subsystem();
   public static RollerArm_Subsystem Roller_Arm = new RollerArm_Subsystem();
   public static Elevator_Lift_Subsystem Elevator_Lift_Subsystem = new Elevator_Lift_Subsystem();
-  
+  public static BabyShark_Subsystem Shark = new BabyShark_Subsystem();
+   
 
   /**
    * This function is run when the robot is first started up and should be
@@ -67,17 +69,27 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotInit() {
-   // RDriveTrain = new RDriveTrain_Subsystem();
-   // LDriveTrain = new LDriveTrain_Subsystem();
+    RDriveTrain = new RDriveTrain_Subsystem();
+    LDriveTrain = new LDriveTrain_Subsystem();
     
     m_oi = new OI();
-    m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
+    //m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
     // chooser.addOption("My Auto", new MyAutoCommand());
-    SmartDashboard.putData("Auto mode", m_chooser);
+    //SmartDashboard.putData("Auto mode", m_chooser);
 
-    SmartDashboard.putData("LEDs Blue", new Set_LEDs_BLUE());
-    SmartDashboard.putData("LEDs Red", new Set_LEDs_RED());
-    SmartDashboard.putData("PArty", new Set_LEDs_PartyMode());
+    //SmartDashboard.putData("LEDs Blue", new Set_LEDs_BLUE());
+    //SmartDashboard.putData("LEDs Red", new Set_LEDs_RED());
+    //SmartDashboard.putData("PArty", new Set_LEDs_PartyMode());
+
+    SmartDashboard.putData(Roller_Arm);
+    SmartDashboard.putData(Tunnel);
+    //SmartDashboard.putData(RDriveTrain);
+    //SmartDashboard.putData(LDriveTrain);
+    SmartDashboard.putData(Arduino_LED);
+    SmartDashboard.putData(Box_Subsystem);
+    SmartDashboard.putData(Roller);
+    SmartDashboard.putData(Elevator_Lift_Subsystem);
+    SmartDashboard.putData(Shark);
 
     DriverStation.Alliance color;
     color = DriverStation.getInstance().getAlliance();
