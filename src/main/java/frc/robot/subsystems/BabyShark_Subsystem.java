@@ -24,11 +24,11 @@ public class BabyShark_Subsystem extends Subsystem {
   TalonSRX Shark_SRX = new TalonSRX(RobotMap.Shark_Talon_ID);
 
   public void Shark_Up(){
-    Shark_SRX.set(ControlMode.PercentOutput, -0.5);
+    Shark_SRX.set(ControlMode.PercentOutput, -0.3);
   }
 
   public void Shark_Down(){
-    Shark_SRX.set(ControlMode.PercentOutput, 0.5);
+    Shark_SRX.set(ControlMode.PercentOutput, 0.3);
   }
 
   public void Shark_Stop(){

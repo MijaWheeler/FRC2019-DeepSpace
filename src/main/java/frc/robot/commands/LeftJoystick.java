@@ -24,9 +24,9 @@ public class LeftJoystick extends Command {
 
   @Override
   protected void execute() {
-    Robot.LDriveTrain.MotorL1.set(-OI.getLeftStickY());
-    Robot.LDriveTrain.MotorL2.set(-OI.getLeftStickY());
-    Robot.LDriveTrain.MotorL3.set(-OI.getLeftStickY());
+    Robot.LDriveTrain.MotorL1.set(-OI.getLeftStickY()/2);
+    Robot.LDriveTrain.MotorL2.set(-OI.getLeftStickY()/2);
+    Robot.LDriveTrain.MotorL3.set(-OI.getLeftStickY()/2);
     //System.out.println("LeftJoystick:  execute: " + OI.getLeftStickY());
   }
 

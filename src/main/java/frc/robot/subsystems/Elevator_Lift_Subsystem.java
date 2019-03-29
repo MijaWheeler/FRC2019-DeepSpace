@@ -108,7 +108,7 @@ public class Elevator_Lift_Subsystem extends PIDSubsystem {
       //Elevator_Talon_1.setNeutralMode(NeutralMode.Coast);
       //Elevator_Talon_2.setNeutralMode(NeutralMode.Coast);
       Robot.Elevator_Lift_Subsystem.setSetpoint(Elevator_Sensor_Position + 20);
-      System.out.println("Setpoint: " + Elevator_Sensor_Position);
+      //System.out.println("Setpoint: " + Elevator_Sensor_Position);
      // Elevator_Talon_1.set(ControlMode.PercentOutput, 0.6);
       //Elevator_Talon_2.set(ControlMode.PercentOutput, 0.6);
 
@@ -122,7 +122,7 @@ public class Elevator_Lift_Subsystem extends PIDSubsystem {
     //  return;
     //} else {
       Robot.Elevator_Lift_Subsystem.setSetpoint(Elevator_Sensor_Position - 20);
-      System.out.println("Setpoint: " + Elevator_Sensor_Position);
+      //System.out.println("Setpoint: " + Elevator_Sensor_Position);
      // Elevator_Talon_1.set(ControlMode.PercentOutput, 0.5);
       //Elevator_Talon_2.set(ControlMode.PercentOutput, 0.5);
     //}

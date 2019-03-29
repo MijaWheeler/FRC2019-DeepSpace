@@ -25,7 +25,7 @@ public class Set_LEDs_RED extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.Arduino_LED.Red_or_Blue.set(false);  //arduino sets leds to blue when 5V is on digital input
+    Robot.Arduino_LED.Red_or_Blue.set(true);  //arduino sets leds to blue when 5V is on digital input
     Robot.Arduino_LED.Party.set(false); //turn off party mode
   }
 

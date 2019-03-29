@@ -22,9 +22,9 @@ public class RightJoystick extends Command {
 
   @Override
   protected void execute() {
-    Robot.RDriveTrain.MotorR1.set(OI.getRightStickY());
-    Robot.RDriveTrain.MotorR2.set(OI.getRightStickY());
-    Robot.RDriveTrain.MotorR3.set(OI.getRightStickY());
+    Robot.RDriveTrain.MotorR1.set(OI.getRightStickY()/2 );
+    Robot.RDriveTrain.MotorR2.set(OI.getRightStickY()/2 );
+    Robot.RDriveTrain.MotorR3.set(OI.getRightStickY()/2);
 
   }
 
