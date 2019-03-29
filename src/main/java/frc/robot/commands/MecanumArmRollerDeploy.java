@@ -27,7 +27,6 @@ public class MecanumArmRollerDeploy extends Command {
   @Override
   protected void execute() {
   Robot.Roller_Arm.setSetpoint(RobotMap.RA_Deploy); //Full = 4096; start = 0
-//make robot map
   }
 
   // Make this return true when this Command no longer needs to run execute()

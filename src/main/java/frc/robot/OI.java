@@ -21,6 +21,8 @@ import frc.robot.commands.Elevator_Down;
 import frc.robot.commands.ArmDirectional;
 import frc.robot.commands.RollerTunnelBox_Group;
 import frc.robot.commands.RollerTunnelBox_GroupStop;
+import frc.robot.commands.MecanumArmRollerDeploy;;
+
 
 
 
@@ -81,7 +83,8 @@ public class OI {
    /*Buttons */
     buttonX.whileHeld(new Shark_Up()); 
     buttonA.whileHeld(new Shark_Down());
-    //buttonY.whenPressed(new ArmDirectional() ); 
+
+    buttonY.whenPressed(new MecanumArmRollerDeploy() ); 
     //buttonB.whenPressed(new Shark_Down())
 
     /*Bumpers */

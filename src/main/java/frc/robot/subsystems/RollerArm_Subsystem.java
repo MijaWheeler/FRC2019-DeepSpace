@@ -10,7 +10,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import frc.robot.RobotMap;
 import frc.robot.commands.ArmDirectional;
-
+import frc.robot.commands.MecanumArmStowed;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
@@ -26,7 +26,7 @@ public class RollerArm_Subsystem extends PIDSubsystem {
 
   public RollerArm_Subsystem() {
     // Intert a subsystem name and PID values here
-    super("RollerArmPID_Subsystem", 0.00009, 0, 0);
+    super("RollerArmPID_Subsystem", 0.001, 0, 0);
     // Use these to get going:
     // setSetpoint() - Sets where the PID controller should move the system
     // to
@@ -47,6 +47,7 @@ public class RollerArm_Subsystem extends PIDSubsystem {
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
+    //setDefaultCommand(new ArmDirectional());
     setDefaultCommand(new ArmDirectional());
   }
 

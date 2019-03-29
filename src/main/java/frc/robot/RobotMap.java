@@ -79,10 +79,10 @@ public class RobotMap {
 
   //Mecanum Arm Roller Setpoints
      //Full = 4096; start = 0
-  public static int RA_Deploy = -5000;
-  //public static int RA_Deploy = -1024;
-  public static int RA_Stow = 5000;
-  //  public static int RA_Stow = 4096;
+  public static int RA_Deploy = -6000; //ball intake
+  public static int RA_Stow = 0; //defalt
+
+
   public static int RA_Reset = 6000;
 
   
