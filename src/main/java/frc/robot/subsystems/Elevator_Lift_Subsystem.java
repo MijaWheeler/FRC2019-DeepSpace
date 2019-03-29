@@ -27,13 +27,13 @@ public class Elevator_Lift_Subsystem extends PIDSubsystem {
   TalonSRX Elevator_Talon_1 = new TalonSRX(RobotMap.Elevator_Talon_1_ID);
   TalonSRX Elevator_Talon_2 = new TalonSRX(RobotMap.Elevator_Talon_2_ID);
 
-
+  public double Elevator_Sensor_Position;
   public int Elevator_Height = 0;
   public int Elevator_Encoder_Value = Elevator_Talon_1.getSelectedSensorPosition();
 
   public Elevator_Lift_Subsystem() {
     // Intert a subsystem name and PID values here
-    super("Elevator_Lift_Subsystem", 0.00008, 0, 0);
+    super("Elevator_Lift_Subsystem", 0.002, 0, 0);
     // Use these to get going:
     // setSetpoint() - Sets where the PID controller should move the system
     // to
@@ -49,8 +49,8 @@ public class Elevator_Lift_Subsystem extends PIDSubsystem {
     Elevator_Talon_1.configContinuousCurrentLimit(10, 0);
     Elevator_Talon_1.enableCurrentLimit(true);
 
-    Elevator_Talon_1.setNeutralMode(NeutralMode.Coast);
-    Elevator_Talon_2.setNeutralMode(NeutralMode.Coast);
+    //Elevator_Talon_1.setNeutralMode(NeutralMode.Coast);
+    //Elevator_Talon_2.setNeutralMode(NeutralMode.Coast);
 
 
   }
@@ -59,9 +59,9 @@ public class Elevator_Lift_Subsystem extends PIDSubsystem {
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
-    setDefaultCommand(new Elevator_Height_Position());
-    Elevator_Talon_1.setNeutralMode(NeutralMode.Coast);
-    Elevator_Talon_2.setNeutralMode(NeutralMode.Coast);
+    //setDefaultCommand(new Elevator_Height_Position());
+    //Elevator_Talon_1.setNeutralMode(NeutralMode.Coast);
+    //Elevator_Talon_2.setNeutralMode(NeutralMode.Coast);
   }
 
   @Override
@@ -99,39 +99,32 @@ public class Elevator_Lift_Subsystem extends PIDSubsystem {
   }
 
   public void Elevator_Up() {
-    if (this.Elevator_Encoder_Value >= 11809) { //11809
+    Elevator_Sensor_Position = Robot.Elevator_Lift_Subsystem.getSetpoint();
+    /*if (this.Elevator_Encoder_Value >= 11809) { //11809
       //Elevator_Talon_1.set(ControlMode.PercentOutput, 0.4);
       //Elevator_Talon_2.set(ControlMode.PercentOutput, 0.4);
       return;
-    } else {
-      Elevator_Talon_1.setNeutralMode(NeutralMode.Coast);
-      Elevator_Talon_2.setNeutralMode(NeutralMode.Coast);
-      Robot.Elevator_Lift_Subsystem.setSetpointRelative(200);
-      Elevator_Talon_1.set(ControlMode.PercentOutput, 0.6);
-      Elevator_Talon_2.set(ControlMode.PercentOutput, 0.6);
+    } else {*/
+      //Elevator_Talon_1.setNeutralMode(NeutralMode.Coast);
+      //Elevator_Talon_2.setNeutralMode(NeutralMode.Coast);
+      Robot.Elevator_Lift_Subsystem.setSetpoint(Elevator_Sensor_Position + 20);
+      System.out.println("Setpoint: " + Elevator_Sensor_Position);
+     // Elevator_Talon_1.set(ControlMode.PercentOutput, 0.6);
+      //Elevator_Talon_2.set(ControlMode.PercentOutput, 0.6);
 
-    }
+    //}
 
   }
-
-  public void Elevator_Slow() {
-    if (this.Elevator_Encoder_Value <= 11809) {
-      return;
-    } else {
-      Robot.Elevator_Lift_Subsystem.setSetpointRelative(-20);
-      Elevator_Talon_1.set(ControlMode.PercentOutput, 0.00001);
-      Elevator_Talon_2.set(ControlMode.PercentOutput, 0.00001);
-    }
-  }
-
 
   public void Elevator_Down() {
-    if (this.Elevator_Encoder_Value <= 0) {
-      return;
-    } else {
-      Robot.Elevator_Lift_Subsystem.setSetpointRelative(-20);
-      Elevator_Talon_1.set(ControlMode.PercentOutput, -0.5);
-      Elevator_Talon_2.set(ControlMode.PercentOutput, -0.5);
-    }
+    Elevator_Sensor_Position = Robot.Elevator_Lift_Subsystem.getSetpoint();
+    //if (this.Elevator_Encoder_Value <= 0) {
+    //  return;
+    //} else {
+      Robot.Elevator_Lift_Subsystem.setSetpoint(Elevator_Sensor_Position - 20);
+      System.out.println("Setpoint: " + Elevator_Sensor_Position);
+     // Elevator_Talon_1.set(ControlMode.PercentOutput, 0.5);
+      //Elevator_Talon_2.set(ControlMode.PercentOutput, 0.5);
+    //}
   }
 }

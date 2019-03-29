@@ -27,7 +27,7 @@ public class Elevator_Height_Position extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.Elevator_Lift_Subsystem.setSetpoint(RobotMap.Height_List[Robot.Elevator_Lift_Subsystem.Elevator_Height]);
+    //Robot.Elevator_Lift_Subsystem.setSetpoint(RobotMap.Height_List[Robot.Elevator_Lift_Subsystem.Elevator_Height]);
   }
 
   // Make this return true when this Command no longer needs to run execute()

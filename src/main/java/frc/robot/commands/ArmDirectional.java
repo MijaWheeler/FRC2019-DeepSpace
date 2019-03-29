@@ -33,16 +33,16 @@ public class ArmDirectional extends Command {
     SensorPosition = Robot.Roller_Arm.getSetpoint();
 
     //System.out.println("Arm Directional: execute");
-    System.out.println("Setpoint: " + SensorPosition);
+    //System.out.println("Setpoint: " + SensorPosition);
 
     if (DPADAngle == 180) {
       //Robot.Roller_Arm.setSetpointRelative(-20); //Full = 4096; start = 0
-      System.out.println("Arm Directional: DPAD 180");
+      //System.out.println("Arm Directional: DPAD 180");
       Robot.Roller_Arm.setSetpoint(SensorPosition - 80);
 
     } else if (DPADAngle == 0) {
       //Robot.Roller_Arm.setSetpointRelative(20); //setSetPointRelative adds to current position of the encoder
-      System.out.println("Arm Directional: DPAD 0");
+      //System.out.println("Arm Directional: DPAD 0");
       Robot.Roller_Arm.setSetpoint(SensorPosition + 80);
     } else {
       return;
