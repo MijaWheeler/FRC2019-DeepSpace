@@ -16,8 +16,9 @@ import edu.wpi.first.wpilibj.GenericHID;
 /*COMMADS */
 import frc.robot.commands.Shark_Down;
 import frc.robot.commands.Shark_Up;
-import frc.robot.commands.Elevator_Up;
-import frc.robot.commands.Elevator_Down;
+import frc.robot.commands.Lift_Up;
+import frc.robot.commands.Lift_Down;
+import frc.robot.commands.Lift_Down;
 import frc.robot.commands.ArmDirectional;
 import frc.robot.commands.RollerTunnelBox_Group;
 import frc.robot.commands.RollerTunnelBox_GroupStop;
@@ -88,8 +89,8 @@ public class OI {
     //buttonB.whenPressed(new Shark_Down())
 
     /*Bumpers */
-    LBumper.whileHeld(new Elevator_Down());
-    LTrigger.whileHeld(new Elevator_Up());
+    LBumper.whileHeld(new Lift_Up());
+    LTrigger.whileHeld(new Lift_Down());
 
     RBumper.whileHeld(new RollerTunnelBox_Group() ); // command group with tunnel, box, and rollers
     

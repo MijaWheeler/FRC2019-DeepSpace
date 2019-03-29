@@ -27,10 +27,11 @@ import edu.wpi.first.wpilibj.DriverStation;
 import frc.robot.subsystems.Box_Subsystem;
 import frc.robot.subsystems.Roller_Subsystem;
 import frc.robot.subsystems.RollerArm_Subsystem;
-import frc.robot.subsystems.Elevator_Lift_Subsystem;
+//import frc.robot.subsystems.Elevator_Lift_Subsystem;
 //import frc.robot.subsystems.BabyShark_Subsystem;
 //Additional Subsystem imports
 import frc.robot.subsystems.Tunnel_Subsystem;
+import frc.robot.subsystems.Elevator_Lift2_Subsystem;
 
 
 /**
@@ -59,9 +60,9 @@ public class Robot extends TimedRobot {
   //public static Hatch_Intake_Subsystem Hatch_Intake_Subsystem = new Hatch_Intake_Subsystem(); 
   public static Roller_Subsystem Roller = new Roller_Subsystem();
   public static RollerArm_Subsystem Roller_Arm = new RollerArm_Subsystem();
-  public static Elevator_Lift_Subsystem Elevator_Lift_Subsystem = new Elevator_Lift_Subsystem();
+ // public static Elevator_Lift2_Subsystem Elevator_Lift_Subsystem = new Elevator_Lift2_Subsystem();
   public static BabyShark_Subsystem Shark = new BabyShark_Subsystem();
-   
+  public static Elevator_Lift2_Subsystem Lift2 = new Elevator_Lift2_Subsystem();
 
   /**
    * This function is run when the robot is first started up and should be
@@ -88,8 +89,9 @@ public class Robot extends TimedRobot {
     SmartDashboard.putData(Arduino_LED);
     SmartDashboard.putData(Box_Subsystem);
     SmartDashboard.putData(Roller);
-    SmartDashboard.putData(Elevator_Lift_Subsystem);
+    //SmartDashboard.putData(Elevator_Lift_Subsystem);
     SmartDashboard.putData(Shark);
+    SmartDashboard.putData(Lift2);
 
     DriverStation.Alliance color;
     color = DriverStation.getInstance().getAlliance();

@@ -10,11 +10,11 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class Elevator_Down extends Command {
-  public Elevator_Down() {
+public class Lift_Down extends Command {
+  public Lift_Down() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.Elevator_Lift_Subsystem);
+    requires(Robot.Lift2);
   }
 
   // Called just before this Command runs the first time
@@ -25,7 +25,7 @@ public class Elevator_Down extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.Elevator_Lift_Subsystem.Elevator_Down();
+    Robot.Lift2.Lift_Down();
   }
 
   // Make this return true when this Command no longer needs to run execute()
