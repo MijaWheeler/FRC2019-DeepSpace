@@ -30,8 +30,8 @@ public class Elevator_Lift2_Subsystem extends Subsystem {
   }
 
   public void Lift_Up() {
-    Elevator_Talon_1.set(ControlMode.PercentOutput, 0.6);
-    Elevator_Talon_2.set(ControlMode.PercentOutput, 0.6);
+    Elevator_Talon_1.set(ControlMode.PercentOutput, 0.4);
+    Elevator_Talon_2.set(ControlMode.PercentOutput, 0.4);
   }
 
   public void Lift_Down() {
