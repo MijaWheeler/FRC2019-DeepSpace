@@ -8,7 +8,6 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import frc.robot.Robot;
 import frc.robot.RobotMap;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.ControlMode;
@@ -22,10 +21,17 @@ public class Elevator_Lift2_Subsystem extends Subsystem {
   // here. Call these from Commands.
   TalonSRX Elevator_Talon_1 = new TalonSRX(RobotMap.Elevator_Talon_1_ID);
   TalonSRX Elevator_Talon_2 = new TalonSRX(RobotMap.Elevator_Talon_2_ID);
+  
+  public Elevator_Lift2_Subsystem(){
+    Elevator_Talon_1.configPeakCurrentLimit(15, 0);
+    Elevator_Talon_1.configPeakCurrentDuration(0, 30);
+    Elevator_Talon_1.configContinuousCurrentLimit(10, 0);
+    Elevator_Talon_1.enableCurrentLimit(true);
+  }
 
   public void Lift_Up() {
-    Elevator_Talon_1.set(ControlMode.PercentOutput, 0.5);
-    Elevator_Talon_2.set(ControlMode.PercentOutput, 0.5);
+    Elevator_Talon_1.set(ControlMode.PercentOutput, 0.6);
+    Elevator_Talon_2.set(ControlMode.PercentOutput, 0.6);
   }
 
   public void Lift_Down() {
