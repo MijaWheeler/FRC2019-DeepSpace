@@ -58,9 +58,6 @@ public class RobotMap {
   public static int TunnelSparkCANID = 0;
   public static int HatchSolCANID = 12;
 
-  /*OTHER */
-  // public static int SolPort = 4; // Hatch Outake Solonoid port
-
   //mecanum roller arm talons
   public static int Mecanum_Talon_ID_1 = 11; 
   public static int Mecanum_Talon_ID_2 = 9;
@@ -78,26 +75,9 @@ public class RobotMap {
 
 
   //Mecanum Arm Roller Setpoints
-     //Full = 4096; start = 0
   public static int RA_Deploy = -6000; //ball intake
   public static int RA_Stow = 0; //defalt
-
-
   public static int RA_Reset = 6000;
 
   
-
-
-
-
-
-  // For example to map the left and right motors, you could define the
-  // following variables to use with your drivetrain subsystem.
-  // public static int leftMotor = 1;
-  // public static int rightMotor = 2;
-
-  // If you are using multiple modules, make sure to define both the port
-  // number and the module. For example you with a rangefinder:
-  // public static int rangefinderPort = 1;
-  // public static int rangefinderModule = 1;
 }

@@ -21,13 +21,9 @@ import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.LDriveTrain_Subsystem;
 import frc.robot.subsystems.RDriveTrain_Subsystem;
 import edu.wpi.first.wpilibj.DriverStation;
-//import frc.robot.subsystems.Hatch_Intake_Subsystem;
 import frc.robot.subsystems.Box_Subsystem;
 import frc.robot.subsystems.Roller_Subsystem;
 import frc.robot.subsystems.RollerArm_Subsystem;
-//import frc.robot.subsystems.Elevator_Lift_Subsystem;
-//import frc.robot.subsystems.BabyShark_Subsystem;
-//Additional Subsystem imports
 import frc.robot.subsystems.Tunnel_Subsystem;
 import frc.robot.subsystems.Elevator_Lift2_Subsystem;
 
@@ -65,10 +61,8 @@ public class Robot extends TimedRobot {
   public static LDriveTrain_Subsystem LDriveTrain = null;
   public static Arduino_LED_Subsystem Arduino_LED = new Arduino_LED_Subsystem();
   public static Box_Subsystem Box_Subsystem = new Box_Subsystem(); 
-  //public static Hatch_Intake_Subsystem Hatch_Intake_Subsystem = new Hatch_Intake_Subsystem(); 
   public static Roller_Subsystem Roller = new Roller_Subsystem();
   public static RollerArm_Subsystem Roller_Arm = new RollerArm_Subsystem();
- // public static Elevator_Lift2_Subsystem Elevator_Lift_Subsystem = new Elevator_Lift2_Subsystem();
   public static BabyShark_Subsystem Shark = new BabyShark_Subsystem();
   public static Elevator_Lift2_Subsystem Lift2 = new Elevator_Lift2_Subsystem();
 
@@ -121,10 +115,6 @@ public class Robot extends TimedRobot {
     LDriveTrain = new LDriveTrain_Subsystem();
     
     m_oi = new OI();
-    //m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
-    // chooser.addOption("My Auto", new MyAutoCommand());
-    //SmartDashboard.putData("Auto mode", m_chooser);
-
     //SmartDashboard.putData("LEDs Blue", new Set_LEDs_BLUE());
     //SmartDashboard.putData("LEDs Red", new Set_LEDs_RED());
     //SmartDashboard.putData("PArty", new Set_LEDs_PartyMode());

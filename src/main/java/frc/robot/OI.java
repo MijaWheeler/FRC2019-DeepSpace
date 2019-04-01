@@ -19,6 +19,7 @@ import frc.robot.commands.Shark_Up;
 import frc.robot.commands.Lift_Up;
 import frc.robot.commands.Lift_Down;
 import frc.robot.commands.RollerTunnelBox_Group;
+import frc.robot.commands.RollerTunnelBox_GroupReverse;
 import frc.robot.commands.MecanumArmRollerDeploy;;
 
 
@@ -89,7 +90,8 @@ public class OI {
     LTrigger.whileHeld(new Lift_Down());
 
     RBumper.whileHeld(new RollerTunnelBox_Group() ); // command group with tunnel, box, and rollers
-    
+    RTrigger.whileHeld(new RollerTunnelBox_GroupReverse() ); // command group with tunnel, box, and rollers
+
 
   }
   
